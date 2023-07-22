@@ -15,6 +15,7 @@ import AddEventPage from "./pages/AddEventPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import EditEventPage from "./pages/EditEventPage";
 import EditProjectPage from "./pages/EditProjectPage";
+import SearchPage from "./pages/SearchPage";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
         <Route path="/posts/:postId" element={<PostDetailsPage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/:groupId" element={<MembersPage />} />
         <Route path="/invite" element={<InvitationPage />} />
         <Route path="/profile" element={<ProfilePage />} />

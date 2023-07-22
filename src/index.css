@@ -11,20 +11,23 @@ body {
 }
 
 /***
- *      ___ ___ ___ _  _ _   _ ___   ___  _   ___ ___ 
- *     / __|_ _/ __| \| | | | | _ \ | _ \/_\ / __| __|
- *     \__ \| | (_ | .` | |_| |  _/ |  _/ _ \ (_ | _| 
- *     |___/___\___|_|\_|\___/|_|   |_|/_/ \_\___|___|
- *                                                    
- */                                                                
+ *       _____ _____ _____ _   _ _    _ _____    _____        _____ ______ 
+ *      / ____|_   _/ ____| \ | | |  | |  __ \  |  __ \ /\   / ____|  ____|
+ *     | (___   | || |  __|  \| | |  | | |__) | | |__) /  \ | |  __| |__   
+ *      \___ \  | || | |_ | . ` | |  | |  ___/  |  ___/ /\ \| | |_ |  __|  
+ *      ____) |_| || |__| | |\  | |__| | |      | |  / ____ \ |__| | |____ 
+ *     |_____/|_____\_____|_| \_|\____/|_|      |_| /_/    \_\_____|______|
+ *                                                                         
+ *                                                                         
+ */                                                               
 
 .signupPage {
   background-color: #F5E3CD;
   min-height: 100vh;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
 }
 
 .head-container h1 {
@@ -88,4 +91,280 @@ body {
   text-decoration: none;
   color: #1877F2;
   font-weight: 600;
+}
+
+/***
+ *      _      ____   _____ _____ _   _   _____        _____ ______ 
+ *     | |    / __ \ / ____|_   _| \ | | |  __ \ /\   / ____|  ____|
+ *     | |   | |  | | |  __  | | |  \| | | |__) /  \ | |  __| |__   
+ *     | |   | |  | | | |_ | | | | . ` | |  ___/ /\ \| | |_ |  __|  
+ *     | |___| |__| | |__| |_| |_| |\  | | |  / ____ \ |__| | |____ 
+ *     |______\____/ \_____|_____|_| \_| |_| /_/    \_\_____|______|
+ *                                                                  
+ *                                                                  
+ */
+
+.loginPage {
+  background-color: #F5E3CD;
+  min-height: 100vh;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginPage h1 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 36px;
+  text-align: center;
+}
+
+.loginPage form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.loginPage form input {
+  height: 38px;
+  width: 300px;
+  border: 1px solid #A2A2A2;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.loginPage form input::placeholder {
+  color: #686363;
+  font-size: 16px;
+}
+
+.loginPage .btn-container button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 24px;
+  width: 240px;
+  padding: 10px 0;
+  background-color: #1877F2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+.loginPage .to-signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginPage .to-signup-container p {
+  margin-bottom: 0;
+}
+
+.loginPage .to-signup-container a {
+  text-decoration: none;
+  color: #1877F2;
+  font-weight: 600;
+}
+
+/***
+ *      _   _     __      ______          _____  
+ *     | \ | |   /\ \    / /  _ \   /\   |  __ \ 
+ *     |  \| |  /  \ \  / /| |_) | /  \  | |__) |
+ *     | . ` | / /\ \ \/ / |  _ < / /\ \ |  _  / 
+ *     | |\  |/ ____ \  /  | |_) / ____ \| | \ \ 
+ *     |_| \_/_/    \_\/   |____/_/    \_\_|  \_\
+ *                                               
+ *                                               
+ */
+
+.navbar {
+  background-color: #E8CEAE;
+  width: 100%;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.navbar a,
+.navbar img {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.navbar button img {
+  display: block;
+}
+
+/***
+ *      _    _  ____  __  __ ______ _____        _____ ______   ______ __  __ _____ _________     __
+ *     | |  | |/ __ \|  \/  |  ____|  __ \ /\   / ____|  ____| |  ____|  \/  |  __ \__   __\ \   / /
+ *     | |__| | |  | | \  / | |__  | |__) /  \ | |  __| |__    | |__  | \  / | |__) | | |   \ \_/ / 
+ *     |  __  | |  | | |\/| |  __| |  ___/ /\ \| | |_ |  __|   |  __| | |\/| |  ___/  | |    \   /  
+ *     | |  | | |__| | |  | | |____| |  / ____ \ |__| | |____  | |____| |  | | |      | |     | |   
+ *     |_|  |_|\____/|_|  |_|______|_| /_/    \_\_____|______| |______|_|  |_|_|      |_|     |_|   
+ *                                                                                                  
+ *                                                                                                  
+ */
+
+.homepage {
+  background-color: #F5E3CD;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .tabs-container {
+  padding-top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.homepage .tabs-container a, 
+.homepage .tabs-container img {
+  width: 24px;
+  height: 24px;
+}
+
+.homepage h1 {
+  background-color: #E8CEAE;
+  width: 100%;
+  text-align: center;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 36px;
+}
+
+.homepage .alert {
+  color: rgba(0,0,0,0.64);
+  font-size: 24px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.new-group-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.new-group-container img {
+  background-color: #D19B5D;
+  border-radius: 50%;
+}
+
+.new-group-container p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/***
+ *      _    _  ____  __  __ ______ _____        _____ ______   __  __ ______ _____ _____           _____ 
+ *     | |  | |/ __ \|  \/  |  ____|  __ \ /\   / ____|  ____| |  \/  |  ____|  __ \_   _|   /\    / ____|
+ *     | |__| | |  | | \  / | |__  | |__) /  \ | |  __| |__    | \  / | |__  | |  | || |    /  \  | (___  
+ *     |  __  | |  | | |\/| |  __| |  ___/ /\ \| | |_ |  __|   | |\/| |  __| | |  | || |   / /\ \  \___ \ 
+ *     | |  | | |__| | |  | | |____| |  / ____ \ |__| | |____  | |  | | |____| |__| || |_ / ____ \ ____) |
+ *     |_|  |_|\____/|_|  |_|______|_| /_/    \_\_____|______| |_|  |_|______|_____/_____/_/    \_\_____/ 
+ *                                                                                                        
+ *                                                                                                        
+ */
+.post {
+  background-color: #E8CEAE;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  position: relative
+}
+
+.post .whos-post {
+  display: flex;
+  align-items: center;
+ }
+
+ .post .whos-post img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid blue;
+ }
+
+ .post .whos-post h3 {
+  font-size: 16px;
+  margin-left: 10px;
+  font-weight: 700;
+ }
+
+.post .media {
+  max-width: 100%;
+  height: auto;
+}
+
+.post .multiple-medias-icon {
+  width: 20px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.post p {
+  margin-block: auto;
+
+}
+
+/***
+ *      ______ _    _ _      _       _____  _____ _____  ______ ______ _   _   _____   ____   _____ _______ 
+ *     |  ____| |  | | |    | |     / ____|/ ____|  __ \|  ____|  ____| \ | | |  __ \ / __ \ / ____|__   __|
+ *     | |__  | |  | | |    | |    | (___ | |    | |__) | |__  | |__  |  \| | | |__) | |  | | (___    | |   
+ *     |  __| | |  | | |    | |     \___ \| |    |  _  /|  __| |  __| | . ` | |  ___/| |  | |\___ \   | |   
+ *     | |    | |__| | |____| |____ ____) | |____| | \ \| |____| |____| |\  | | |    | |__| |____) |  | |   
+ *     |_|     \____/|______|______|_____/ \_____|_|  \_\______|______|_| \_| |_|     \____/|_____/   |_|   
+ *                                                                                                          
+ *                                                                                                          
+ */
+
+ .fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  max-width: 80%;
+  max-height: 80%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.modal-media {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  position: relative;
 }

@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import myaxios from "../myaxios";
-// import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../context/auth.context";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -10,7 +10,7 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
-  //   const { storeToken } = useContext(AuthContext);
+  const { storeToken } = useContext(AuthContext);
 
   const handleEmailInput = (e) => setEmail(e.target.value);
   const handlePasswordInput = (e) => setPassword(e.target.value);
@@ -27,7 +27,7 @@ function LoginPage() {
         // with the JWT string ->  response.data.authToken
         console.log("JWT token", response.data.authToken);
 
-        // storeToken(response.data.authToken);
+        storeToken(response.data.authToken);
         navigate("/home");
       })
       .catch((error) => {
@@ -62,7 +62,7 @@ function LoginPage() {
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <div className="to-login-container">
+      <div className="to-signup-container">
         <p>Do not have an account yet ?</p>
         <Link to={"/login"}>Sign Up</Link>
       </div>
