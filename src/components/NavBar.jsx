@@ -12,7 +12,7 @@ function NavBar() {
       <Link to="/search">
         <img src="../../images/search.png" alt="search icon" />
       </Link>
-      <Link to="/profile?tab=medias">
+      <Link to="/profile">
         <img src="../../images/profile.png" alt="profile icon" />
       </Link>
       <button>

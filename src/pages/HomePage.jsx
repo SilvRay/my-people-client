@@ -1,20 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import myaxios from "../myaxios";
 import NavBar from "../components/NavBar";
 import FullscreenMedia from "../components/FullscreenMedia";
+import Posts from "../components/Posts";
+import Events from "../components/Events";
+import { AuthContext } from "../context/auth.context";
+import Projects from "../components/Projects";
+import { useSearchParams } from "react-router-dom";
 
 function HomePage() {
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const [tab, setTab] = useState("medias");
-  const [userHasGroup, setUserHasGroup] = useState(false);
-  const [contentExists, setContentExists] = useState(false);
+
+  let [searchParams] = useSearchParams();
+  const tab = searchParams.get("tab");
+  const { user } = useContext(AuthContext);
+  const [group, setGroup] = useState(null);
 
   const [posts, setPosts] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [projects, setProjects] = useState([]);
+
   const [showFullscreenMedia, setShowFullscreenMedia] = useState(false);
   const [fullscreenMediaUrl, setFullscreenMediaUrl] = useState("");
-
-  const [events, setEvents] = useState([]);
 
   // fonction qui sera appelée quand le user clique sur l'image pour afficher en plein écran
   const handleMediaClick = (mediaUrl) => {
@@ -28,34 +36,11 @@ function HomePage() {
   };
 
   useEffect(() => {
-    // Extraire les paramètres de recherche de l'URL avec URLSearchParams qui est une API native du navigateur
-    // Cette fonction permet de récupérer les valeurs des paramètres de recherche en fonction de leur nom
-    const getQueryStringValue = (key) => {
-      // Création d'un objet URLSearchParams à parti de l'URL en cours
-      const urlSearchParams = new URLSearchParams(window.location.search);
-
-      // Utiliser la méthode get pour récupérer la valeur du paramètre de recherche "key"
-      const value = urlSearchParams.get(key);
-
-      return value;
-    };
-
-    // Récuperer la valeur de l'onglet depuis l'URL
-    const tabFromUrl = getQueryStringValue("tab");
-
-    // Vérifier si l'onglet est valide sinon utiliser "medias" par défaut
-    const validTabs = ["medias", "events", "projects"];
-    const selectedTab = validTabs.includes(tabFromUrl) ? tabFromUrl : "medias";
-
-    // MAJ du state de l'onglet
-    setTab(selectedTab);
-
-    // Requête pour vérifier si le user appartient à un groupe
     myaxios
-      .get("/api/users")
+      .get(`/api/group/me`)
       .then((response) => {
-        // console.log("response.data", response.data);
-        setUserHasGroup(response.data.belongsToGroup); // renvoie un Boolean qui indique si le user appartient ou pas à un groupe
+        // console.log("response.data groupe", response.data);
+        setGroup(response.data);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -64,25 +49,43 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    myaxios
-      .get(`/api/${tab}?page=${1}`)
-      .then((response) => {
-        console.log("response.data", response.data);
+    console.log("tab", tab);
 
-        const hasContent = response.data.length > 0 ? true : false;
-        setContentExists(hasContent);
-        setPosts(response.data);
-        setEvents(response.data);
-      })
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
+    switch (tab) {
+      case "medias":
+        myaxios
+          .get("/api/medias")
+          .then((response) => {
+            console.log(response.data);
+            setPosts(response.data);
+          })
+          .catch((error) => console.log(error));
+        break;
+      case "events":
+        myaxios
+          .get("/api/events")
+          .then((response) => {
+            console.log(response.data);
+            setEvents(response.data);
+          })
+          .catch((error) => console.log(error));
+        break;
+      case "projects":
+        myaxios
+          .get("/api/projects")
+          .then((response) => {
+            console.log(response.data);
+            setProjects(response.data);
+          })
+          .catch((error) => console.log(error));
+        break;
+    }
   }, [tab]);
 
   return (
     <div className="homepage">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+
       <div className="tabs-container">
         <Link to="/home?tab=medias">
           <img src="../../images/grid-icon.png" alt="medias-icon" />
@@ -94,8 +97,14 @@ function HomePage() {
           <img src="../../images/project-icon.png" alt="projects-icon" />
         </Link>
       </div>
-      <h1>Group Name</h1> {/* faire apparaître le nom du groupe dans le h1 */}
-      {contentExists === false && (
+
+      {group && (
+        <>
+          <h1>{group.name}</h1>
+        </>
+      )}
+
+      {!group ? (
         <>
           <p className="alert">You do not have any of your people right now</p>
           <div className="new-group-container">
@@ -103,84 +112,24 @@ function HomePage() {
             <p>Create your group</p>
           </div>
         </>
+      ) : (
+        <>
+          {tab === "medias" && (
+            <Posts posts={posts} handleMediaClick={handleMediaClick} />
+          )}
+
+          {tab === "events" && <Events events={events} user={user} />}
+          {tab === "projects" && <Projects projects={projects} />}
+        </>
       )}
-      {tab === "medias" && contentExists && (
-        <div className="medias-container">
-          {posts.map((post) => {
-            return (
-              <div key={post._id} className="post">
-                <div className="whos-post">
-                  <img
-                    src={
-                      post.creator.profile_img ||
-                      "https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user-64.png"
-                    }
-                    alt="profile picture of the user"
-                  />
-                  <h3>{post.creator.username}</h3>
-                </div>
-                {post.medias.length === 1 ? (
-                  <img
-                    src={post.medias[0]}
-                    alt="media"
-                    className="media"
-                    onClick={() => handleMediaClick(post.medias[0])}
-                  />
-                ) : (
-                  <>
-                    <img
-                      src={post.medias[0]}
-                      alt="media"
-                      className="media"
-                      onClick={() => handleMediaClick(post.medias[0])}
-                    />
-                    <img
-                      src="../../images/multiple.png"
-                      alt="multiple medias icon"
-                      className="multiple-medias-icon"
-                    />
-                  </>
-                )}
-                <p>{post.legend}</p>
-              </div>
-            );
-          })}
-        </div>
-      )}
+
       {showFullscreenMedia && (
         <FullscreenMedia
           mediaUrl={fullscreenMediaUrl}
           onClose={handleCloseFullScreenMedia}
         />
       )}
-      {tab === "events" && contentExists && (
-        <>
-          <div className="header-events">
-            <img src="" alt="lightning icon" />
-            <h2>Events</h2>
-          </div>
 
-          <div className="filters">
-            <span>all events</span>
-            <span>my events</span>
-            <span>events I go</span>
-          </div>
-
-          <div className="events-container">
-            {events.map((event) => {
-              return (
-                <div key={event._id} className="event">
-                  <p>{event.date}</p>
-                  <h3>{event.type}</h3>
-                  {/* différentes images selon le type d'évènements */}
-                  <Link to="/events/:eventId">See</Link>
-                </div>
-              );
-            })}
-          </div>
-        </>
-      )}
-      {tab === "projects" && contentExists}
       <NavBar />
     </div>
   );

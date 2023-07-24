@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Kaushan+Script&display=swap');
-
-* {
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Kaushan+Script&display=swap");
 
 body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /***
@@ -19,10 +16,10 @@ body {
  *     |_____/|_____\_____|_| \_|\____/|_|      |_| /_/    \_\_____|______|
  *                                                                         
  *                                                                         
- */                                                               
+ */
 
 .signupPage {
-  background-color: #F5E3CD;
+  background-color: #f5e3cd;
   min-height: 100vh;
   padding-top: 20px;
   display: flex;
@@ -31,14 +28,14 @@ body {
 }
 
 .head-container h1 {
-  font-family: 'Kaushan Script', cursive;
+  font-family: "Kaushan Script", cursive;
   font-size: 36px;
   text-align: center;
 }
 
 .head-container p {
   text-align: center;
-  color: rgba(0,0,0,0.64);
+  color: rgba(0, 0, 0, 0.64);
 }
 
 .signupPage form {
@@ -51,7 +48,7 @@ body {
 .signupPage form input {
   height: 38px;
   width: 300px;
-  border: 1px solid #A2A2A2;
+  border: 1px solid #a2a2a2;
   padding: 10px;
   font-size: 16px;
 }
@@ -69,7 +66,7 @@ body {
   margin-bottom: 24px;
   width: 240px;
   padding: 10px 0;
-  background-color: #1877F2;
+  background-color: #1877f2;
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -89,7 +86,7 @@ body {
 
 .signupPage .to-login-container a {
   text-decoration: none;
-  color: #1877F2;
+  color: #1877f2;
   font-weight: 600;
 }
 
@@ -105,7 +102,7 @@ body {
  */
 
 .loginPage {
-  background-color: #F5E3CD;
+  background-color: #f5e3cd;
   min-height: 100vh;
   padding-top: 20px;
   display: flex;
@@ -114,7 +111,7 @@ body {
 }
 
 .loginPage h1 {
-  font-family: 'Kaushan Script', cursive;
+  font-family: "Kaushan Script", cursive;
   font-size: 36px;
   text-align: center;
 }
@@ -129,7 +126,7 @@ body {
 .loginPage form input {
   height: 38px;
   width: 300px;
-  border: 1px solid #A2A2A2;
+  border: 1px solid #a2a2a2;
   padding: 10px;
   font-size: 16px;
 }
@@ -147,7 +144,7 @@ body {
   margin-bottom: 24px;
   width: 240px;
   padding: 10px 0;
-  background-color: #1877F2;
+  background-color: #1877f2;
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -167,7 +164,7 @@ body {
 
 .loginPage .to-signup-container a {
   text-decoration: none;
-  color: #1877F2;
+  color: #1877f2;
   font-weight: 600;
 }
 
@@ -183,7 +180,7 @@ body {
  */
 
 .navbar {
-  background-color: #E8CEAE;
+  background-color: #e8ceae;
   width: 100%;
   padding: 16px 0;
   display: flex;
@@ -221,11 +218,12 @@ body {
  */
 
 .homepage {
-  background-color: #F5E3CD;
+  background-color: #f5e3cd;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .homepage .tabs-container {
@@ -235,22 +233,23 @@ body {
   justify-content: space-around;
 }
 
-.homepage .tabs-container a, 
+.homepage .tabs-container a,
 .homepage .tabs-container img {
   width: 24px;
   height: 24px;
 }
 
 .homepage h1 {
-  background-color: #E8CEAE;
+  background-color: #e8ceae;
   width: 100%;
   text-align: center;
-  font-family: 'Kaushan Script', cursive;
+  font-family: "Kaushan Script", cursive;
   font-size: 36px;
+  margin-bottom: 0;
 }
 
 .homepage .alert {
-  color: rgba(0,0,0,0.64);
+  color: rgba(0, 0, 0, 0.64);
   font-size: 24px;
   text-align: center;
   margin-top: 100px;
@@ -266,7 +265,7 @@ body {
 }
 
 .new-group-container img {
-  background-color: #D19B5D;
+  background-color: #d19b5d;
   border-radius: 50%;
 }
 
@@ -285,32 +284,36 @@ body {
  *                                                                                                        
  *                                                                                                        
  */
+.medias-container {
+  margin-top: 30px;
+}
+
 .post {
-  background-color: #E8CEAE;
+  background-color: #e8ceae;
   padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 5px;
-  position: relative
+  position: relative;
 }
 
 .post .whos-post {
   display: flex;
   align-items: center;
- }
+}
 
- .post .whos-post img {
+.post .whos-post img {
   width: 28px;
   height: 28px;
   border-radius: 50%;
   border: 1px solid blue;
- }
+}
 
- .post .whos-post h3 {
+.post .whos-post h3 {
   font-size: 16px;
   margin-left: 10px;
   font-weight: 700;
- }
+}
 
 .post .media {
   max-width: 100%;
@@ -326,7 +329,6 @@ body {
 
 .post p {
   margin-block: auto;
-
 }
 
 /***
@@ -340,7 +342,7 @@ body {
  *                                                                                                          
  */
 
- .fullscreen-modal {
+.fullscreen-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -367,4 +369,106 @@ body {
   max-height: 100%;
   object-fit: contain;
   position: relative;
+}
+
+/***
+ *      _    _  ____  __  __ ______ _____        _____ ______   ________      ________ _   _ _______ _____ 
+ *     | |  | |/ __ \|  \/  |  ____|  __ \ /\   / ____|  ____| |  ____\ \    / /  ____| \ | |__   __/ ____|
+ *     | |__| | |  | | \  / | |__  | |__) /  \ | |  __| |__    | |__   \ \  / /| |__  |  \| |  | | | (___  
+ *     |  __  | |  | | |\/| |  __| |  ___/ /\ \| | |_ |  __|   |  __|   \ \/ / |  __| | . ` |  | |  \___ \ 
+ *     | |  | | |__| | |  | | |____| |  / ____ \ |__| | |____  | |____   \  /  | |____| |\  |  | |  ____) |
+ *     |_|  |_|\____/|_|  |_|______|_| /_/    \_\_____|______| |______|   \/   |______|_| \_|  |_| |_____/ 
+ *                                                                                                         
+ *                                                                                                         
+ */
+
+.header-events {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  padding-left: 40px;
+}
+
+.header-events img {
+  width: 24px;
+  height: 26px;
+}
+
+.filters {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.filters span {
+  display: flex;
+  align-items: center;
+}
+
+.filters span img {
+  width: 20px;
+}
+
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.events-container .event {
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.events-container .event p {
+  color: rgba(0, 0, 0, 0.57);
+}
+
+.event-card {
+  width: 100%;
+  height: 260px;
+  border: 1px solid #1877f2;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 15px 15px -4px rgba(0, 0, 0, 0.8);
+}
+
+.event-card h3 {
+  margin: 0;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  background-color: white;
+  flex: 1;
+  line-height: 40px;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #1877f2;
+}
+
+.event-card img {
+  width: 100%;
+  height: 250px;
+}
+
+.event-card a {
+  width: 100%;
+  flex: 1;
+  background-color: #1877f2;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #1877f2;
+  line-height: 40px;
 }

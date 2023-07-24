@@ -10,7 +10,7 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
-  const { storeToken } = useContext(AuthContext);
+  const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleEmailInput = (e) => setEmail(e.target.value);
   const handlePasswordInput = (e) => setPassword(e.target.value);
@@ -28,7 +28,8 @@ function LoginPage() {
         console.log("JWT token", response.data.authToken);
 
         storeToken(response.data.authToken);
-        navigate("/home");
+        authenticateUser();
+        navigate("/home?tab=medias");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

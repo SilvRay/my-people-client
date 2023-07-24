@@ -16,6 +16,8 @@ import EditProfilePage from "./pages/EditProfilePage";
 import EditEventPage from "./pages/EditEventPage";
 import EditProjectPage from "./pages/EditProjectPage";
 import SearchPage from "./pages/SearchPage";
+import IsPrivate from "./components/IsPrivate";
+import IsAnon from "./components/IsAnon";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -23,24 +25,150 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<SignupPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/new-group" element={<AddGroupPage />} />
-        <Route path="/events/:eventId" element={<EventDetailsPage />} />
-        <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
-        <Route path="/posts/:postId" element={<PostDetailsPage />} />
-        <Route path="/notifications" element={<NotificationsPage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/:groupId" element={<MembersPage />} />
-        <Route path="/invite" element={<InvitationPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/project/new" element={<AddProjectPage />} />
-        <Route path="/event/types" element={<ChooseEventPage />} />
-        <Route path="/event/new" element={<AddEventPage />} />
-        <Route path="/profile/edit" element={<EditProfilePage />} />
-        <Route path="/events/:eventId/edit" element={<EditEventPage />} />
-        <Route path="/projects/:projectId/edit" element={<EditProjectPage />} />
+        <Route
+          path="/"
+          element={
+            <IsAnon>
+              <SignupPage />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <IsAnon>
+              <LoginPage />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <IsPrivate>
+              <HomePage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/new-group"
+          element={
+            <IsPrivate>
+              <AddGroupPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/events/:eventId"
+          element={
+            <IsPrivate>
+              <EventDetailsPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/projects/:projectId"
+          element={
+            <IsPrivate>
+              <ProjectDetailsPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/posts/:postId"
+          element={
+            <IsPrivate>
+              <PostDetailsPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/notifications"
+          element={
+            <IsPrivate>
+              <NotificationsPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <IsPrivate>
+              <SearchPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/:groupId"
+          element={
+            <IsPrivate>
+              <MembersPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/invite"
+          element={
+            <IsPrivate>
+              <InvitationPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <ProfilePage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/project/new"
+          element={
+            <IsPrivate>
+              <AddProjectPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/event/types"
+          element={
+            <IsPrivate>
+              <ChooseEventPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/event/new"
+          element={
+            <IsPrivate>
+              <AddEventPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/profile/edit"
+          element={
+            <IsPrivate>
+              <EditProfilePage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/events/:eventId/edit"
+          element={
+            <IsPrivate>
+              <EditEventPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/projects/:projectId/edit"
+          element={
+            <IsPrivate>
+              <EditProjectPage />
+            </IsPrivate>
+          }
+        />
       </Routes>
     </div>
   );
