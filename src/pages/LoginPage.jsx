@@ -65,7 +65,7 @@ function LoginPage() {
 
       <div className="to-signup-container">
         <p>Do not have an account yet ?</p>
-        <Link to={"/login"}>Sign Up</Link>
+        <Link to={"/"}>Sign Up</Link>
       </div>
     </div>
   );
