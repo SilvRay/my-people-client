@@ -245,7 +245,7 @@ body {
   text-align: center;
   font-family: "Kaushan Script", cursive;
   font-size: 36px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .homepage .alert {
@@ -285,7 +285,7 @@ body {
  *                                                                                                        
  */
 .medias-container {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .post {
@@ -471,4 +471,81 @@ body {
   border-radius: 0 0 10px 10px;
   border: 1px solid #1877f2;
   line-height: 40px;
+}
+
+/***
+ *      _____  _____   ____  ______ _____ _      ______   ________      ________ _   _ _______ _____ 
+ *     |  __ \|  __ \ / __ \|  ____|_   _| |    |  ____| |  ____\ \    / /  ____| \ | |__   __/ ____|
+ *     | |__) | |__) | |  | | |__    | | | |    | |__    | |__   \ \  / /| |__  |  \| |  | | | (___  
+ *     |  ___/|  _  /| |  | |  __|   | | | |    |  __|   |  __|   \ \/ / |  __| | . ` |  | |  \___ \ 
+ *     | |    | | \ \| |__| | |     _| |_| |____| |____  | |____   \  /  | |____| |\  |  | |  ____) |
+ *     |_|    |_|  \_\\____/|_|    |_____|______|______| |______|   \/   |______|_| \_|  |_| |_____/ 
+ *                                                                                                   
+ *                                                                                                   
+ */
+
+.profile {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile .head {
+  position: relative;
+  width: 100%;
+}
+
+.profile .head .logout {
+  width: 24px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.profile .head h2 {
+  text-align: center;
+  font-family: "Kaushan Script", cursive;
+}
+
+.profile .head .profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+
+.profile .head a {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+  line-height: 30px;
+  width: 220px;
+  padding: 10px 0;
+  background-color: #1877f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+.profile .tabs-container {
+  padding-top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile .tabs-container a,
+.profile .tabs-container img {
+  width: 24px;
+  height: 24px;
 }

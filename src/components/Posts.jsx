@@ -1,12 +1,27 @@
 import { useEffect, useState } from "react";
 
 function Posts({ posts, handleMediaClick }) {
+  const [selectedAllPosts, setSelectedAllPosts] = useState(true);
+  const [selectedMyPosts, setSelectedMyPosts] = useState(false);
   const [updatedPosts, setUpdatedPosts] = useState([]);
 
   useEffect(() => {
     //MAJ des posts quand la prop posts change
     setUpdatedPosts(posts);
   }, [posts]);
+
+  // Fonctions qui permet de sélectionner les filtres
+  const selectedFilterAllPosts = () => {
+    setSelectedAllPosts(true);
+    // Désactiver l'autre filtre sélectionné
+    setSelectedMyPosts(false);
+  };
+
+  const selectedFilterMyPosts = () => {
+    setSelectedMyPosts(true);
+    // Désactiver l'autre filtre sélectionné
+    setSelectedAllPosts(false);
+  };
 
   // Fonction pour formater le temps écoulé de manière concise
   const formatTimeAgo = (date) => {
@@ -36,48 +51,68 @@ function Posts({ posts, handleMediaClick }) {
   };
 
   return (
-    <div className="medias-container">
-      {updatedPosts.map((post) => {
-        return (
-          <div key={post._id} className="post">
-            <div className="whos-post">
-              <img
-                src={
-                  post.creator.profile_img ||
-                  "https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user-64.png"
-                }
-                alt="profile picture of the user"
-              />
-              <h3>{post.creator.username}</h3>{" "}
-              <span>{formatTimeAgo(new Date(post.createdAt))}</span>
-            </div>
-            {post.medias.length === 1 ? (
-              <img
-                src={post.medias[0]}
-                alt="media"
-                className="media"
-                onClick={() => handleMediaClick(post.medias[0])}
-              />
-            ) : (
-              <>
+    <>
+      <div className="filters">
+        <span>
+          <img
+            src={`../../images/selected-${selectedAllPosts}.png`}
+            alt="selection button"
+            onClick={selectedFilterAllPosts}
+          />
+          all events
+        </span>
+        <span>
+          <img
+            src={`../../images/selected-${selectedMyPosts}.png`}
+            alt="selection button"
+            onClick={selectedFilterMyPosts}
+          />
+          my events
+        </span>
+      </div>
+      <div className="medias-container">
+        {updatedPosts.map((post) => {
+          return (
+            <div key={post._id} className="post">
+              <div className="whos-post">
+                <img
+                  src={
+                    post.creator.profile_img ||
+                    "https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user-64.png"
+                  }
+                  alt="profile picture of the user"
+                />
+                <h3>{post.creator.username}</h3>{" "}
+                <span>{formatTimeAgo(new Date(post.createdAt))}</span>
+              </div>
+              {post.medias.length === 1 ? (
                 <img
                   src={post.medias[0]}
                   alt="media"
                   className="media"
                   onClick={() => handleMediaClick(post.medias[0])}
                 />
-                <img
-                  src="../../images/multiple.png"
-                  alt="multiple medias icon"
-                  className="multiple-medias-icon"
-                />
-              </>
-            )}
-            <p>{post.legend}</p>
-          </div>
-        );
-      })}
-    </div>
+              ) : (
+                <>
+                  <img
+                    src={post.medias[0]}
+                    alt="media"
+                    className="media"
+                    onClick={() => handleMediaClick(post.medias[0])}
+                  />
+                  <img
+                    src="../../images/multiple.png"
+                    alt="multiple medias icon"
+                    className="multiple-medias-icon"
+                  />
+                </>
+              )}
+              <p>{post.legend}</p>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
