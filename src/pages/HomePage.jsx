@@ -115,11 +115,15 @@ function HomePage() {
       ) : (
         <>
           {tab === "medias" && (
-            <Posts posts={posts} handleMediaClick={handleMediaClick} />
+            <Posts
+              posts={posts}
+              handleMediaClick={handleMediaClick}
+              user={user}
+            />
           )}
 
           {tab === "events" && <Events events={events} user={user} />}
-          {tab === "projects" && <Projects projects={projects} />}
+          {tab === "projects" && <Projects projects={projects} user={user} />}
         </>
       )}
 

@@ -1,38 +1,32 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Events({ events, user }) {
-  const [selectedAllEvents, setSelectedAllEvents] = useState(true);
-  const [selectedMyEvents, setSelectedMyEvents] = useState(false);
-  const [selectedEventsIGo, setSelectedEventsIGo] = useState(false);
-  const [updatedEvents, setUpdatedEvents] = useState([]);
+  // Création d'un state pour filtrer les events à afficher
+  const [allOrMyOrParticipateEvents, setAllOrMyOrParticipateEvents] =
+    useState("all");
 
-  useEffect(() => {
-    // MAJ des events quand la prop events change
-    setUpdatedEvents(events);
-  }, [events]);
-
-  // Fonctions qui permet de sélectionner les filtres
-  const selectedFilterAllEvents = () => {
-    setSelectedAllEvents(true);
-    // Désactiver les autres filtres sélectionnés
-    setSelectedMyEvents(false);
-    setSelectedEventsIGo(false);
-  };
-
-  const selectedFilterMyEvents = () => {
-    setSelectedMyEvents(true);
-    // Désactiver les autres filtres sélectionnés
-    setSelectedAllEvents(false);
-    setSelectedEventsIGo(false);
-  };
-
-  const selectedFilterEventsIGo = () => {
-    setSelectedEventsIGo(true);
-    // Désactiver les autres filtres sélectionnés
-    setSelectedAllEvents(false);
-    setSelectedMyEvents(false);
-  };
+  // Créer une variable égale dans un 1er temps au state events
+  let filteredOrNotEvents = events;
+  // Si le state pour filtrer les events à afficher égale à "my"
+  // filtrer les events pour n'avoir que ceux créés par le user connecté
+  if (allOrMyOrParticipateEvents === "my") {
+    filteredOrNotEvents = filteredOrNotEvents.filter((event) => {
+      // console.log("event.creator:", event.creator);
+      return event.creator === user._id;
+    });
+  }
+  // Si le state pour filtrer les events à afficher égale à "participate"
+  // filtrer les events pour n'avoir que ceux auxquels le user sera présents
+  if (allOrMyOrParticipateEvents === "participate") {
+    filteredOrNotEvents = filteredOrNotEvents.filter((event) => {
+      // console.log("event.participants", event.participants);
+      // console.log("user._id", user._id);
+      event.participants.forEach((participant) => {
+        return participant._id === user._id;
+      });
+    });
+  }
 
   // Fonction pour formater l'heure au format HH:MM
   const formatTime = (date) => {
@@ -50,53 +44,51 @@ function Events({ events, user }) {
       <div className="filters">
         <span>
           <img
-            src={`../../images/selected-${selectedAllEvents}.png`}
+            src={`../../images/selected-${
+              allOrMyOrParticipateEvents === "all" ? "true" : "false"
+            }.png`}
             alt="selection button"
-            onClick={selectedFilterAllEvents}
+            onClick={() => setAllOrMyOrParticipateEvents("all")}
           />
           all events
         </span>
         <span>
           <img
-            src={`../../images/selected-${selectedMyEvents}.png`}
+            src={`../../images/selected-${
+              allOrMyOrParticipateEvents === "my" ? "true" : "false"
+            }.png`}
             alt="selection button"
-            onClick={selectedFilterMyEvents}
+            onClick={() => setAllOrMyOrParticipateEvents("my")}
           />
           my events
         </span>
         <span>
           <img
-            src={`../../images/selected-${selectedEventsIGo}.png`}
+            src={`../../images/selected-${
+              allOrMyOrParticipateEvents === "participate" ? "true" : "false"
+            }.png`}
             alt="selection button"
-            onClick={selectedFilterEventsIGo}
+            onClick={() => setAllOrMyOrParticipateEvents("participate")}
           />
           events I go
         </span>
       </div>
 
       <div className="events-container">
-        {updatedEvents.map((event) => {
-          if (
-            selectedAllEvents ||
-            (selectedMyEvents && event.creator === user._id) ||
-            (selectedEventsIGo && event.participants.includes(user._id))
-          ) {
-            return (
-              <div key={event._id} className="event">
-                <p>
-                  {new Date(event.date).toLocaleDateString()} at{" "}
-                  {formatTime(event.date)}
-                </p>
-                <div className="event-card">
-                  <h3>{event.type}</h3>
-                  <img src={`../../images/${event.type}.jpg`} alt="" />
-                  <Link to="/events/:eventId">See</Link>
-                </div>
+        {filteredOrNotEvents.map((event) => {
+          return (
+            <div key={event._id} className="event">
+              <p>
+                {new Date(event.date).toLocaleDateString()} at{" "}
+                {formatTime(event.date)}
+              </p>
+              <div className="event-card">
+                <h3>{event.type}</h3>
+                <img src={`../../images/${event.type}.jpg`} alt="" />
+                <Link to="/events/:eventId">See</Link>
               </div>
-            );
-          } else {
-            return null;
-          }
+            </div>
+          );
         })}
       </div>
     </>

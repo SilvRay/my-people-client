@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import myaxios from "../myaxios";
 
 import NavBar from "../components/NavBar";
-import Projects from "../components/Projects";
+import ProjectCard from "../components/ProjectCard";
 import FullscreenMedia from "../components/FullscreenMedia";
 import EventCard from "../components/EventCard";
 import PostMosaic from "../components/PostMosaic";
@@ -97,11 +97,11 @@ function ProfilePage() {
         </Link>
       </div>
 
-      {tab === "medias" && <PostMosaic posts={posts} />}
-      {tab === "events" && (
-        <EventCard events={events} handleMediaClick={handleMediaClick} />
+      {tab === "medias" && (
+        <PostMosaic posts={posts} handleMediaClick={handleMediaClick} />
       )}
-      {tab === "projects" && <Projects projects={projects} />}
+      {tab === "events" && <EventCard events={events} />}
+      {tab === "projects" && <ProjectCard projects={projects} />}
 
       {showFullscreenMedia && (
         <FullscreenMedia

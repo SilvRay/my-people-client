@@ -1,27 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-function Posts({ posts, handleMediaClick }) {
-  const [selectedAllPosts, setSelectedAllPosts] = useState(true);
-  const [selectedMyPosts, setSelectedMyPosts] = useState(false);
-  const [updatedPosts, setUpdatedPosts] = useState([]);
+function Posts({ posts, handleMediaClick, user }) {
+  // Création d'un state pour filtrer les projets à afficher
 
-  useEffect(() => {
-    //MAJ des posts quand la prop posts change
-    setUpdatedPosts(posts);
-  }, [posts]);
-
-  // Fonctions qui permet de sélectionner les filtres
-  const selectedFilterAllPosts = () => {
-    setSelectedAllPosts(true);
-    // Désactiver l'autre filtre sélectionné
-    setSelectedMyPosts(false);
-  };
-
-  const selectedFilterMyPosts = () => {
-    setSelectedMyPosts(true);
-    // Désactiver l'autre filtre sélectionné
-    setSelectedAllPosts(false);
-  };
+  const [allOrMyPosts, setAllOrMyPosts] = useState("all");
 
   // Fonction pour formater le temps écoulé de manière concise
   const formatTimeAgo = (date) => {
@@ -50,28 +32,43 @@ function Posts({ posts, handleMediaClick }) {
     return "just now";
   };
 
+  // Créer une variable égale dans un 1er temps au state posts
+  let filteredOrNotPosts = posts;
+  // Si le state pour filtrer les events à afficher égale à "my"
+  // filtrer les posts pour n'avoir que ceux créés par le user connecté
+  if (allOrMyPosts === "my") {
+    filteredOrNotPosts = filteredOrNotPosts.filter((el) => {
+      // console.log("el.creator:", el.creator);
+      return el.creator._id === user._id;
+    });
+  }
+
   return (
     <>
       <div className="filters">
         <span>
           <img
-            src={`../../images/selected-${selectedAllPosts}.png`}
+            src={`../../images/selected-${
+              allOrMyPosts === "all" ? "true" : "false"
+            }.png`}
             alt="selection button"
-            onClick={selectedFilterAllPosts}
+            onClick={() => setAllOrMyPosts("all")}
           />
-          all events
+          all posts
         </span>
         <span>
           <img
-            src={`../../images/selected-${selectedMyPosts}.png`}
+            src={`../../images/selected-${
+              allOrMyPosts === "my" ? "true" : "false"
+            }.png`}
             alt="selection button"
-            onClick={selectedFilterMyPosts}
+            onClick={() => setAllOrMyPosts("my")}
           />
-          my events
+          my posts
         </span>
       </div>
       <div className="medias-container">
-        {updatedPosts.map((post) => {
+        {filteredOrNotPosts.map((post) => {
           return (
             <div key={post._id} className="post">
               <div className="whos-post">
