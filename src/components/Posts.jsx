@@ -25,11 +25,11 @@ function Posts({ posts, handleMediaClick, user }) {
     for (const interval of intervals) {
       const value = Math.floor(timeDifferenceInSeconds / interval.seconds);
       if (value >= 1) {
-        return `${value}${interval.label} ago`;
+        return ` ${value}${interval.label} ago`;
       }
     }
 
-    return "just now";
+    return " just now";
   };
 
   // Créer une variable égale dans un 1er temps au state posts

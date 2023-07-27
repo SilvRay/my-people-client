@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
 function PopupComponent() {
-  //   const $popup = document.getElementsByClassName("add-popup");
-  //   console.log("$popup[0]", $popup[0]);
+  // const $popup = document.getElementsByClassName("add-popup-container");
+  // console.log("$popup[0]", $popup[0]);
 
-  //   $popup.className -= " inactive";
+  // $popup.className -= " inactive";
 
   return (
-    <div className="add-popup-container">
+    <div className="add-popup-container inactive">
       <div className="add-popup">
         <Link>
           <img src="../../images/add.png" alt="add icon" />
