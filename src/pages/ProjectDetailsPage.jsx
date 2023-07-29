@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import myaxios from "../myaxios";
 import { useParams } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 function ProjectDetailsPage() {
   const [project, setProject] = useState(null);
@@ -31,7 +32,7 @@ function ProjectDetailsPage() {
           <p>{project.title}</p>
           <p>{project.description}</p>
         </div>
-
+      <NavBar/>
       </div>
     </>
   );
