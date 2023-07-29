@@ -108,8 +108,10 @@ function HomePage() {
         <>
           <p className="alert">You do not have any of your people right now</p>
           <div className="new-group-container">
-            <img src="../../images/Group-new.png" alt="add-icon" />
-            <p>Create your group</p>
+            <Link to="/new-group">
+                <img src="../../images/Group-new.png" alt="add-icon" />
+                <p>Create your group</p>
+            </Link>
           </div>
         </>
       ) : (
