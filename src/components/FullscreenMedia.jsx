@@ -1,16 +1,12 @@
-function FullscreenMedia(props) {
+function FullscreenMedia({ mediaUrl, onClose }) {
   return (
     <div className="fullscreen-modal">
       <div className="modal">
         <button className="prevMedia"></button>
-        {props.mediaUrl.endsWith(".mp4") ? (
-          <video src={props.mediaUrl} controls></video>
+        {mediaUrl.endsWith(".mp4") ? (
+          <video src={mediaUrl} controls></video>
         ) : (
-          <img
-            src={props.mediaUrl}
-            alt="fullscreen media"
-            className="modal-media"
-          />
+          <img src={mediaUrl} alt="fullscreen media" className="modal-media" />
         )}
         <button className="nextMedia"></button>
       </div>
