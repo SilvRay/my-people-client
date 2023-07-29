@@ -841,3 +841,160 @@ body {
   margin-left: auto;
   border-radius: 20px;
 }
+
+/***
+ *       _____ ______          _____   _____ _    _   _____        _____ ______ 
+ *      / ____|  ____|   /\   |  __ \ / ____| |  | | |  __ \ /\   / ____|  ____|
+ *     | (___ | |__     /  \  | |__) | |    | |__| | | |__) /  \ | |  __| |__   
+ *      \___ \|  __|   / /\ \ |  _  /| |    |  __  | |  ___/ /\ \| | |_ |  __|  
+ *      ____) | |____ / ____ \| | \ \| |____| |  | | | |  / ____ \ |__| | |____ 
+ *     |_____/|______/_/    \_\_|  \_\\_____|_|  |_| |_| /_/    \_\_____|______|
+ *                                                                              
+ *                                                                              
+ */
+
+.searchPage {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+}
+
+.searchPage h1 {
+  background-color: #e8ceae;
+  text-align: center;
+  font-family: "Kaushan Script", cursive;
+  font-size: 36px;
+  margin-top: 0;
+  margin-bottom: 40px;
+  padding: 5px 0;
+}
+
+.searchPage .searchBar label {
+  display: flex;
+  align-items: center;
+}
+
+.searchPage input {
+  width: 270px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  margin-left: 5px;
+  padding-left: 32px;
+  font-size: 22px;
+  position: relative;
+}
+
+.searchPage .searchBar img {
+  width: 24px;
+  position: absolute;
+  left: 10px;
+  top: 111px;
+}
+
+.searchPage .searchBar button {
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.searchPage .searchResults {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.searchPage .searchResults .searchResult {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+.searchPage .searchResults .searchResult img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #1877f2;
+}
+
+.searchPage .searchResults .searchResult a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/***
+ *      _____ _   ___      _______ _______    _______ _____ ____  _   _   _____        _____ ______ 
+ *     |_   _| \ | \ \    / /_   _|__   __|/\|__   __|_   _/ __ \| \ | | |  __ \ /\   / ____|  ____|
+ *       | | |  \| |\ \  / /  | |    | |  /  \  | |    | || |  | |  \| | | |__) /  \ | |  __| |__   
+ *       | | | . ` | \ \/ /   | |    | | / /\ \ | |    | || |  | | . ` | |  ___/ /\ \| | |_ |  __|  
+ *      _| |_| |\  |  \  /   _| |_   | |/ ____ \| |   _| || |__| | |\  | | |  / ____ \ |__| | |____ 
+ *     |_____|_| \_|   \/   |_____|  |_/_/    \_\_|  |_____\____/|_| \_| |_| /_/    \_\_____|______|
+ *                                                                                                  
+ *                                                                                                  
+ */
+
+.invitationPage {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.invitationPage .profilePic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #1877f2;
+  margin-bottom: 32px;
+}
+
+.invitationPage form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.invitationPage form .invitation {
+  margin-bottom: 24px;
+}
+
+.invitationPage form .invitation input {
+  width: 260px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  margin-left: 5px;
+  padding-left: 10px;
+  font-size: 22px;
+}
+
+.invitationPage form .invitation button {
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.invitationPage form .list-container h4 {
+  padding-left: 10px;
+}
+
+.invitationPage form .invitation-btn {
+  display: block;
+  margin: 32px auto;
+  width: 240px;
+  padding: 10px 0;
+  background-color: #1877f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
