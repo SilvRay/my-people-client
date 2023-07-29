@@ -525,6 +525,55 @@ body {
   line-height: 40px;
 }
 
+
+/* 
+ ______               _     _____       _        _ _       _____                 
+|  ____|             | |   |  __ \     | |      (_) |     |  __ \                
+| |____   _____ _ __ | |_  | |  | | ___| |_ __ _ _| |___  | |__) |_ _  __ _  ___ 
+|  __\ \ / / _ \ '_ \| __| | |  | |/ _ \ __/ _` | | / __| |  ___/ _` |/ _` |/ _ \
+| |___\ V /  __/ | | | |_  | |__| |  __/ || (_| | | \__ \ | |  | (_| | (_| |  __/
+|______\_/ \___|_| |_|\__| |_____/ \___|\__\__,_|_|_|___/ |_|   \__,_|\__, |\___|
+                                                                       __/ |     
+                                                                      |___/       */
+
+.details-page {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-details-header{
+  display: flex; 
+  flex-direction : row;
+  margin : 40px 20px;
+}
+.details-page h1{
+  font-size: 1.8rem;
+}
+
+.event-details-header img{
+  height: 200px;
+  border-radius: 10px;
+  margin-right:20px;
+}
+.details-page .btn-container button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 24px;
+  width: 240px;
+  padding: 10px 0;
+  background-color: #1877f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
 /***
  *      _____  _____   ____  ______ _____ _      ______   ________      ________ _   _ _______ _____ 
  *     |  __ \|  __ \ / __ \|  ____|_   _| |    |  ____| |  ____\ \    / /  ____| \ | |__   __/ ____|
