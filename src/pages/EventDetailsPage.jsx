@@ -45,6 +45,7 @@ function EventDetailsPage() {
   if (!event) return "loading...";
 
   return (
+    <>
     <div className="details-page">
       <div className="event-details-header">
         <div>
@@ -55,15 +56,18 @@ function EventDetailsPage() {
           <p className="eventcreation">
             {event.creator.username} 
           </p>
-        <p> <strong> Date : </strong>
-            {new Date(event.date).toLocaleDateString()} at{" "} {formatTime(event.date)}
+        <p> <strong> Date : </strong> 
+            <span className="eventHeaderText">{new Date(event.date).toLocaleDateString()} at{" "} {formatTime(event.date)}</span>
         </p>
-          <p><strong>Place :</strong> {event.place}</p>
+          <p><strong>Place : </strong> 
+          <span className="eventHeaderText">{event.place}</span>
+        </p>
         </div>
       </div>
-      <div>
+      <div className="participation-form">
         <form onSubmit={handleSubmit}>
-          <p> I bring 
+          <div className="formText">
+            <p> I will bring  
           <input
             type="number"
             name="kidsNb"
@@ -72,27 +76,31 @@ function EventDetailsPage() {
             onChange={handleKidsNb}
             placeholder="0"
           />
-            kids
+             kids
           </p>
 
           <p>They will be there</p>
           {event.participants.map((participant) => {
             return (
-              <div key={event.participant._id} className="participant img">
+              <div key={participant._id} className="participant img">
                 <h1>{participant.name}</h1>
               </div>
             );
           })}
+          </div>
+
 
           <div className="btn-container">
             <button type="submit">I will be there</button>
           </div>
         </form>
       </div>
-      <NavBar />
+
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
+    <NavBar />
+    </>
   );
 }
 

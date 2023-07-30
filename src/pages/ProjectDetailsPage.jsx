@@ -18,22 +18,29 @@ function ProjectDetailsPage() {
   }, []);
 
   // Fonction pour formater l'heure au format HH:MM
+  const formatTime = (date) => {
+    const options = { hour: "2-digit", minute: "2-digit" };
+    return new Date(date).toLocaleTimeString(undefined, options);
+  };
+
 
   if (!project) return "loading...";
 
   return (
     <>
-      <div className="project-single-header">
+      <div className="project-page">
         <div>
-          <img src={`../../images/${event.type}.jpg`} alt="" />
+          <img src={`../../images/project-img.jpg`} alt="project-img" />
+        </div>
+        <div>
           <p>
-            {project.creator} created the {project.createdAt}
+            {project.creator.username} created the {new Date(project.createdAt).toLocaleDateString()}
           </p>
-          <p>{project.title}</p>
+          <h1>{project.title}</h1>
           <p>{project.description}</p>
         </div>
-      <NavBar/>
       </div>
+      <NavBar/>
     </>
   );
 }

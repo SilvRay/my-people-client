@@ -1,0 +1,66 @@
+.participation-form{
+  align-self: flex-start;
+  width:90vw;
+}
+.participation-form input{
+  width:40px;
+}
+
+.eventHeaderText{
+  font-size: 0.75rem;
+}
+.details-page form{
+  display : flex;
+  flex-direction : column;
+}
+
+.details-page button{
+  align-self: center;
+}
+
+.formText{
+margin-left: 0px;
+}
+/* 
+_____           _           _     _____       _        _ _       _____                 
+|  __ \         (_)         | |   |  __ \     | |      (_) |     |  __ \                
+| |__) | __ ___  _  ___  ___| |_  | |  | | ___| |_ __ _ _| |___  | |__) |_ _  __ _  ___ 
+|  ___/ '__/ _ \| |/ _ \/ __| __| | |  | |/ _ \ __/ _` | | / __| |  ___/ _` |/ _` |/ _ \
+| |   | | | (_) | |  __/ (__| |_  | |__| |  __/ || (_| | | \__ \ | |  | (_| | (_| |  __/
+|_|   |_|  \___/| |\___|\___|\__| |_____/ \___|\__\__,_|_|_|___/ |_|   \__,_|\__, |\___|
+               _/ |                                                           __/ |     
+              |__/                                                           |___/      
+
+ */
+
+ .project-page {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.project-page img{
+  width:90vw;
+  height : 80%;
+  margin-top : 20px;
+}
+
+.project-page h1{
+  text-align: center;
+}
+
+/* 
+_____ _                                                 _   
+/ ____| |                                               | |  
+| |    | |__   ___   ___  ___  ___    _____   _____ _ __ | |_ 
+| |    | '_ \ / _ \ / _ \/ __|/ _ \  / _ \ \ / / _ \ '_ \| __|
+| |____| | | | (_) | (_) \__ \  __/ |  __/\ V /  __/ | | | |_ 
+\_____|_| |_|\___/ \___/|___/\___|  \___| \_/ \___|_| |_|\__|
+                                                                                                                        
+ */
+ .choose-event img{
+  width : 90vw;
+ }

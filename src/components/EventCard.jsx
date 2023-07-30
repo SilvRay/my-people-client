@@ -8,7 +8,7 @@ function EventCard({ events }) {
           <div key={event._id} className="event-card">
             <h3>{event.type}</h3>
             <img src={`../../images/${event.type}.jpg`} alt="" />
-            <Link to="/events/:eventId">See</Link>
+            <Link to={`/events/${event._id}`}>See</Link>
           </div>
         );
       })}
