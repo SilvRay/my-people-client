@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import PopupComponent from "./PopupComponent";
+import { useState } from "react";
 
 function NavBar() {
+  const [popupVisible, setPopupVisible] = useState(false);
+
+  const handlePopupClick = () => {
+    // MAJ du state pour rendre la popup visible
+    setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    // MAJ du state pour rendre la popup invisible
+    setPopupVisible(false);
+  };
   return (
     <>
       <div className="navbar">
@@ -17,11 +29,11 @@ function NavBar() {
         <Link to="/profile?tab=medias">
           <img src="../../images/profile.png" alt="profile icon" />
         </Link>
-        <button>
+        <button onClick={popupVisible ? handleClosePopup : handlePopupClick}>
           <img src="../../images/add.png" />
         </button>
       </div>
-      <PopupComponent />
+      <PopupComponent popupVisible={popupVisible} />
     </>
   );
 }

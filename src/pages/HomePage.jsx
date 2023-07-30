@@ -22,12 +22,18 @@ function HomePage() {
   const [projects, setProjects] = useState([]);
 
   const [showFullscreenMedia, setShowFullscreenMedia] = useState(false);
-  const [fullscreenMediaUrl, setFullscreenMediaUrl] = useState("");
+  // const [fullscreenMediaUrl, setFullscreenMediaUrl] = useState("");
+  const [currIndex, setCurrIndex] = useState(0);
+  const [mediaList, setMediaList] = useState([]);
 
   // fonction qui sera appelée quand le user clique sur l'image pour afficher en plein écran
-  const handleMediaClick = (mediaUrl) => {
-    setFullscreenMediaUrl(mediaUrl);
+  const handleMediaClick = (mediaList, mediaIndex) => {
+    // Passer l'ensemble des médias du post
+    // Pour que le component 'FullscreenMedia' ait accès à la liste complète des médias du post
+    setMediaList(mediaList);
     setShowFullscreenMedia(true);
+    // setFullscreenMediaUrl(mediaList[mediaIndex]); // Afficher le 1er média du post
+    setCurrIndex(mediaIndex);
   };
 
   // fonction appelée pour fermer le plein écran
@@ -56,7 +62,8 @@ function HomePage() {
         myaxios
           .get("/api/medias")
           .then((response) => {
-            console.log(response.data);
+            console.log("coucouuu", response.data);
+
             setPosts(response.data);
           })
           .catch((error) => console.log(error));
@@ -108,10 +115,8 @@ function HomePage() {
         <>
           <p className="alert">You do not have any of your people right now</p>
           <div className="new-group-container">
-            <Link to="/new-group">
-                <img src="../../images/Group-new.png" alt="add-icon" />
-                <p>Create your group</p>
-            </Link>
+            <img src="../../images/Group-new.png" alt="add-icon" />
+            <p>Create your group</p>
           </div>
         </>
       ) : (
@@ -131,8 +136,11 @@ function HomePage() {
 
       {showFullscreenMedia && (
         <FullscreenMedia
-          mediaUrl={fullscreenMediaUrl}
           onClose={handleCloseFullScreenMedia}
+          setCurrIndex={setCurrIndex}
+          currIndex={currIndex}
+          mediaList={mediaList}
+          posts={posts}
         />
       )}
 

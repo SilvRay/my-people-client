@@ -242,8 +242,25 @@ body {
   font-weight: 600;
 }
 
+.add-popup label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
 .add-popup a img {
   width: 24px;
+}
+
+.add-popup label img {
+  width: 24px;
+}
+
+.add-popup label input {
+  display: none;
 }
 
 .tip {
@@ -402,6 +419,7 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -421,6 +439,41 @@ body {
   max-height: 100%;
   object-fit: contain;
   position: relative;
+}
+
+.fullscreen-modal .modal .prevMedia {
+  background-color: transparent;
+  border: none;
+}
+
+.fullscreen-modal .modal .prevMedia img {
+  width: 24px;
+  height: 24px;
+}
+
+.fullscreen-modal .modal .nextMedia {
+  background-color: transparent;
+  border: none;
+}
+
+.fullscreen-modal .modal .nextMedia img {
+  width: 24px;
+  height: 24px;
+}
+.com-container {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.com-container .comment {
+  padding-left: 16px;
+}
+
+.com-container .comment img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid;
 }
 
 /***
@@ -525,7 +578,6 @@ body {
   line-height: 40px;
 }
 
-
 /* 
  ______               _     _____       _        _ _       _____                 
 |  ____|             | |   |  __ \     | |      (_) |     |  __ \                
@@ -545,20 +597,19 @@ body {
   padding-right: 20px;
 }
 
-.event-details-header{
-  display: flex; 
-  flex-direction : row;
-  margin : 40px 0px 10px 0px;
-  
+.event-details-header {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 0px 10px 0px;
 }
-.details-page h1{
+.details-page h1 {
   font-size: 1.8rem;
 }
 
-.event-details-header img{
+.event-details-header img {
   height: 200px;
   border-radius: 10px;
-  margin-right:20px;
+  margin-right: 20px;
 }
 .details-page .btn-container button {
   display: block;
@@ -1023,23 +1074,111 @@ body {
   border: none;
   margin-left: 5px;
   padding-left: 10px;
-  font-size: 22px;
-}
-
-.invitationPage form .invitation button {
-  background-color: transparent;
-  border: none;
-  font-weight: 600;
   font-size: 16px;
 }
 
-.invitationPage form .list-container h4 {
+.invitationPage form .invitation a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.invitationPage form .list-container {
   padding-left: 10px;
+}
+
+.invitationPage form .list-container section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+.invitationPage form .list-container section img {
+  width: 22px;
+  height: 22px;
 }
 
 .invitationPage form .invitation-btn {
   display: block;
   margin: 32px auto;
+  width: 240px;
+  padding: 10px 0;
+  background-color: #1877f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+/***
+ *               _____  _____    _____  _____   ____       _ ______ _____ _______   _____        _____ ______ 
+ *         /\   |  __ \|  __ \  |  __ \|  __ \ / __ \     | |  ____/ ____|__   __| |  __ \ /\   / ____|  ____|
+ *        /  \  | |  | | |  | | | |__) | |__) | |  | |    | | |__ | |       | |    | |__) /  \ | |  __| |__   
+ *       / /\ \ | |  | | |  | | |  ___/|  _  /| |  | |_   | |  __|| |       | |    |  ___/ /\ \| | |_ |  __|  
+ *      / ____ \| |__| | |__| | | |    | | \ \| |__| | |__| | |___| |____   | |    | |  / ____ \ |__| | |____ 
+ *     /_/    \_\_____/|_____/  |_|    |_|  \_\\____/ \____/|______\_____|  |_|    |_| /_/    \_\_____|______|
+ *                                                                                                            
+ *                                                                                                            
+ */
+
+.new-project {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+}
+
+.new-project .profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+
+.new-project form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 70px;
+}
+
+.new-project form input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 300px;
+  border: 1px solid #a2a2a2;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.new-project form textarea {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 140px;
+  width: 300px;
+  border: 1px solid #a2a2a2;
+  padding: 5px;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+}
+
+.new-project form textarea::placeholder {
+  font-family: "Inter", sans-serif;
+}
+
+.new-project form button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 24px;
   width: 240px;
   padding: 10px 0;
   background-color: #1877f2;

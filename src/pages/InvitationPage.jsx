@@ -1,59 +1,25 @@
-import { useState, useContext } from "react";
-import { AuthContext } from "../context/auth.context";
-import myaxios from "../myaxios";
+import { useState } from "react";
 import NavBar from "../components/NavBar";
 
 function InvitationPage() {
   const [email, setEmail] = useState("");
-  const { user } = useContext(AuthContext);
+  const [emailsList, setEmailsList] = useState([]); // State pour stocker la liste des e-mails
 
   const handleEmailInput = (e) => setEmail(e.target.value);
 
-  const sendInvitations = () => {
-    // Créer un tab avec l'adresse email saisi par le user
-    const invitedUsers = [email];
+  const handleAllEmails = () => {
+    // Ajouter l'e-mail à la liste existante
+    setEmailsList([...emailsList, email]);
+    // Réinitialiser l'entrée e-mail après l'ajout
+    setEmail("");
+  };
 
-    // Vérifier que l'email n'est pas vide
-    if (invitedUsers[0] === "") {
-      alert("Please enter a valid email address");
-      return;
-    }
-
-    // Préparer le payload JSON pour L'API Brevo
-    const payload = {
-      sender: {
-        email: user.email,
-        name: user.username,
-      },
-      subject: "Invitation to join our group",
-      messageVersions: [
-        {
-          to: invitedUsers,
-          htmlContent:
-            "<!DOCTYPE html><html><body><h1>Welcome to our group!</h1><p>You are invited to join our group.</p></body></html>",
-          subject: "Invitation to join our group",
-        },
-      ],
-    };
-
-    // Appeler l'API Brevo pour envoyer les invitations par email
-    myaxios
-      .post("https://api.brevo.com/v3/smtp/email", payload, {
-        headers: {
-          accept: "application/json",
-          "api-key":
-            "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",
-          "content-type": "application/json",
-        },
-      })
-      .then((response) => {
-        console.log("Invitations sent successfully:", response.data);
-        alert(`Invitations sent successfully : ${response.data}`);
-      })
-      .catch((error) => {
-        console.error("Failed to send invitations:", error);
-        alert(`Failed to send invitations : ${error.response.data.message}`);
-      });
+  const handleCancelEmail = (index) => {
+    const updatedEmailsList = [...emailsList];
+    // Supprimer l'e-mail du tableau
+    updatedEmailsList.splice(index, 1);
+    // Mettre à jour la liste des e-mails
+    setEmailsList(updatedEmailsList);
   };
 
   return (
@@ -71,15 +37,23 @@ function InvitationPage() {
             value={email}
             onChange={handleEmailInput}
           />
-          <button>Validate</button>
+          <a onClick={handleAllEmails}>Validate</a>
         </div>
 
         <div className="list-container">
           <h4>List of people to invite</h4>
+          {emailsList.map((email, index) => (
+            <section key={index}>
+              <img
+                src="../../images/cancel.png"
+                alt="a cross"
+                onClick={() => handleCancelEmail(index)}
+              />
+              <p>{email}</p>
+            </section>
+          ))}
         </div>
-        <button className="invitation-btn" onClick={sendInvitations}>
-          Send invitations
-        </button>
+        <button className="invitation-btn">Send invitations</button>
       </form>
 
       <NavBar />

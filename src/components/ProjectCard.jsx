@@ -13,7 +13,6 @@ function ProjectCard({ projects }) {
             />
             <div className="btns-container">
               <Link to={`/projects/${project._id}`}>See</Link>
-              <button>Delete</button>
             </div>
           </div>
         );

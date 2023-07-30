@@ -54,16 +54,6 @@ function FullscreenMedia({
           return (
             <div key={post._id} className="comment">
               <img src={post.creator.profile_img} alt="profile picture" />
-              {post.comments.map((comment) => {
-                {
-                  /* console.log("comments", post.comments); */
-                }
-                return (
-                  <div key={comment._id}>
-                    <p>{comment.content}</p>
-                  </div>
-                );
-              })}
             </div>
           );
         })}

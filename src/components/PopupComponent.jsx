@@ -1,31 +1,31 @@
 import { Link } from "react-router-dom";
 
-function PopupComponent() {
-  // const $popup = document.getElementsByClassName("add-popup-container");
-  // console.log("$popup[0]", $popup[0]);
-
-  // $popup.className -= " inactive";
-
+function PopupComponent({ popupVisible }) {
   return (
-    <div className="add-popup-container inactive">
+    <div className={`add-popup-container ${popupVisible ? "" : "inactive"}`}>
       <div className="add-popup">
-        <Link>
+        <Link to="/invite">
           <img src="../../images/add.png" alt="add icon" />
           invite your people
         </Link>
-        <Link>
+
+        <label>
           <img src="../../images/add.png" alt="add icon" />
-          Add picture/video
-        </Link>
-        <Link>
+          Add pictures/videos
+          <input type="file" capture="user" />
+        </label>
+
+        <Link to="/event/new">
           <img src="../../images/add.png" alt="add icon" />
           Create an event
         </Link>
-        <Link>
+
+        <Link to="/project/new">
           <img src="../../images/add.png" alt="add icon" />
           Create a project
         </Link>
       </div>
+
       <div className="tip"></div>
     </div>
   );
