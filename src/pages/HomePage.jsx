@@ -25,15 +25,30 @@ function HomePage() {
   // const [fullscreenMediaUrl, setFullscreenMediaUrl] = useState("");
   const [currIndex, setCurrIndex] = useState(0);
   const [mediaList, setMediaList] = useState([]);
+  const [mediaId, setMediaId] = useState("");
 
   // fonction qui sera appelée quand le user clique sur l'image pour afficher en plein écran
-  const handleMediaClick = (mediaList, mediaIndex) => {
+  const handleMediaClick = (mediaList, mediaIndex, postId) => {
     // Passer l'ensemble des médias du post
     // Pour que le component 'FullscreenMedia' ait accès à la liste complète des médias du post
+    console.log("mediaList ====", mediaList);
     setMediaList(mediaList);
     setShowFullscreenMedia(true);
     // setFullscreenMediaUrl(mediaList[mediaIndex]); // Afficher le 1er média du post
     setCurrIndex(mediaIndex);
+
+    setMediaId(postId);
+
+    // myaxios
+    //   .get(`api/medias/${mediaId}`)
+    //   .then((response) => {
+    //     // console.log("response.data ===", response.data);
+    //     setMediaId(response.data);
+    //   })
+    //   .catch((error) => {
+    //     const errorDescription = error.response.data.message;
+    //     setErrorMessage(errorDescription);
+    //   });
   };
 
   // fonction appelée pour fermer le plein écran
@@ -141,6 +156,7 @@ function HomePage() {
           currIndex={currIndex}
           mediaList={mediaList}
           posts={posts}
+          mediaId={mediaId}
         />
       )}
 

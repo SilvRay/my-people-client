@@ -8,6 +8,7 @@ function Events({ events, user }) {
 
   // Créer une variable égale dans un 1er temps au state events
   let filteredOrNotEvents = events;
+
   // Si le state pour filtrer les events à afficher égale à "my"
   // filtrer les events pour n'avoir que ceux créés par le user connecté
   if (allOrMyOrParticipateEvents === "my") {
@@ -83,9 +84,17 @@ function Events({ events, user }) {
                 {formatTime(event.date)}
               </p>
               <div className="event-card">
-                <h3>{event.type}</h3>
+                <h3
+                  className={event.creator === user._id ? "mine" : "not-mine"}
+                >
+                  {event.type}
+                </h3>
                 <img src={`../../images/${event.type}.jpg`} alt="" />
-                <Link to={`/events/${event._id}`}>See</Link>
+                {event.creator === user._id ? (
+                  <Link to={`/events/${event._id}/edit`}>Edit</Link>
+                ) : (
+                  <Link to={`/events/${event._id}`}>See</Link>
+                )}
               </div>
             </div>
           );

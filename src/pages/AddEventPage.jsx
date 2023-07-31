@@ -1,12 +1,14 @@
 import myaxios from "../myaxios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import NavBar from "../components/NavBar";
 import { useSearchParams } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 function AddEventPage() {
   let [searchParams] = useSearchParams();
   const event = searchParams.get("event");
+  const { user } = useContext(AuthContext);
 
   const [place, setPlace] = useState("");
   const [date, setDate] = useState("");
@@ -26,7 +28,7 @@ function AddEventPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const reqBody = { type, place, date, time, food, game, trip};
+    const reqBody = { type, place, date, time, food, game, trip };
 
     myaxios
       .post("/api/events", reqBody)
@@ -61,8 +63,15 @@ function AddEventPage() {
   }
 
   return (
-    <>
+    <div className="addEvent">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+      <img
+        src={user.profile_img}
+        alt="profile picture"
+        className="profilePicture"
+      />
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -71,8 +80,23 @@ function AddEventPage() {
           onChange={handlePlace}
           placeholder="Place"
         />
-        <input type="date" name="date" value={date} onChange={handleDate} />
-        <input type="time" name="time" value={time} onChange={handleTime} />
+        <label>
+          Date
+          <input
+            className="date"
+            type="date"
+            name="date"
+            value={date}
+            onChange={handleDate}
+          />
+          <input
+            className="time"
+            type="time"
+            name="time"
+            value={time}
+            onChange={handleTime}
+          />
+        </label>
         {event === "food" && (
           <input
             type="text"
@@ -105,7 +129,7 @@ function AddEventPage() {
         </div>
       </form>
       <NavBar />
-    </>
+    </div>
   );
 }
 

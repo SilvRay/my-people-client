@@ -20,7 +20,7 @@ function EventDetailsPage() {
         setEvent(oneEvent);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [eventId]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,60 +46,64 @@ function EventDetailsPage() {
 
   return (
     <>
-    <div className="details-page">
-      <div className="event-details-header">
-        <div>
-          <img src={`../../images/${event.type}.jpg`} alt="" />
-        </div>
-        <div>
+      <div className="details-page">
+        <div className="event-details-header">
+          <div>
+            <img src={`../../images/${event.type}.jpg`} alt="" />
+          </div>
+          <div>
             <h1>{event.type}</h1>
-          <p className="eventcreation">
-            {event.creator.username} 
-          </p>
-        <p> <strong> Date : </strong> 
-            <span className="eventHeaderText">{new Date(event.date).toLocaleDateString()} at{" "} {formatTime(event.date)}</span>
-        </p>
-          <p><strong>Place : </strong> 
-          <span className="eventHeaderText">{event.place}</span>
-        </p>
+            <p className="eventcreation">{event.creator.username}</p>
+            <p>
+              {" "}
+              <strong> Date : </strong>
+              <span className="eventHeaderText">
+                {new Date(event.date).toLocaleDateString()} at{" "}
+                {formatTime(event.date)}
+              </span>
+            </p>
+            <p>
+              <strong>Place : </strong>
+              <span className="eventHeaderText">{event.place}</span>
+            </p>
+          </div>
         </div>
+        <div className="participation-form">
+          <form onSubmit={handleSubmit}>
+            <div className="formText">
+              <p>
+                {" "}
+                I will bring
+                <input
+                  type="number"
+                  name="kidsNb"
+                  min="0"
+                  value={kidsNb}
+                  onChange={handleKidsNb}
+                  placeholder="0"
+                />
+                kids
+              </p>
+
+              <p>They will be there</p>
+              {event.participants.map((participant) => {
+                return (
+                  <div key={participant._id} className="participant img">
+                    <h1>{participant.name}</h1>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="btn-container">
+              <button type="submit">I will be there</button>
+            </div>
+          </form>
+        </div>
+
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
-      <div className="participation-form">
-        <form onSubmit={handleSubmit}>
-          <div className="formText">
-            <p> I will bring  
-          <input
-            type="number"
-            name="kidsNb"
-            min="0"
-            value={kidsNb}
-            onChange={handleKidsNb}
-            placeholder="0"
-          />
-             kids
-          </p>
-
-          <p>They will be there</p>
-          {event.participants.map((participant) => {
-            return (
-              <div key={participant._id} className="participant img">
-                <h1>{participant.name}</h1>
-              </div>
-            );
-          })}
-          </div>
-
-
-          <div className="btn-container">
-            <button type="submit">I will be there</button>
-          </div>
-        </form>
-      </div>
-
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-    </div>
-    <NavBar />
+      <NavBar />
     </>
   );
 }

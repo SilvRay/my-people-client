@@ -1,10 +1,19 @@
+import { useState } from "react";
+import myaxios from "../myaxios";
+// import { useParams } from "react-router-dom";
+
 function FullscreenMedia({
   mediaList,
   onClose,
   setCurrIndex,
   currIndex,
   posts,
+  mediaId,
 }) {
+  const [content, setContent] = useState("");
+  // const { mediaId } = useParams();
+  const [errorMessage, setErrorMessage] = useState(undefined);
+
   const handleBackgroundClick = (event) => {
     // Vérifier si l'événement provient de la fenêtre modale ou de ses enfants
     if (event.target.className === "fullscreen-modal") {
@@ -29,8 +38,27 @@ function FullscreenMedia({
   // Récup le média actuellenment affiché en utilisant
   const currMediaUrl = mediaList[currIndex];
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("mediaId ===", mediaId);
+
+    myaxios
+      .post(`/api/medias/${mediaId}/comments`, { content: content })
+      .then((response) => {
+        console.log("response.data====", response.data);
+        console.log("content ====", content);
+      })
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      });
+  };
+
   return (
     <div className="fullscreen-modal" onClick={handleBackgroundClick}>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+
       <div className="modal">
         <button className="prevMedia" onClick={handlePrevMediaClick}>
           <img src="../../images/prev-media.png" alt="previous icon" />
@@ -53,10 +81,19 @@ function FullscreenMedia({
         {posts.map((post) => {
           return (
             <div key={post._id} className="comment">
-              <img src={post.creator.profile_img} alt="profile picture" />
+              <img alt="profile picture" />
             </div>
           );
         })}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+          <button>Submit</button>
+        </form>
       </div>
     </div>
   );

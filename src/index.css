@@ -362,6 +362,7 @@ body {
   padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 20px;
   border-radius: 5px;
   position: relative;
 }
@@ -547,12 +548,24 @@ body {
   box-shadow: 0px 15px 15px -4px rgba(0, 0, 0, 0.8);
 }
 
-.homepage .event-card h3 {
+.homepage .event-card .not-mine {
   margin: 0;
   width: 100%;
   font-size: 16px;
   text-align: center;
   background-color: white;
+  flex: 1;
+  line-height: 40px;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #1877f2;
+}
+
+.homepage .event-card .mine {
+  margin: 0;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  background-color: #d19b5d;
   flex: 1;
   line-height: 40px;
   border-radius: 10px 10px 0 0;
@@ -1128,6 +1141,7 @@ body {
 .new-project {
   background-color: #f5e3cd;
   min-height: 100vh;
+  padding-top: 20px;
 }
 
 .new-project .profile-pic {
@@ -1175,6 +1189,172 @@ body {
 }
 
 .new-project form button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 24px;
+  width: 240px;
+  padding: 10px 0;
+  background-color: #1877f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+/***
+ *      ________      ________ _   _ _______   ______ _____ _____ _______   _____        _____ ______ 
+ *     |  ____\ \    / /  ____| \ | |__   __| |  ____|  __ \_   _|__   __| |  __ \ /\   / ____|  ____|
+ *     | |__   \ \  / /| |__  |  \| |  | |    | |__  | |  | || |    | |    | |__) /  \ | |  __| |__   
+ *     |  __|   \ \/ / |  __| | . ` |  | |    |  __| | |  | || |    | |    |  ___/ /\ \| | |_ |  __|  
+ *     | |____   \  /  | |____| |\  |  | |    | |____| |__| || |_   | |    | |  / ____ \ |__| | |____ 
+ *     |______|   \/   |______|_| \_|  |_|    |______|_____/_____|  |_|    |_| /_/    \_\_____|______|
+ *                                                                                                    
+ *                                                                                                    
+ */
+
+.editEvent {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+  padding-top: 20px;
+}
+
+.editEvent .profilePicture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid #1877f2;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+
+.editEvent form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 70px;
+}
+
+.editEvent form label {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  padding-left: 35px;
+}
+
+.editEvent form input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 300px;
+  border: 1px solid #a2a2a2;
+  padding: 5px;
+  font-size: 16px;
+}
+.editEvent form label .date {
+  width: 116px;
+  background-color: #e8ceae;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+  margin-right: 16px;
+}
+
+.editEvent form label .time {
+  width: 80px;
+  background-color: #e8ceae;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+  margin-left: 0;
+}
+
+.editEvent form button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 24px;
+  width: 240px;
+  padding: 10px 0;
+  background-color: #1877f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+/***
+ *               _____  _____    ________      ________ _   _ _______   _____        _____ ______ 
+ *         /\   |  __ \|  __ \  |  ____\ \    / /  ____| \ | |__   __| |  __ \ /\   / ____|  ____|
+ *        /  \  | |  | | |  | | | |__   \ \  / /| |__  |  \| |  | |    | |__) /  \ | |  __| |__   
+ *       / /\ \ | |  | | |  | | |  __|   \ \/ / |  __| | . ` |  | |    |  ___/ /\ \| | |_ |  __|  
+ *      / ____ \| |__| | |__| | | |____   \  /  | |____| |\  |  | |    | |  / ____ \ |__| | |____ 
+ *     /_/    \_\_____/|_____/  |______|   \/   |______|_| \_|  |_|    |_| /_/    \_\_____|______|
+ *                                                                                                
+ *                                                                                                
+ */
+
+.addEvent {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+  padding-top: 20px;
+}
+
+.addEvent .profilePicture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid #1877f2;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+
+.addEvent form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 70px;
+}
+
+.addEvent form label {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  padding-left: 35px;
+}
+
+.addEvent form input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 300px;
+  border: 1px solid #a2a2a2;
+  padding: 5px;
+  font-size: 16px;
+}
+.addEvent form label .date {
+  width: 116px;
+  background-color: #e8ceae;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+  margin-right: 16px;
+}
+
+.addEvent form label .time {
+  width: 80px;
+  background-color: #e8ceae;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+  margin-left: 0;
+}
+
+.addEvent form button {
   display: block;
   margin-left: auto;
   margin-right: auto;
