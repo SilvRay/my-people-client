@@ -50,7 +50,7 @@ function EventDetailsPage() {
 
   if (!event) return "loading...";
 
-  if (event.participants.includes(user._id)) {
+  if (event.participants.some(e => e._id = user._id)) {
     participation = true;
   }
 

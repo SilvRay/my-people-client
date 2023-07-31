@@ -18,7 +18,7 @@ function EditEventPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const { eventId } = useParams();
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   // Fonction d'aide pour formater la date et l'heure pour l'élément input
   const formatDateTime = (dateTimeString) => {
@@ -55,7 +55,7 @@ function EditEventPage() {
   }, [eventId]);
 
   const handleSubmit = (e) => {
-    e.preventDeafault();
+    e.preventDefault();
 
     // Combiner la date et l'heure pour former un objet Date valide
     const combinedDateTime = new Date(`${date} ${time}`);
@@ -67,7 +67,6 @@ function EditEventPage() {
       .put(`/api/events/${eventId}`, reqBody)
       .then((response) => {
         setEvent(response.data);
-
         navigate("/profile?tab=events");
       })
       .catch((error) => {
