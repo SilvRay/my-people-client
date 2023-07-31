@@ -11,18 +11,22 @@ function AddEventPage() {
   const [place, setPlace] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [content, setContent] = useState("");
+  const [food, setFood] = useState("");
+  const [game, setGame] = useState("");
+  const [trip, setTrip] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
   const handlePlace = (e) => setPlace(e.target.value);
   const handleDate = (e) => setDate(e.target.value);
   const handleTime = (e) => setTime(e.target.value);
-  const handleContent = (e) => setContent(e.target.value);
+  const handleFood = (e) => setFood(e.target.value);
+  const handleGame = (e) => setGame(e.target.value);
+  const handleTrip = (e) => setTrip(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const reqBody = { type, place, date, time, content };
+    const reqBody = { type, place, date, time, food, game, trip};
 
     myaxios
       .post("/api/events", reqBody)
@@ -56,7 +60,53 @@ function AddEventPage() {
       break;
   }
 
-  return <></>;
+  return (
+    <>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="place"
+          value={place}
+          onChange={handlePlace}
+          placeholder="Place"
+        />
+        <input type="date" name="date" value={date} onChange={handleDate} />
+        <input type="time" name="time" value={time} onChange={handleTime} />
+        {event === "food" && (
+          <input
+            type="text"
+            name="food"
+            value={food}
+            onChange={handleFood}
+            placeholder="What are we eating ?"
+          />
+        )}
+        {event === "game" && (
+          <input
+            type="text"
+            name="game"
+            value={game}
+            onChange={handleGame}
+            placeholder="What are we playing ?"
+          />
+        )}
+        {event === "trip" && (
+          <input
+            type="text"
+            name="trip"
+            value={trip}
+            onChange={handleTrip}
+            placeholder="Where are we going ?"
+          />
+        )}
+        <div className="btn-container">
+          <button type="submit">Create</button>
+        </div>
+      </form>
+      <NavBar />
+    </>
+  );
 }
 
 export default AddEventPage;

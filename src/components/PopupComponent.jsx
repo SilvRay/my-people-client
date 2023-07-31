@@ -15,7 +15,7 @@ function PopupComponent({ popupVisible }) {
           <input type="file" capture="user" />
         </label>
 
-        <Link to="/event/new">
+        <Link to="/event/types">
           <img src="../../images/add.png" alt="add icon" />
           Create an event
         </Link>
