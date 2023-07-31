@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import myaxios from "../myaxios";
 import { useParams, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import { AuthContext } from "../context/auth.context";
 
 function EventDetailsPage() {
+  const { user } = useContext(AuthContext);
   const [event, setEvent] = useState(null);
   const [kidsNb, setKidsNb] = useState(0);
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -11,6 +13,8 @@ function EventDetailsPage() {
   const navigate = useNavigate();
 
   const handleKidsNb = (e) => setKidsNb(e.target.value);
+
+  let participation = false;
 
   useEffect(() => {
     myaxios
@@ -24,8 +28,10 @@ function EventDetailsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    participation = !participation;
+    console.log("participation =", participation);
     myaxios
-      .post(`/api/events/${eventId}/participate"`, kidsNb)
+      .put(`/api/events/${eventId}/participate`, { kidsNb, participation })
       .then((response) => {
         console.log("response", response);
         navigate("/profile");
@@ -44,6 +50,11 @@ function EventDetailsPage() {
 
   if (!event) return "loading...";
 
+  if (event.participants.includes(user._id)) {
+    participation = true;
+  }
+
+  console.log("participation before submit =", participation);
   return (
     <>
       <div className="details-page">
@@ -89,6 +100,7 @@ function EventDetailsPage() {
               {event.participants.map((participant) => {
                 return (
                   <div key={participant._id} className="participant img">
+                    {console.log("participant._id==",participant._id)}
                     <h1>{participant.name}</h1>
                   </div>
                 );
@@ -96,7 +108,11 @@ function EventDetailsPage() {
             </div>
 
             <div className="btn-container">
-              <button type="submit">I will be there</button>
+              {!participation ? (
+                <button type="submit">I will be there</button>
+              ) : (
+                <button type="submit">I am not coming anymore</button>
+              )}
             </div>
           </form>
         </div>
