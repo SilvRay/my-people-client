@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import myaxios from "../myaxios";
 // import { useParams } from "react-router-dom";
 
@@ -7,11 +7,10 @@ function FullscreenMedia({
   onClose,
   setCurrIndex,
   currIndex,
-  posts,
   mediaId,
 }) {
   const [content, setContent] = useState("");
-  // const { mediaId } = useParams();
+  const [comments, setComments] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const handleBackgroundClick = (event) => {
@@ -38,6 +37,18 @@ function FullscreenMedia({
   // Récup le média actuellenment affiché en utilisant
   const currMediaUrl = mediaList[currIndex];
 
+  useEffect(() => {
+    myaxios
+      .get(`/api/medias/${mediaId}/comments`)
+      .then((response) => {
+        setComments(response.data);
+      })
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      });
+  }, [mediaId]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -48,6 +59,10 @@ function FullscreenMedia({
       .then((response) => {
         console.log("response.data====", response.data);
         console.log("content ====", content);
+
+        setContent("");
+        // MAJ du state pour que le commentaire entré s'affiche directement dans les commentaires
+        setComments(response.data.comments);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -78,23 +93,27 @@ function FullscreenMedia({
         </button>
       </div>
       <div className="com-container">
-        {posts.map((post) => {
+        {comments.map((comment) => {
           return (
-            <div key={post._id} className="comment">
-              <img alt="profile picture" />
+            <div key={comment._id} className="comment">
+              <img src={comment.userId.profile_img} alt="profile picture" />
+              <p>{comment.content}</p>
             </div>
           );
         })}
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-          <button>Submit</button>
-        </form>
       </div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Comment..."
+        />
+        <button>
+          <img src="../../images/send.png" />
+        </button>
+      </form>
     </div>
   );
 }

@@ -65,7 +65,7 @@ function AddEventPage() {
   return (
     <div className="addEvent">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
+      <h2>{user.username}</h2>
       <img
         src={user.profile_img}
         alt="profile picture"

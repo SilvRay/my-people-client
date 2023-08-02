@@ -463,11 +463,20 @@ body {
 }
 .com-container {
   width: 100%;
-  padding-top: 10px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: scroll;
+  margin-bottom: 130px;
 }
 
 .com-container .comment {
   padding-left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .com-container .comment img {
@@ -475,6 +484,48 @@ body {
   height: 24px;
   border-radius: 50%;
   border: 1px solid;
+}
+
+.com-container .comment p {
+  color: white;
+  margin: 0;
+}
+
+.fullscreen-modal form {
+  width: 100%;
+  position: absolute;
+  bottom: 80px;
+  display: flex;
+}
+
+.fullscreen-modal form input {
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background-color: #d19b5d;
+  padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+}
+
+.fullscreen-modal form input::placeholder {
+  font-size: 18px;
+}
+
+.fullscreen-modal form button {
+  background-color: transparent;
+  position: absolute;
+  right: 10px;
+  bottom: 2px;
+  border: none;
+}
+
+.fullscreen-modal form button img {
+  width: 30px;
+  height: 30px;
 }
 
 /***
@@ -738,12 +789,12 @@ body {
   box-shadow: 0px 15px 15px -4px rgba(0, 0, 0, 0.8);
 }
 
-.profile .events-container .event-card h3 {
+.profile .events-container .event-card .mine {
   margin: 0;
   width: 100%;
   font-size: 16px;
   text-align: center;
-  background-color: white;
+  background-color: #d19b5d;
   flex: 1;
   line-height: 40px;
   border-radius: 10px 10px 0 0;
@@ -785,6 +836,7 @@ body {
   flex-wrap: wrap;
   margin-top: 20px;
   margin-bottom: 57px;
+  width: 100%;
 }
 
 .profile .posts-profile-container .post {
@@ -1061,6 +1113,10 @@ body {
   align-items: center;
 }
 
+.invitationPage h2 {
+  font-family: "Kaushan Script", cursive;
+}
+
 .invitationPage .profilePic {
   width: 100px;
   height: 100px;
@@ -1142,6 +1198,11 @@ body {
   background-color: #f5e3cd;
   min-height: 100vh;
   padding-top: 20px;
+}
+
+.new-project h2 {
+  text-align: center;
+  font-family: "Kaushan Script", cursive;
 }
 
 .new-project .profile-pic {
@@ -1303,6 +1364,11 @@ body {
   padding-top: 20px;
 }
 
+.addEvent h2 {
+  text-align: center;
+  font-family: "Kaushan Script", cursive;
+}
+
 .addEvent .profilePicture {
   width: 120px;
   height: 120px;
@@ -1355,6 +1421,95 @@ body {
 }
 
 .addEvent form button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 24px;
+  width: 240px;
+  padding: 10px 0;
+  background-color: #1877f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+/***
+ *      _____  _____   ____  ______ _____ _      ______   ______ _____ _____ _______   _____        _____ ______ 
+ *     |  __ \|  __ \ / __ \|  ____|_   _| |    |  ____| |  ____|  __ \_   _|__   __| |  __ \ /\   / ____|  ____|
+ *     | |__) | |__) | |  | | |__    | | | |    | |__    | |__  | |  | || |    | |    | |__) /  \ | |  __| |__   
+ *     |  ___/|  _  /| |  | |  __|   | | | |    |  __|   |  __| | |  | || |    | |    |  ___/ /\ \| | |_ |  __|  
+ *     | |    | | \ \| |__| | |     _| |_| |____| |____  | |____| |__| || |_   | |    | |  / ____ \ |__| | |____ 
+ *     |_|    |_|  \_\\____/|_|    |_____|______|______| |______|_____/_____|  |_|    |_| /_/    \_\_____|______|
+ *                                                                                                               
+ *                                                                                                               
+ */
+
+.profileEdit {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+  padding-top: 20px;
+}
+
+.profileEdit form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 50px;
+}
+
+.profileEdit form label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  gap: 10px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.profileEdit form label .image-icon {
+  position: absolute;
+  bottom: -5px;
+  left: 38%;
+  width: 30px;
+}
+
+.profileEdit form .profilePicture-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profileEdit .addProfilePicture {
+  display: none;
+}
+
+.profileEdit .profilePicture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profileEdit form input {
+  height: 40px;
+  width: 300px;
+  border: 1px solid #a2a2a2;
+  font-size: 16px;
+}
+.profileEdit form .birthday {
+  font-family: "Inter", sans-serif;
+}
+
+.profileEdit form button {
   display: block;
   margin-left: auto;
   margin-right: auto;

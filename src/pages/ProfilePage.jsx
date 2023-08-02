@@ -15,17 +15,28 @@ function ProfilePage() {
   let [searchParams] = useSearchParams();
   const tab = searchParams.get("tab");
 
+  console.log("user ===", user);
+
   const [posts, setPosts] = useState([]);
   const [events, setEvents] = useState([]);
   const [projects, setProjects] = useState([]);
 
   const [showFullscreenMedia, setShowFullscreenMedia] = useState(false);
-  const [fullscreenMediaUrl, setFullscreenMediaUrl] = useState("");
+  const [currIndex, setCurrIndex] = useState(0);
+  const [mediaList, setMediaList] = useState([]);
+  const [mediaId, setMediaId] = useState("");
 
   // fonction qui sera appelée quand le user clique sur l'image pour afficher en plein écran
-  const handleMediaClick = (mediaUrl) => {
-    setFullscreenMediaUrl(mediaUrl);
+  const handleMediaClick = (mediaList, mediaIndex, postId) => {
+    // Passer l'ensemble des médias du post
+    // Pour que le component 'FullscreenMedia' ait accès à la liste complète des médias du post
+    console.log("mediaList ====", mediaList);
+    setMediaList(mediaList);
     setShowFullscreenMedia(true);
+    // setFullscreenMediaUrl(mediaList[mediaIndex]); // Afficher le 1er média du post
+    setCurrIndex(mediaIndex);
+
+    setMediaId(postId);
   };
 
   // fonction appelée pour fermer le plein écran
@@ -78,7 +89,7 @@ function ProfilePage() {
         />
         <h2>{user.username}</h2>
         <img
-          src="../../images/istockphoto-1277186147-612x612.jpg"
+          src={user.profile_img}
           alt="profile picture"
           className="profile-pic"
         />
@@ -105,8 +116,12 @@ function ProfilePage() {
 
       {showFullscreenMedia && (
         <FullscreenMedia
-          mediaUrl={fullscreenMediaUrl}
           onClose={handleCloseFullScreenMedia}
+          setCurrIndex={setCurrIndex}
+          currIndex={currIndex}
+          mediaList={mediaList}
+          posts={posts}
+          mediaId={mediaId}
         />
       )}
 

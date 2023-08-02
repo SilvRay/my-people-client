@@ -22,7 +22,6 @@ function HomePage() {
   const [projects, setProjects] = useState([]);
 
   const [showFullscreenMedia, setShowFullscreenMedia] = useState(false);
-  // const [fullscreenMediaUrl, setFullscreenMediaUrl] = useState("");
   const [currIndex, setCurrIndex] = useState(0);
   const [mediaList, setMediaList] = useState([]);
   const [mediaId, setMediaId] = useState("");
@@ -38,17 +37,6 @@ function HomePage() {
     setCurrIndex(mediaIndex);
 
     setMediaId(postId);
-
-    // myaxios
-    //   .get(`api/medias/${mediaId}`)
-    //   .then((response) => {
-    //     // console.log("response.data ===", response.data);
-    //     setMediaId(response.data);
-    //   })
-    //   .catch((error) => {
-    //     const errorDescription = error.response.data.message;
-    //     setErrorMessage(errorDescription);
-    //   });
   };
 
   // fonction appelée pour fermer le plein écran

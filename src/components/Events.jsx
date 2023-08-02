@@ -23,9 +23,7 @@ function Events({ events, user }) {
     filteredOrNotEvents = filteredOrNotEvents.filter((event) => {
       // console.log("event.participants", event.participants);
       // console.log("user._id", user._id);
-      event.participants.forEach((participant) => {
-        return participant._id === user._id;
-      });
+      return event.participants.includes(user._id);
     });
   }
 

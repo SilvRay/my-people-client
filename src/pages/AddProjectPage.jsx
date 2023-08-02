@@ -38,6 +38,7 @@ function AddProjectPage() {
     <div className="new-project">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
+      <h2>{user.username}</h2>
       <img
         className="profile-pic"
         src={user.profile_img}

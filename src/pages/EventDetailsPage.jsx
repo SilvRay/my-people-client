@@ -34,7 +34,7 @@ function EventDetailsPage() {
       .put(`/api/events/${eventId}/participate`, { kidsNb, participation })
       .then((response) => {
         console.log("response", response);
-        navigate("/profile");
+        navigate("/home?tab=events");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -50,7 +50,7 @@ function EventDetailsPage() {
 
   if (!event) return "loading...";
 
-  if (event.participants.some(e => e._id = user._id)) {
+  if (event.participants.some((e) => (e._id = user._id))) {
     participation = true;
   }
 
@@ -64,7 +64,9 @@ function EventDetailsPage() {
           </div>
           <div>
             <h1>{event.type}</h1>
-            <p className="eventcreation">{event.creator.username}</p>
+            <p className="eventcreation">
+              <strong>{event.creator.username}</strong> event
+            </p>
             <p>
               {" "}
               <strong> Date : </strong>
@@ -100,7 +102,7 @@ function EventDetailsPage() {
               {event.participants.map((participant) => {
                 return (
                   <div key={participant._id} className="participant img">
-                    {console.log("participant._id==",participant._id)}
+                    {console.log("participant._id==", participant._id)}
                     <h1>{participant.name}</h1>
                   </div>
                 );

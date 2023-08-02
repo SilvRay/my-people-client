@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import NavBar from "../components/NavBar";
+import { AuthContext } from "../context/auth.context";
 
 function InvitationPage() {
+  const { user } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [emailsList, setEmailsList] = useState([]); // State pour stocker la liste des e-mails
 
@@ -24,6 +26,7 @@ function InvitationPage() {
 
   return (
     <div className="invitationPage">
+      <h2>{user.username}</h2>
       <img
         className="profilePic"
         src="../../images/profile.png"

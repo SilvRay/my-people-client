@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
 
 function Posts({ posts, handleMediaClick, user }) {
   // Création d'un state pour filtrer les projets à afficher
 
   const [allOrMyPosts, setAllOrMyPosts] = useState("all");
-  const { mediaId } = useParams;
 
   // Fonction pour formater le temps écoulé de manière concise
   const formatTimeAgo = (date) => {
@@ -86,14 +84,12 @@ function Posts({ posts, handleMediaClick, user }) {
                 <span>{formatTimeAgo(new Date(post.createdAt))}</span>
               </div>
               {post.medias.length === 1 ? (
-                <Link to={`/home?tab=medias/${mediaId}`}>
-                  <img
-                    src={post.medias[0]}
-                    alt="media"
-                    className="media"
-                    onClick={() => handleMediaClick(post.medias, 0, post._id)}
-                  />
-                </Link>
+                <img
+                  src={post.medias[0]}
+                  alt="media"
+                  className="media"
+                  onClick={() => handleMediaClick(post.medias, 0, post._id)}
+                />
               ) : (
                 <>
                   <img
