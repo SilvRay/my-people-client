@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import AddGroupPage from "./pages/AddGroupPage";
 import EventDetailsPage from "./pages/EventDetailsPage";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
-import PostDetailsPage from "./pages/PostDetailsPage";
+import AddPostPage from "./pages/AddPostPage";
 import NotificationsPage from "./pages/NotificationsPage";
 import MembersPage from "./pages/MembersPage";
 import ProfilePage from "./pages/ProfilePage";
@@ -74,10 +74,10 @@ function App() {
           }
         />
         <Route
-          path="/posts/:postId"
+          path="/post/new"
           element={
             <IsPrivate>
-              <PostDetailsPage />
+              <AddPostPage />
             </IsPrivate>
           }
         />

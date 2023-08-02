@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import myaxios from "../myaxios.js";
 import NavBar from "../components/NavBar.jsx";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth.context.jsx";
 
 function NotificationsPage() {
+  const { user } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const [notifications, setNotifications] = useState([]);
@@ -146,10 +148,7 @@ function NotificationsPage() {
                   {notifications.map((notification) => {
                     return (
                       <div key={notification._id} className="notif">
-                        <img
-                          src={notification.profile_img}
-                          alt="profile picture"
-                        />
+                        <img src={user.profile_img} alt="profile picture" />
                         <p>
                           <span className="creator">
                             {notification.creator.username}{" "}

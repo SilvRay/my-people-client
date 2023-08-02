@@ -41,6 +41,13 @@ function AuthProviderWrapper({ children }) {
     }
   };
 
+  function refreshUser() {
+    return myaxios.get("/api/user").then((response) => {
+      console.log("response.data ===", response.data);
+      setUser(response.data);
+    });
+  }
+
   const removeToken = () => {
     localStorage.removeItem("authToken");
   };
@@ -62,6 +69,7 @@ function AuthProviderWrapper({ children }) {
     user,
     storeToken,
     authenticateUser,
+    refreshUser,
     logoutUser,
   };
 

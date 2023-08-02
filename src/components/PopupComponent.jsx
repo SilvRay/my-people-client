@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function PopupComponent({ popupVisible }) {
+  const navigate = useNavigate();
+
+  const handleFileChange = (e) => {
+    console.log("e.target.files[0] ===", e.target.files[0]);
+  };
+
   return (
     <div className={`add-popup-container ${popupVisible ? "" : "inactive"}`}>
       <div className="add-popup">
@@ -12,7 +18,7 @@ function PopupComponent({ popupVisible }) {
         <label>
           <img src="../../images/add.png" alt="add icon" />
           Add pictures/videos
-          <input type="file" capture="user" />
+          <input type="file" capture="user" onChange={handleFileChange} />
         </label>
 
         <Link to="/event/types">

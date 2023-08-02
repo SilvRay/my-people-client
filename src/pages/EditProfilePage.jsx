@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import uploadImage from "../services/file-upload.service";
 
 function EditProfilePage() {
-  const { user } = useContext(AuthContext);
+  const { user, refreshUser } = useContext(AuthContext);
   const [profileImg, setProfileImg] = useState("");
   const [username, setUsername] = useState(user.username);
   const [birthday, setBirthday] = useState("");
@@ -41,6 +41,7 @@ function EditProfilePage() {
       .then((response) => {
         console.log("response.data ===", response.data);
 
+        refreshUser();
         navigate("/profile?tab=medias");
       })
       .catch((error) => {
