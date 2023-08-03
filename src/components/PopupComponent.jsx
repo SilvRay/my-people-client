@@ -18,13 +18,14 @@ function PopupComponent({ popupVisible }) {
   };
 
   const handleFilesUpload = (e) => {
-    console.log("e.target.files[0] ===", e.target.files[0]);
-
     console.log("The files to be uploaded are: ", e.target.files);
-
+    const filesToUpload = e.target.files;
+    console.log("here is the first ",filesToUpload[0])
+    console.log("here is the second",filesToUpload[1])
     const uploadDatas = new FormData();
-
-    uploadDatas.append("mediasUrl", e.target.files[0]);
+    for(let el of filesToUpload){
+      uploadDatas.append("mediasUrl", el)
+    }
 
     uploadImage(uploadDatas)
       .then((response) => {
