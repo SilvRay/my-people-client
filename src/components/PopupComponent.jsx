@@ -20,11 +20,23 @@ function PopupComponent({ popupVisible }) {
   const handleFilesUpload = (e) => {
     console.log("The files to be uploaded are: ", e.target.files);
     const filesToUpload = e.target.files;
-    console.log("here is the first ",filesToUpload[0])
-    console.log("here is the second",filesToUpload[1])
+    console.log("here is the first ", filesToUpload[0]);
+    console.log("here is the second", filesToUpload[1]);
     const uploadDatas = new FormData();
-    for(let el of filesToUpload){
-      uploadDatas.append("mediasUrl", el)
+
+    // Vérifier et formater les URLs des images avant de les envoyer à Cloudinary
+    for (let el of filesToUpload) {
+      const fileNameParts = el.name.split(".");
+      const fileExtension =
+        fileNameParts[fileNameParts.length - 1].toLowerCase();
+
+      // Vérifier si l'extension est déjà présente dans l'URL
+      if (!el.name.endsWith(`.${fileExtension}`)) {
+        // Si l'extension est manquante, formater correctement l'URL en ajoutant l'extension
+        el.name = `${el.name}.${fileExtension}`;
+      }
+
+      uploadDatas.append("mediasUrl", el);
     }
 
     uploadImage(uploadDatas)
@@ -50,7 +62,12 @@ function PopupComponent({ popupVisible }) {
         <label>
           <img src="../../images/add.png" alt="add icon" />
           Add pictures/videos
-          <input type="file" capture="user" onChange={handleFilesUpload} multiple/>
+          <input
+            type="file"
+            capture="user"
+            onChange={handleFilesUpload}
+            multiple
+          />
         </label>
 
         <Link to="/event/types">
