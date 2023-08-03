@@ -75,9 +75,11 @@ function FullscreenMedia({
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <div className="modal">
-        <button className="prevMedia" onClick={handlePrevMediaClick}>
-          <img src="../../images/prev-media.png" alt="previous icon" />
-        </button>
+        {mediaList.length > 1 && (
+          <button className="prevMedia" onClick={handlePrevMediaClick}>
+            <img src="../../images/prev-media.png" alt="previous icon" />
+          </button>
+        )}
 
         {currMediaUrl.endsWith(".mp4") ? (
           <video src={currMediaUrl} controls></video>
@@ -88,9 +90,11 @@ function FullscreenMedia({
             className="modal-media"
           />
         )}
-        <button className="nextMedia" onClick={handleNextMediaClick}>
-          <img src="../../images/next-media.png" alt="next icon" />
-        </button>
+        {mediaList.length > 1 && (
+          <button className="nextMedia" onClick={handleNextMediaClick}>
+            <img src="../../images/next-media.png" alt="next icon" />
+          </button>
+        )}
       </div>
       <div className="com-container">
         {comments.map((comment) => {

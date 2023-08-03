@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context.jsx";
 
 function NotificationsPage() {
-  const { user } = useContext(AuthContext);
+  const { user, refreshUser } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const [notifications, setNotifications] = useState([]);
@@ -121,6 +121,7 @@ function NotificationsPage() {
       .then((response) => {
         console.log("Here are the notifications :", response.data);
 
+        refreshUser();
         setNotifications(response.data);
       })
       .catch((error) => {
@@ -148,7 +149,10 @@ function NotificationsPage() {
                   {notifications.map((notification) => {
                     return (
                       <div key={notification._id} className="notif">
-                        <img src={user.profile_img} alt="profile picture" />
+                        <img
+                          src={notification.creator.profile_img}
+                          alt="profile picture"
+                        />
                         <p>
                           <span className="creator">
                             {notification.creator.username}{" "}

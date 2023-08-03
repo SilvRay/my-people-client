@@ -1523,3 +1523,48 @@ body {
   border: none;
   border-radius: 10px;
 }
+
+/***
+ *               _____  _____    _____   ____   _____ _______   _____        _____ ______ 
+ *         /\   |  __ \|  __ \  |  __ \ / __ \ / ____|__   __| |  __ \ /\   / ____|  ____|
+ *        /  \  | |  | | |  | | | |__) | |  | | (___    | |    | |__) /  \ | |  __| |__   
+ *       / /\ \ | |  | | |  | | |  ___/| |  | |\___ \   | |    |  ___/ /\ \| | |_ |  __|  
+ *      / ____ \| |__| | |__| | | |    | |__| |____) |  | |    | |  / ____ \ |__| | |____ 
+ *     /_/    \_\_____/|_____/  |_|     \____/|_____/   |_|    |_| /_/    \_\_____|______|
+ *                                                                                        
+ *                                                                                        
+ */
+
+.addPostPage {
+  background-color: #f5e3cd;
+  min-height: 100vh;
+}
+
+.addPostPage form img {
+  width: 100%;
+}
+
+.addPostPage form textarea {
+  padding: 10px;
+  width: 300px;
+  height: 100px;
+  border: none;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+
+.addPostPage form button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+  width: 240px;
+  padding: 10px 0;
+  background-color: #1877f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}

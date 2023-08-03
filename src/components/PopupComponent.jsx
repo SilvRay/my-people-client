@@ -1,10 +1,41 @@
 import { Link, useNavigate } from "react-router-dom";
+import myaxios from "../myaxios";
+import { useState } from "react";
 
 function PopupComponent({ popupVisible }) {
+  const [mediasUrl, setMediasUrl] = useState("");
+
   const navigate = useNavigate();
 
-  const handleFileChange = (e) => {
+  const uploadImage = (files) => {
+    return myaxios
+      .post("/api/upload", files)
+      .then((res) => {
+        console.log("res.data ===", res.data);
+        return res.data;
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleFilesUpload = (e) => {
     console.log("e.target.files[0] ===", e.target.files[0]);
+
+    console.log("The files to be uploaded are: ", e.target.files);
+
+    const uploadDatas = new FormData();
+
+    uploadDatas.append("mediasUrl", e.target.files[0]);
+
+    uploadImage(uploadDatas)
+      .then((response) => {
+        console.log("response.filesUrl is: ", response.filesUrl);
+        // response carries "fileUrl" which we can use to update the state
+        setMediasUrl(response.filesUrl);
+        navigate(
+          `/post/new?mediasUrl=${encodeURIComponent(response.filesUrl)}`
+        );
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
   };
 
   return (
@@ -18,7 +49,7 @@ function PopupComponent({ popupVisible }) {
         <label>
           <img src="../../images/add.png" alt="add icon" />
           Add pictures/videos
-          <input type="file" capture="user" onChange={handleFileChange} />
+          <input type="file" capture="user" onChange={handleFilesUpload} />
         </label>
 
         <Link to="/event/types">
