@@ -20,6 +20,7 @@ import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
 import { Routes, Route } from "react-router-dom";
+import MemberProfilePage from "./pages/MemberProfilePage";
 
 function App() {
   return (
@@ -166,6 +167,16 @@ function App() {
           element={
             <IsPrivate>
               <EditProjectPage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          exact
+          path="/profile/:userId"
+          element={
+            <IsPrivate>
+              <MemberProfilePage />
             </IsPrivate>
           }
         />

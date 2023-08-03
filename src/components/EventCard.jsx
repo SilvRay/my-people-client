@@ -1,10 +1,6 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
 
 function EventCard({ events }) {
-  const { user } = useContext(AuthContext);
-
   return (
     <div className="events-container">
       {events.map((event) => {

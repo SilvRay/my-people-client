@@ -67,7 +67,7 @@ function SearchPage() {
             value={member}
             onChange={handleMemberInput}
           />
-          <button>Cancel</button>
+          <button onClick={() => setMember("")}>Cancel</button>
         </label>
       </div>
       <div className="searchResults">
@@ -75,7 +75,9 @@ function SearchPage() {
           return (
             <div key={user._id} className="searchResult">
               <img src={user.profile_img} alt="profile picture" />
-              <Link to={`/profile/${user._id}`}>{user.username}</Link>
+              <Link to={`/profile/${user._id}?tab=medias`}>
+                {user.username}
+              </Link>
             </div>
           );
         })}
