@@ -13,7 +13,15 @@ function AddPostPage() {
   const searchParams = new URLSearchParams(location.search);
   const mediasUrl = searchParams.get("mediasUrl");
 
-  console.log("mediasUrl ===", mediasUrl);
+  const uploadImage = (files) => {
+    return myaxios
+      .post("/api/upload", files)
+      .then((res) => {
+        console.log("res.data ===", res.data);
+        return res.data;
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
