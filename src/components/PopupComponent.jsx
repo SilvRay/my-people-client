@@ -50,7 +50,7 @@ function PopupComponent({ popupVisible }) {
         <label>
           <img src="../../images/add.png" alt="add icon" />
           Add pictures/videos
-          <input type="file" capture="user" onChange={handleFilesUpload} />
+          <input type="file" capture="user" onChange={handleFilesUpload} multiple/>
         </label>
 
         <Link to="/event/types">

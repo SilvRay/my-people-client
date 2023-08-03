@@ -12,17 +12,9 @@ function AddPostPage() {
   // Extraire la valeur de mediasUrl à partir des paramètres de recherche
   const searchParams = new URLSearchParams(location.search);
   const mediasUrl = searchParams.get("mediasUrl");
-
-  const uploadImage = (files) => {
-    return myaxios
-      .post("/api/upload", files)
-      .then((res) => {
-        console.log("res.data ===", res.data);
-        return res.data;
-      })
-      .catch((err) => console.log(err));
-  };
-
+ 
+  console.log("medias Url content =", mediasUrl)
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -46,9 +38,9 @@ function AddPostPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <form onSubmit={handleSubmit}>
-        {mediasUrl && (
+        {mediasUrl[0] && (
           <>
-            <img src={mediasUrl} alt="media of the post" />
+            <img src={mediasUrl[0]} alt="media of the post" />
           </>
         )}
         <textarea
