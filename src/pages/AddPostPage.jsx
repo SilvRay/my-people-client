@@ -32,7 +32,7 @@ function AddPostPage() {
 
   // const mediasUrl = searchParams.getAll("mediasUrl"); //Utilisez getAll pour obtenir tous les paramètres 'mediasUrl' sous forme de tableau
 
-  console.log("medias Url content =", mediasUrl);
+  console.log("medias Url content  on AddPostPage=", mediasUrl);
 
   const handlePrevMediaClick = () => {
     setCurrIndex((prevIndex) => {

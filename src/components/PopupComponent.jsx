@@ -1,11 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import myaxios from "../myaxios";
-import { useState } from "react";
+//import { useState } from "react";
 
 function PopupComponent({ popupVisible }) {
-  const [mediasUrl, setMediasUrl] = useState([]);
+  //const [mediasUrl, setMediasUrl] = useState([]);
 
   const navigate = useNavigate();
+
+//console.log("mediaUrl at the beginning=",mediasUrl)
 
   // route to upload Img on cloudinary. Return an array of img url
   const uploadImage = (files) => {
@@ -44,18 +46,15 @@ function PopupComponent({ popupVisible }) {
       .then((response) => {
         console.log("response.filesUrl is: ", response.filesUrl);
         // response carries "fileUrl" which we can use to update the state
-        setMediasUrl(response.filesUrl);
-        console.log("mediaUrl after setMediaUrl==",mediasUrl)
-      })
-       // Création du post avec uniquement les images. On renvoit sur une route Add Post où on rajotuera la légende
-      .then(() => {
-        console.log("mediaUrl to create post is ==", mediasUrl)
-        myaxios.post("/api/medias", mediasUrl)
+
+        return myaxios.post("/api/medias", response.filesUrl)
         .then((response) => {
           console.log("The post created ===", response.data);
-        navigate(`/post/new/${response.data._id}`);
+          navigate(`/post/new/${response.data._id}`);
         })
+        //console.log("mediaUrl after setMediasUrl==",mediasUrl)
       })
+       // Création du post avec uniquement les images. On renvoie sur une route Add Post où on rajotuera la légende
 
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
