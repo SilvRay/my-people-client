@@ -1540,7 +1540,44 @@ body {
   min-height: 100vh;
 }
 
-.addPostPage form img {
+.addPostPage .nav-medias {
+  position: relative;
+}
+
+.addPostPage .nav-medias .prevMedia-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 375px;
+  padding: 0;
+}
+
+.addPostPage .nav-medias .prevMedia {
+  width: 24px;
+  height: 24px;
+}
+
+.addPostPage .nav-medias .nextMedia-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 375px;
+  padding: 0;
+}
+
+.addPostPage .nav-medias .nextMedia {
+  width: 24px;
+  height: 24px;
+}
+
+.addPostPage .nav-medias button {
+  background-color: transparent;
+  border: none;
+}
+
+.addPostPage img {
   width: 100%;
 }
 

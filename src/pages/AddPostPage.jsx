@@ -6,8 +6,7 @@ import NavBar from "../components/NavBar";
 function AddPostPage() {
   const [legend, setLegend] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [mediasUrl, setMediasUrl] = useState([])
-
+  const [mediasUrl, setMediasUrl] = useState([]);
 
   const [currIndex, setCurrIndex] = useState(0);
 
@@ -24,31 +23,25 @@ function AddPostPage() {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
-  }, []);
-  // const location = useLocation();
-  // // Extraire la valeur de mediasUrl à partir des paramètres de recherche
-  // const searchParams = new URLSearchParams(location.search);
-
-
-  // const mediasUrl = searchParams.getAll("mediasUrl"); //Utilisez getAll pour obtenir tous les paramètres 'mediasUrl' sous forme de tableau
+  }, [mediaId]);
 
   console.log("medias Url content  on AddPostPage=", mediasUrl);
 
   const handlePrevMediaClick = () => {
     setCurrIndex((prevIndex) => {
-      // S'assurer que l'index ne devient pas négatif
+      // S'assurer que l'index ne devient pas nÃ©gatif
       return prevIndex > 0 ? prevIndex - 1 : 0;
     });
   };
 
   const handleNextMediaClick = () => {
     setCurrIndex((prevIndex) => {
-      // S'assurer que l'index ne dépasse pas la longueur de la liste des médias
+      // S'assurer que l'index ne dÃ©passe pas la longueur de la liste des mÃ©dias
       return prevIndex < mediasUrl.length - 1 ? prevIndex + 1 : prevIndex;
     });
   };
 
-  // Récup le média actuellenment affiché en utilisant
+  // RÃ©cup le mÃ©dia actuellenment affichÃ© en utilisant
   const currMediaUrl = mediasUrl[currIndex];
 
   const handleSubmit = (e) => {
@@ -72,25 +65,35 @@ function AddPostPage() {
   return (
     <div className="addPostPage">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {/* Si plusieurs mÃ©dias sont disponibles, afficher une liste d'images avec des boutons de navigation */}
+      {mediasUrl.length > 1 ? (
+        <div className="nav-medias">
+          <button className="prevMedia-btn" onClick={handlePrevMediaClick}>
+            <img
+              className="prevMedia"
+              src="../../images/prev-media.png"
+              alt="previous icon"
+            />
+          </button>
+
+          <img src={currMediaUrl} alt="media of the post" />
+
+          <button className="nextMedia-btn" onClick={handleNextMediaClick}>
+            <img
+              className="nextMedia"
+              src="../../images/next-media.png"
+              alt="next icon"
+            />
+          </button>
+        </div>
+      ) : (
+        // Sinon, afficher simplement l'image unique
+        <>
+          <img src={mediasUrl[0]} alt="media of the post" />
+        </>
+      )}
 
       <form onSubmit={handleSubmit}>
-        {/* Si plusieurs médias sont disponibles, afficher une liste d'images avec des boutons de navigation */}
-        {mediasUrl.length > 1 ? (
-          <>
-            <button className="prevMedia" onClick={handlePrevMediaClick}>
-              <img src="../../images/prev-media.png" alt="previous icon" />
-            </button>
-            <img src={currMediaUrl} alt="media of the post" />
-            <button className="nextMedia" onClick={handleNextMediaClick}>
-              <img src="../../images/next-media.png" alt="next icon" />
-            </button>
-          </>
-        ) : (
-          // Sinon, afficher simplement l'image unique
-          <>
-            <img src={mediasUrl[0]} alt="media of the post" />
-          </>
-        )}
         <textarea
           name="legend"
           value={legend}
