@@ -1,19 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import myaxios from "../myaxios";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
 
 function AddPostPage() {
   const [legend, setLegend] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [mediasUrl, setMediasUrl] = useState([])
+
 
   const [currIndex, setCurrIndex] = useState(0);
 
   const navigate = useNavigate();
-  const location = useLocation();
-  // Extraire la valeur de mediasUrl à partir des paramètres de recherche
-  const searchParams = new URLSearchParams(location.search);
-  const mediasUrl = searchParams.getAll("mediasUrl"); //Utilisez getAll pour obtenir tous les paramètres 'mediasUrl' sous forme de tableau
+  const { mediaId } = useParams();
+
+  useEffect(() => {
+    myaxios
+      .get(`/api/medias/${mediaId}`)
+      .then((response) => {
+        setMediasUrl(response.data.medias);
+      })
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      });
+  }, []);
+  // const location = useLocation();
+  // // Extraire la valeur de mediasUrl à partir des paramètres de recherche
+  // const searchParams = new URLSearchParams(location.search);
+
+
+  // const mediasUrl = searchParams.getAll("mediasUrl"); //Utilisez getAll pour obtenir tous les paramètres 'mediasUrl' sous forme de tableau
 
   console.log("medias Url content =", mediasUrl);
 
@@ -37,10 +54,10 @@ function AddPostPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const reqBody = { legend, mediasUrl };
+    const reqBody = { legend };
 
     myaxios
-      .post("/api/medias", reqBody)
+      .put(`/api/medias/${mediaId}/legend`, reqBody)
       .then((response) => {
         console.log("The post created ===", response.data);
 

@@ -75,7 +75,7 @@ function App() {
           }
         />
         <Route
-          path="/post/new"
+          path="/post/new/:mediaId"
           element={
             <IsPrivate>
               <AddPostPage />
