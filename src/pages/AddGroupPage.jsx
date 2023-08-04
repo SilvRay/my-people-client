@@ -18,7 +18,7 @@ function AddGroupPage() {
       .post("/api/groups", reqBody)
       .then((response) => {
         console.log("response", response);
-        navigate("/invite");
+        navigate(`/invite`);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

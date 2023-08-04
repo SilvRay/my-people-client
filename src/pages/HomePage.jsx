@@ -117,10 +117,13 @@ function HomePage() {
       {!group ? (
         <>
           <p className="alert">You do not have any of your people right now</p>
+          <Link to="/new-group">
           <div className="new-group-container">
+            
             <img src="../../images/Group-new.png" alt="add-icon" />
             <p>Create your group</p>
           </div>
+          </Link>
         </>
       ) : (
         <>

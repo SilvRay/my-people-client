@@ -1,11 +1,16 @@
 import { useContext, useState } from "react";
 import NavBar from "../components/NavBar";
 import { AuthContext } from "../context/auth.context";
+import myaxios from "../myaxios";
+import { useNavigate, useParams } from "react-router-dom";
 
 function InvitationPage() {
   const { user } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [emailsList, setEmailsList] = useState([]); // State pour stocker la liste des e-mails
+  const {groupId} = useParams()
+
+  const navigate = useNavigate()
 
   const handleEmailInput = (e) => setEmail(e.target.value);
 
@@ -24,6 +29,17 @@ function InvitationPage() {
     setEmailsList(updatedEmailsList);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    myaxios
+      .put(`api/group`, {emailsList})
+      .then((response) => {
+        console.log("response", response);
+        navigate("/home?tab=events");
+      })
+      .catch((error) => console.log(error))
+  };
+
   return (
     <div className="invitationPage">
       <h2>{user.username}</h2>
@@ -32,7 +48,7 @@ function InvitationPage() {
         src="../../images/profile.png"
         alt="profile picture"
       />
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="invitation">
           <input
             type="text"
