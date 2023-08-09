@@ -16,6 +16,7 @@ function ProfilePage() {
   const tab = searchParams.get("tab");
 
   console.log("user ===", user);
+  console.log("tab ===", tab)
 
   const [posts, setPosts] = useState([]);
   const [events, setEvents] = useState([]);
