@@ -3,7 +3,7 @@ import { AuthContext } from "../context/auth.context";
 import NavBar from "../components/NavBar";
 import myaxios from "../myaxios";
 import { useNavigate } from "react-router-dom";
-import uploadImage from "../services/file-upload.service";
+import { uploadImageProfile } from "../services/file-upload.service";
 
 function EditProfilePage() {
   const { user, refreshUser } = useContext(AuthContext);
@@ -22,9 +22,9 @@ function EditProfilePage() {
 
     formData.append("profileImg", e.target.files[0]);
 
-    uploadImage(formData)
+    uploadImageProfile(formData)
       .then((response) => {
-        console.log("response is: ", response);
+        console.log("response is: ", response.imageUrl);
         // response carries "fileUrl" which we can use to update the state
         setProfileImg(response.imageUrl);
       })
@@ -53,8 +53,7 @@ function EditProfilePage() {
   return (
     <div className="profileEdit">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <form onSubmit={handleSubmit}>
+      <form encType="multipart/form-data" onSubmit={handleSubmit}>
         <label className="profilePicture-container">
           <img
             className="image-icon"
@@ -90,7 +89,7 @@ function EditProfilePage() {
             type="date"
             name="birthday"
             value={birthday}
-            onChange={(e) => setBirthday(e.target.value)}
+            onChange={(e) => setBirthday(e.target)}
           />
         </label>
 

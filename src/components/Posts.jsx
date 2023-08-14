@@ -80,8 +80,8 @@ function Posts({ posts, handleMediaClick, user }) {
                   }
                   alt="profile picture of the user"
                 />
-                <h3>{post.creator.username}</h3>{" "}
-                <span>{formatTimeAgo(new Date(post.createdAt))}</span>
+                <h3>{post.creator.username}</h3>
+                <span> {formatTimeAgo(new Date(post.createdAt))}</span>
               </div>
               {post.medias.length === 1 ? (
                 <img

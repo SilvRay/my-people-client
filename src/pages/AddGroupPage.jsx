@@ -1,8 +1,11 @@
 import myaxios from "../myaxios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../context/auth.context";
+import NavBar from "../components/NavBar";
 
 function AddGroupPage() {
+  const { user, refreshUser } = useContext(AuthContext);
   const [name, setGroupName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -18,6 +21,8 @@ function AddGroupPage() {
       .post("/api/groups", reqBody)
       .then((response) => {
         console.log("response", response);
+
+        refreshUser();
         navigate(`/invite`);
       })
       .catch((error) => {
@@ -27,10 +32,15 @@ function AddGroupPage() {
   };
 
   return (
-    <div className="signupPage">
-      <div>
-        <img src="#" alt="profile img" />  
-      </div>
+    <div className="addGroup-page">
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+      <img
+        className="profilePicture"
+        src={user.profile_img}
+        alt="profile img"
+      />
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -39,12 +49,11 @@ function AddGroupPage() {
           onChange={handleGroupName}
           placeholder="Group name"
         />
-        <div className="btn-container">
-          <button type="submit">Create your group</button>
-        </div>
+
+        <button type="submit">Create your group</button>
       </form>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <NavBar />
     </div>
   );
 }

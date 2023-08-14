@@ -2,22 +2,21 @@ import { useContext, useState } from "react";
 import NavBar from "../components/NavBar";
 import { AuthContext } from "../context/auth.context";
 import myaxios from "../myaxios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function InvitationPage() {
   const { user } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [emailsList, setEmailsList] = useState([]); // State pour stocker la liste des e-mails
-  const {groupId} = useParams()
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleEmailInput = (e) => setEmail(e.target.value);
 
   const handleAllEmails = () => {
     // Ajouter l'e-mail à la liste existante
     setEmailsList([...emailsList, email]);
-    // Réinitialiser l'entrée e-mail après l'ajout
+    // RÃ©initialiser l'entrÃ©e e-mail aprÃ¨s l'ajout
     setEmail("");
   };
 
@@ -32,12 +31,12 @@ function InvitationPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     myaxios
-      .put(`api/group`, {emailsList})
+      .put(`api/group`, { emailsList })
       .then((response) => {
         console.log("response", response);
         navigate("/home?tab=events");
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   };
 
   return (

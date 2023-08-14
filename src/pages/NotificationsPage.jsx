@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context.jsx";
 
 function NotificationsPage() {
-  const { user, refreshUser } = useContext(AuthContext);
+  const { refreshUser } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const [notifications, setNotifications] = useState([]);

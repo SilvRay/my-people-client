@@ -105,7 +105,6 @@ function MemberProfilePage() {
           alt="profile picture"
           className="profile-pic"
         />
-        <Link to="/profile/edit">Edit your profile</Link>
       </div>
 
       <div className="tabs-container">

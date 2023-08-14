@@ -1,12 +1,12 @@
 import myaxios from "../myaxios";
 
 const errorHandler = (err) => {
-  throw err;
+  console.log(err);
 };
 
-const uploadImage = (files) => {
+export const uploadImagePost = (files) => {
   return myaxios
-    .post("/api/upload", files)
+    .post("/api/upload/post", files)
     .then((res) => {
       console.log("res.data ===", res.data);
       return res.data;
@@ -14,4 +14,12 @@ const uploadImage = (files) => {
     .catch(errorHandler);
 };
 
-export default uploadImage;
+export const uploadImageProfile = (files) => {
+  return myaxios
+    .post("/api/upload/profileImg", files)
+    .then((res) => {
+      console.log("res.data ===", res.data);
+      return res.data;
+    })
+    .catch(errorHandler);
+};

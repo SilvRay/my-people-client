@@ -6,8 +6,8 @@ import EventDetailsPage from "./pages/EventDetailsPage";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 import AddPostPage from "./pages/AddPostPage";
 import NotificationsPage from "./pages/NotificationsPage";
-import MembersPage from "./pages/MembersPage";
 import ProfilePage from "./pages/ProfilePage";
+import MemberProfilePage from "./pages/MemberProfilePage";
 import AddProjectPage from "./pages/AddProjectPage";
 import InvitationPage from "./pages/InvitationPage";
 import ChooseEventPage from "./pages/ChooseEventPage";
@@ -20,7 +20,6 @@ import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
 import { Routes, Route } from "react-router-dom";
-import MemberProfilePage from "./pages/MemberProfilePage";
 
 function App() {
   return (
@@ -98,14 +97,7 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route
-          path="/:groupId"
-          element={
-            <IsPrivate>
-              <MembersPage />
-            </IsPrivate>
-          }
-        />
+
         <Route
           path="/invite"
           element={

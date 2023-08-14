@@ -34,7 +34,7 @@ function AddEventPage() {
       .post("/api/events", reqBody)
       .then((response) => {
         console.log("response", response);
-        navigate("/profile");
+        navigate("/profile?tab=events");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
