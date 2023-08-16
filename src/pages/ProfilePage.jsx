@@ -89,7 +89,7 @@ function ProfilePage() {
         />
         <h2>{user.username}</h2>
         <img
-          src={user.profile_img}
+          src={user.profileImg}
           alt="profile picture"
           className="profile-pic"
         />

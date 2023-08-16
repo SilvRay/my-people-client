@@ -14,7 +14,6 @@ import ChooseEventPage from "./pages/ChooseEventPage";
 import AddEventPage from "./pages/AddEventPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import EditEventPage from "./pages/EditEventPage";
-import EditProjectPage from "./pages/EditProjectPage";
 import SearchPage from "./pages/SearchPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
@@ -151,14 +150,6 @@ function App() {
           element={
             <IsPrivate>
               <EditEventPage />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/projects/:projectId/edit"
-          element={
-            <IsPrivate>
-              <EditProjectPage />
             </IsPrivate>
           }
         />

@@ -79,7 +79,7 @@ function EditEventPage() {
     <div className="editEvent">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <img
-        src={user.profile_img}
+        src={user.profileImg}
         alt="profile picture"
         className="profilePicture"
       />

@@ -41,7 +41,7 @@ function AddProjectPage() {
       <h2>{user.username}</h2>
       <img
         className="profile-pic"
-        src={user.profile_img}
+        src={user.profileImg}
         alt="profile picture"
       />
       <form onSubmit={handleSubmit}>

@@ -11,7 +11,7 @@ function ChooseEventPage() {
       <p>{user.username}</p>
       <img
         className="profilePicture"
-        src={user.profile_img}
+        src={user.profileImg}
         alt="profile picture"
       />
 

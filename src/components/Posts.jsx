@@ -75,7 +75,7 @@ function Posts({ posts, handleMediaClick, user }) {
               <div className="whos-post">
                 <img
                   src={
-                    post.creator.profile_img ||
+                    post.creator.profileImg ||
                     "https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user-64.png"
                   }
                   alt="profile picture of the user"

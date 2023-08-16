@@ -150,7 +150,7 @@ function NotificationsPage() {
                     return (
                       <div key={notification._id} className="notif">
                         <img
-                          src={notification.creator.profile_img}
+                          src={notification.creator.profileImg}
                           alt="profile picture"
                         />
                         <p>

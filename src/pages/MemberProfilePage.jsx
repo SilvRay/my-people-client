@@ -101,7 +101,7 @@ function MemberProfilePage() {
       <div className="head">
         <h2>{userProfile.username}</h2>
         <img
-          src={userProfile.profile_img}
+          src={userProfile.profileImg}
           alt="profile picture"
           className="profile-pic"
         />

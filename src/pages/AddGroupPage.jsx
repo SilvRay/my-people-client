@@ -35,11 +35,7 @@ function AddGroupPage() {
     <div className="addGroup-page">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <img
-        className="profilePicture"
-        src={user.profile_img}
-        alt="profile img"
-      />
+      <img className="profilePicture" src={user.profileImg} alt="profile img" />
 
       <form onSubmit={handleSubmit}>
         <input

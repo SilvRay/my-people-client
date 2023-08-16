@@ -67,7 +67,7 @@ function AddEventPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <h2>{user.username}</h2>
       <img
-        src={user.profile_img}
+        src={user.profileImg}
         alt="profile picture"
         className="profilePicture"
       />

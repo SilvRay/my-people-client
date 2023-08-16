@@ -100,7 +100,7 @@ function FullscreenMedia({
         {comments.map((comment) => {
           return (
             <div key={comment._id} className="comment">
-              <img src={comment.userId.profile_img} alt="profile picture" />
+              <img src={comment.userId.profileImg} alt="profile picture" />
               <p>{comment.content}</p>
             </div>
           );

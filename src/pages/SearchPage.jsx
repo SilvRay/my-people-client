@@ -74,7 +74,7 @@ function SearchPage() {
         {searchResults.map((user) => {
           return (
             <div key={user._id} className="searchResult">
-              <img src={user.profile_img} alt="profile picture" />
+              <img src={user.profileImg} alt="profile picture" />
               <Link to={`/profile/${user._id}?tab=medias`}>
                 {user.username}
               </Link>
