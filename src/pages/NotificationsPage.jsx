@@ -128,7 +128,7 @@ function NotificationsPage() {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
-  }, []);
+  }, [refreshUser]);
 
   return (
     <div className="notif-page">
