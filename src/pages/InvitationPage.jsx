@@ -44,7 +44,7 @@ function InvitationPage() {
       <h2>{user.username}</h2>
       <img
         className="profilePic"
-        src="../../images/profile.png"
+        src="../../public/images/profile.png"
         alt="profile picture"
       />
       <form onSubmit={handleSubmit}>
@@ -63,7 +63,7 @@ function InvitationPage() {
           {emailsList.map((email, index) => (
             <section key={index}>
               <img
-                src="../../images/cancel.png"
+                src="../../public/images/cancel.png"
                 alt="a cross"
                 onClick={() => handleCancelEmail(index)}
               />

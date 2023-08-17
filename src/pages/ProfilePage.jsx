@@ -82,7 +82,7 @@ function ProfilePage() {
     <div className="profile">
       <div className="head">
         <img
-          src="../../images/logout.png"
+          src="../../public/images/logout.png"
           alt="logout icon"
           className="logout"
           onClick={logoutUser}
@@ -98,13 +98,13 @@ function ProfilePage() {
 
       <div className="tabs-container">
         <Link to="/profile?tab=medias">
-          <img src="../../images/grid-icon.png" alt="medias-icon" />
+          <img src="../../public/images/grid-icon.png" alt="medias-icon" />
         </Link>
         <Link to="/profile?tab=events">
-          <img src="../../images/event-icon.png" alt="events-icon" />
+          <img src="../../public/images/event-icon.png" alt="events-icon" />
         </Link>
         <Link to="/profile?tab=projects">
-          <img src="../../images/project-icon.png" alt="projects-icon" />
+          <img src="../../public/images/project-icon.png" alt="projects-icon" />
         </Link>
       </div>
 

@@ -20,7 +20,7 @@ function PostMosaic({ posts, handleMediaClick }) {
                   onClick={() => handleMediaClick(post.medias, 0)}
                 />
                 <img
-                  src="../../images/multiple.png"
+                  src="../../public/images/multiple.png"
                   alt="multiple medias icon"
                   className="multiple-medias-icon"
                 />

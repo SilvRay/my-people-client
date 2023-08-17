@@ -18,19 +18,19 @@ function NavBar() {
     <>
       <div className="navbar">
         <Link to="/home?tab=medias">
-          <img src="../../images/home-icon.png" alt="homepage icon" />
+          <img src="../../public/images/home-icon.png" alt="homepage icon" />
         </Link>
         <Link to="/notifications">
-          <img src="../../images/notif.png" alt="notification icon" />
+          <img src="../../public/images/notif.png" alt="notification icon" />
         </Link>
         <Link to="/search">
-          <img src="../../images/search.png" alt="search icon" />
+          <img src="../../public/images/search.png" alt="search icon" />
         </Link>
         <Link to="/profile?tab=medias">
-          <img src="../../images/profile.png" alt="profile icon" />
+          <img src="../../public/images/profile.png" alt="profile icon" />
         </Link>
         <button onClick={popupVisible ? handleClosePopup : handlePopupClick}>
-          <img src="../../images/add.png" />
+          <img src="../../public/images/add.png" />
         </button>
       </div>
       <PopupComponent popupVisible={popupVisible} />

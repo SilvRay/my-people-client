@@ -15,14 +15,13 @@ function ProjectDetailsPage() {
         setProject(oneProject);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [projectId]);
 
   // Fonction pour formater l'heure au format HH:MM
-  const formatTime = (date) => {
-    const options = { hour: "2-digit", minute: "2-digit" };
-    return new Date(date).toLocaleTimeString(undefined, options);
-  };
-
+  // const formatTime = (date) => {
+  //   const options = { hour: "2-digit", minute: "2-digit" };
+  //   return new Date(date).toLocaleTimeString(undefined, options);
+  // };
 
   if (!project) return "loading...";
 
@@ -30,17 +29,18 @@ function ProjectDetailsPage() {
     <>
       <div className="project-page">
         <div>
-          <img src={`../../images/project-img.jpg`} alt="project-img" />
+          <img src={`../../public/images/project-img.jpg`} alt="project-img" />
         </div>
         <div>
           <p>
-            {project.creator.username} created the {new Date(project.createdAt).toLocaleDateString()}
+            {project.creator.username} created the{" "}
+            {new Date(project.createdAt).toLocaleDateString()}
           </p>
           <h1>{project.title}</h1>
           <p>{project.description}</p>
         </div>
       </div>
-      <NavBar/>
+      <NavBar />
     </>
   );
 }

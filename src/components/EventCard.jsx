@@ -7,7 +7,7 @@ function EventCard({ events }) {
         return (
           <div key={event._id} className="event-card">
             <h3 className="mine">{event.type}</h3>
-            <img src={`../../images/${event.type}.jpg`} alt="" />
+            <img src={`../../public/images/${event.type}.jpg`} alt="" />
             <Link to={`/events/${event._id}/edit`}>Edit</Link>
           </div>
         );

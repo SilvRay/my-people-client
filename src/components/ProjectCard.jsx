@@ -8,7 +8,7 @@ function ProjectCard({ projects }) {
           <div key={project._id} className="project-card">
             <h3>{project.title}</h3>
             <img
-              src="../../images/project-img.jpg"
+              src="../../public/images/project-img.jpg"
               alt="a working group in a library"
             />
             <div className="btns-container">

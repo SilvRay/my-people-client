@@ -42,12 +42,12 @@ function PopupComponent({ popupVisible }) {
     <div className={`add-popup-container ${popupVisible ? "" : "inactive"}`}>
       <div className="add-popup">
         <Link to="/invite">
-          <img src="../../images/add.png" alt="add icon" />
+          <img src="../../public/images/add.png" alt="add icon" />
           invite your people
         </Link>
 
         <label>
-          <img src="../../images/add.png" alt="add icon" />
+          <img src="../../public/images/add.png" alt="add icon" />
           Add pictures/videos
           <input
             type="file"
@@ -58,12 +58,12 @@ function PopupComponent({ popupVisible }) {
         </label>
 
         <Link to="/event/types">
-          <img src="../../images/add.png" alt="add icon" />
+          <img src="../../public/images/add.png" alt="add icon" />
           Create an event
         </Link>
 
         <Link to="/project/new">
-          <img src="../../images/add.png" alt="add icon" />
+          <img src="../../public/images/add.png" alt="add icon" />
           Create a project
         </Link>
       </div>
