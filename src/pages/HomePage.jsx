@@ -98,13 +98,13 @@ function HomePage() {
 
       <div className="tabs-container">
         <Link to="/home?tab=medias">
-          <img src="../../public/images/grid-icon.png" alt="medias-icon" />
+          <img src="/images/grid-icon.png" alt="medias-icon" />
         </Link>
         <Link to="/home?tab=events">
-          <img src="../../public/images/event-icon.png" alt="events-icon" />
+          <img src="/images/event-icon.png" alt="events-icon" />
         </Link>
         <Link to="/home?tab=projects">
-          <img src="../../public/images/project-icon.png" alt="projects-icon" />
+          <img src="/images/project-icon.png" alt="projects-icon" />
         </Link>
       </div>
 
@@ -119,7 +119,7 @@ function HomePage() {
           <p className="alert">You do not have any of your people right now</p>
           <Link className="new-group-link" to="/new-group">
             <div className="new-group-container">
-              <img src="../../public/images/Group-new.png" alt="add-icon" />
+              <img src="/images/Group-new.png" alt="add-icon" />
               <p>Create your group</p>
             </div>
           </Link>

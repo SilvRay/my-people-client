@@ -59,7 +59,7 @@ function SearchPage() {
       <h1>{group.name}</h1>
       <div className="searchBar">
         <label>
-          <img src="../../public/images/search-members.png" />
+          <img src="/images/search-members.png" />
           <input
             id="member-search"
             type="text"

@@ -29,7 +29,7 @@ function ProjectDetailsPage() {
     <>
       <div className="project-page">
         <div>
-          <img src={`../../public/images/project-img.jpg`} alt="project-img" />
+          <img src={`/images/project-img.jpg`} alt="project-img" />
         </div>
         <div>
           <p>

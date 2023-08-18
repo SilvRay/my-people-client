@@ -23,7 +23,7 @@ function Projects({ projects, user }) {
       <div className="filters">
         <span>
           <img
-            src={`../../public/images/selected-${
+            src={`/images/selected-${
               allOrMyProjects === "all" ? "true" : "false"
             }.png`}
             alt="selection button"
@@ -33,7 +33,7 @@ function Projects({ projects, user }) {
         </span>
         <span>
           <img
-            src={`../../public/images/selected-${
+            src={`/images/selected-${
               allOrMyProjects === "my" ? "true" : "false"
             }.png`}
             alt="selection button"
@@ -49,7 +49,7 @@ function Projects({ projects, user }) {
             <div key={project._id} className="project-card">
               <h3>{project.title}</h3>
               <img
-                src="../../public/images/project-img.jpg"
+                src="/images/project-img.jpg"
                 alt="a working group in a library"
               />
               <div className="btns-container">

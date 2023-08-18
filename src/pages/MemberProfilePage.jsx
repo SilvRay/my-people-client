@@ -109,13 +109,13 @@ function MemberProfilePage() {
 
       <div className="tabs-container">
         <Link to={`/profile/${userId}?tab=medias`}>
-          <img src="../../public/images/grid-icon.png" alt="medias-icon" />
+          <img src="/images/grid-icon.png" alt="medias-icon" />
         </Link>
         <Link to={`/profile/${userId}?tab=events`}>
-          <img src="../../public/images/event-icon.png" alt="events-icon" />
+          <img src="/images/event-icon.png" alt="events-icon" />
         </Link>
         <Link to={`/profile/${userId}?tab=projects`}>
-          <img src="../../public/images/project-icon.png" alt="projects-icon" />
+          <img src="/images/project-icon.png" alt="projects-icon" />
         </Link>
       </div>
 

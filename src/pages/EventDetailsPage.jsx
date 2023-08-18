@@ -60,7 +60,7 @@ function EventDetailsPage() {
       <div className="details-page">
         <div className="event-details-header">
           <div>
-            <img src={`../../public/images/${event.type}.jpg`} alt="" />
+            <img src={`/images/${event.type}.jpg`} alt="" />
           </div>
           <div>
             <h1>{event.type}</h1>

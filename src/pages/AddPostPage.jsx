@@ -71,7 +71,7 @@ function AddPostPage() {
           <button className="prevMedia-btn" onClick={handlePrevMediaClick}>
             <img
               className="prevMedia"
-              src="../../public/images/prev-media.png"
+              src="/images/prev-media.png"
               alt="previous icon"
             />
           </button>
@@ -81,7 +81,7 @@ function AddPostPage() {
           <button className="nextMedia-btn" onClick={handleNextMediaClick}>
             <img
               className="nextMedia"
-              src="../../public/images/next-media.png"
+              src="/images/next-media.png"
               alt="next icon"
             />
           </button>

@@ -48,7 +48,7 @@ function Posts({ posts, handleMediaClick, user }) {
       <div className="filters">
         <span>
           <img
-            src={`../../public/images/selected-${
+            src={`/images/selected-${
               allOrMyPosts === "all" ? "true" : "false"
             }.png`}
             alt="selection button"
@@ -58,7 +58,7 @@ function Posts({ posts, handleMediaClick, user }) {
         </span>
         <span>
           <img
-            src={`../../public/images/selected-${
+            src={`/images/selected-${
               allOrMyPosts === "my" ? "true" : "false"
             }.png`}
             alt="selection button"
@@ -99,7 +99,7 @@ function Posts({ posts, handleMediaClick, user }) {
                     onClick={() => handleMediaClick(post.medias, 0, post._id)}
                   />
                   <img
-                    src="../../public/images/multiple.png"
+                    src="/images/multiple.png"
                     alt="multiple medias icon"
                     className="multiple-medias-icon"
                   />
