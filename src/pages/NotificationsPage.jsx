@@ -132,47 +132,49 @@ function NotificationsPage() {
 
   return (
     <div className="notif-page">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <main>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <h2>Notifications</h2>
+        <h2>Notifications</h2>
 
-      <div className="notif-container">
-        {/* Parcourir l'objet contenant les notifs groupées */}
-        {Object.entries(groupedNotifications).map(
-          ([timeLabel, notifications]) => {
-            return (
-              <>
-                <div key={timeLabel} className="notifs">
-                  {/* Afficher le libellé de temps */}
-                  <h3>{timeLabel}</h3>
-                  {/* Parcourir les notifs sous le même libellé de temps */}
-                  {notifications.map((notification) => {
-                    return (
-                      <div key={notification._id} className="notif">
-                        <img
-                          src={notification.creator.profileImg}
-                          alt="profile picture"
-                        />
-                        <p>
-                          <span className="creator">
-                            {notification.creator.username}{" "}
-                          </span>
-                          {notifMessage(notification)}
-                          <span className="time">
-                            {formatTimeAgo(new Date(notification.createdAt))}
-                          </span>
-                        </p>
-                        <Link>See</Link>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="outline"></div>
-              </>
-            );
-          }
-        )}
-      </div>
+        <div className="notif-container">
+          {/* Parcourir l'objet contenant les notifs groupées */}
+          {Object.entries(groupedNotifications).map(
+            ([timeLabel, notifications]) => {
+              return (
+                <>
+                  <div key={timeLabel} className="notifs">
+                    {/* Afficher le libellé de temps */}
+                    <h3>{timeLabel}</h3>
+                    {/* Parcourir les notifs sous le même libellé de temps */}
+                    {notifications.map((notification) => {
+                      return (
+                        <div key={notification._id} className="notif">
+                          <img
+                            src={notification.creator.profileImg}
+                            alt="profile picture"
+                          />
+                          <p>
+                            <span className="creator">
+                              {notification.creator.username}{" "}
+                            </span>
+                            {notifMessage(notification)}
+                            <span className="time">
+                              {formatTimeAgo(new Date(notification.createdAt))}
+                            </span>
+                          </p>
+                          <Link>See</Link>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="outline"></div>
+                </>
+              );
+            }
+          )}
+        </div>
+      </main>
 
       <NavBar />
     </div>

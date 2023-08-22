@@ -54,38 +54,40 @@ function SearchPage() {
 
   return (
     <div className="searchPage">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <main>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <h1>{group.name}</h1>
+        <h1>{group.name}</h1>
 
-      <div className="searchBar">
-        <label>
-          <img src="/images/search-members.png" />
+        <div className="searchBar">
+          <label>
+            <img src="/images/search-members.png" />
 
-          <input
-            id="member-search"
-            type="text"
-            name="search"
-            value={member}
-            onChange={handleMemberInput}
-          />
+            <input
+              id="member-search"
+              type="text"
+              name="search"
+              value={member}
+              onChange={handleMemberInput}
+            />
 
-          <button onClick={() => setMember("")}>Cancel</button>
-        </label>
-      </div>
+            <button onClick={() => setMember("")}>Cancel</button>
+          </label>
+        </div>
 
-      <div className="searchResults">
-        {searchResults.map((user) => {
-          return (
-            <div key={user._id} className="searchResult">
-              <img src={user.profileImg} alt="profile picture" />
-              <Link to={`/profile/${user._id}?tab=medias`}>
-                {user.username}
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+        <div className="searchResults">
+          {searchResults.map((user) => {
+            return (
+              <div key={user._id} className="searchResult">
+                <img src={user.profileImg} alt="profile picture" />
+                <Link to={`/profile/${user._id}?tab=medias`}>
+                  {user.username}
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      </main>
 
       <NavBar />
     </div>

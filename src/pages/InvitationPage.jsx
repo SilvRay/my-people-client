@@ -41,34 +41,40 @@ function InvitationPage() {
 
   return (
     <div className="invitationPage">
-      <h2>{user.username}</h2>
-      <img className="profilePic" src={user.profileImg} alt="profile picture" />
-      <form onSubmit={handleSubmit}>
-        <div className="invitation">
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={handleEmailInput}
-          />
-          <a onClick={handleAllEmails}>Validate</a>
-        </div>
+      <main>
+        <h2>{user.username}</h2>
+        <img
+          className="profilePic"
+          src={user.profileImg}
+          alt="profile picture"
+        />
+        <form onSubmit={handleSubmit}>
+          <div className="invitation">
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={handleEmailInput}
+            />
+            <a onClick={handleAllEmails}>Validate</a>
+          </div>
 
-        <div className="list-container">
-          <h4>List of people to invite</h4>
-          {emailsList.map((email, index) => (
-            <section key={index}>
-              <img
-                src="/images/cancel.png"
-                alt="a cross"
-                onClick={() => handleCancelEmail(index)}
-              />
-              <p>{email}</p>
-            </section>
-          ))}
-        </div>
-        <button className="invitation-btn">Send invitations</button>
-      </form>
+          <div className="list-container">
+            <h4>List of people to invite</h4>
+            {emailsList.map((email, index) => (
+              <section key={index}>
+                <img
+                  src="/images/cancel.png"
+                  alt="a cross"
+                  onClick={() => handleCancelEmail(index)}
+                />
+                <p>{email}</p>
+              </section>
+            ))}
+          </div>
+          <button className="invitation-btn">Send invitations</button>
+        </form>
+      </main>
 
       <NavBar />
     </div>

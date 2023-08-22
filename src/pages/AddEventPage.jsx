@@ -64,70 +64,73 @@ function AddEventPage() {
 
   return (
     <div className="addEvent">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <h2>{user.username}</h2>
-      <img
-        src={user.profileImg}
-        alt="profile picture"
-        className="profilePicture"
-      />
-
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="place"
-          value={place}
-          onChange={handlePlace}
-          placeholder="Place"
+      <main>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <h2>{user.username}</h2>
+        <img
+          src={user.profileImg}
+          alt="profile picture"
+          className="profilePicture"
         />
-        <label>
-          Date
-          <input
-            className="date"
-            type="date"
-            name="date"
-            value={date}
-            onChange={handleDate}
-          />
-          <input
-            className="time"
-            type="time"
-            name="time"
-            value={time}
-            onChange={handleTime}
-          />
-        </label>
-        {event === "food" && (
+
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
-            name="food"
-            value={food}
-            onChange={handleFood}
-            placeholder="What are we eating ?"
+            name="place"
+            value={place}
+            onChange={handlePlace}
+            placeholder="Place"
           />
-        )}
-        {event === "game" && (
-          <input
-            type="text"
-            name="game"
-            value={game}
-            onChange={handleGame}
-            placeholder="What are we playing ?"
-          />
-        )}
-        {event === "trip" && (
-          <input
-            type="text"
-            name="trip"
-            value={trip}
-            onChange={handleTrip}
-            placeholder="Where are we going ?"
-          />
-        )}
-        <div className="btn-container">
-          <button type="submit">Create</button>
-        </div>
-      </form>
+          <label>
+            Date
+            <input
+              className="date"
+              type="date"
+              name="date"
+              value={date}
+              onChange={handleDate}
+            />
+            <input
+              className="time"
+              type="time"
+              name="time"
+              value={time}
+              onChange={handleTime}
+            />
+          </label>
+          {event === "food" && (
+            <input
+              type="text"
+              name="food"
+              value={food}
+              onChange={handleFood}
+              placeholder="What are we eating ?"
+            />
+          )}
+          {event === "game" && (
+            <input
+              type="text"
+              name="game"
+              value={game}
+              onChange={handleGame}
+              placeholder="What are we playing ?"
+            />
+          )}
+          {event === "trip" && (
+            <input
+              type="text"
+              name="trip"
+              value={trip}
+              onChange={handleTrip}
+              placeholder="Where are we going ?"
+            />
+          )}
+          <div className="btn-container">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+      </main>
+
       <NavBar />
     </div>
   );

@@ -36,32 +36,34 @@ function AddProjectPage() {
 
   return (
     <div className="new-project">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <main>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <h2>{user.username}</h2>
-      <img
-        className="profile-pic"
-        src={user.profileImg}
-        alt="profile picture"
-      />
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={title}
-          onChange={handleNameInput}
-          placeholder="Name your project"
+        <h2>{user.username}</h2>
+        <img
+          className="profile-pic"
+          src={user.profileImg}
+          alt="profile picture"
         />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            value={title}
+            onChange={handleNameInput}
+            placeholder="Name your project"
+          />
 
-        <textarea
-          name="description"
-          value={description}
-          onChange={handleDescriptionTextarea}
-          placeholder="Describe your project"
-        />
+          <textarea
+            name="description"
+            value={description}
+            onChange={handleDescriptionTextarea}
+            placeholder="Describe your project"
+          />
 
-        <button>Validate</button>
-      </form>
+          <button>Validate</button>
+        </form>
+      </main>
 
       <NavBar />
     </div>

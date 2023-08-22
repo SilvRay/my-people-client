@@ -243,7 +243,7 @@ body {
 
 .loginPage .img1,
 .loginPage .img2,
-.signupPage .img3,
+.loginPage .img3,
 .loginPage .img4,
 .loginPage .img5,
 .loginPage .img6,
@@ -1393,6 +1393,16 @@ body {
   }
 }
 
+@media screen and (min-width: 900px) {
+  .profile .events-container {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .profile .events-container .event-card {
+  }
+}
+
 /***
  *      _____  _____   ____  ______ _____ _      ______   __  __ ______ _____ _____           _____ 
  *     |  __ \|  __ \ / __ \|  ____|_   _| |    |  ____| |  \/  |  ____|  __ \_   _|   /\    / ____|
@@ -1461,6 +1471,24 @@ body {
     position: absolute;
     top: 3px;
     right: 3px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .profile {
+    align-items: end;
+  }
+  .profile main {
+    width: 75%;
+  }
+  .profile .head .logout {
+    display: none;
+  }
+  .profile .posts-profile-container {
+    justify-content: start;
+  }
+  .profile .posts-profile-container .post {
+    width: 250px;
+    height: 250px;
   }
 }
 
@@ -1717,6 +1745,23 @@ body {
   }
 }
 
+@media screen and (min-width: 900px) {
+  .notif-page {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+  .notif-page main {
+    width: 75%;
+  }
+  .notif-page .notif p {
+    width: 462px;
+  }
+  .notif-page .notif a {
+    margin-left: 200px;
+  }
+}
+
 /***
  *       _____ ______          _____   _____ _    _   _____        _____ ______ 
  *      / ____|  ____|   /\   |  __ \ / ____| |  | | |  __ \ /\   / ____|  ____|
@@ -1831,6 +1876,17 @@ body {
     align-items: center;
     gap: 10px;
     padding-left: 65px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .searchPage {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+  .searchPage main {
+    width: 75%;
   }
 }
 
@@ -1982,6 +2038,29 @@ body {
   }
 }
 
+@media screen and (min-width: 900px) {
+  .invitationPage {
+    align-items: end;
+  }
+
+  .invitationPage main {
+    width: 75%;
+  }
+  .invitationPage h2 {
+    text-align: center;
+  }
+  .invitationPage .profilePic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .invitationPage form .list-container {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /***
  *               _____  _____    _____  _____   ____       _ ______ _____ _______   _____        _____ ______ 
  *         /\   |  __ \|  __ \  |  __ \|  __ \ / __ \     | |  ____/ ____|__   __| |  __ \ /\   / ____|  ____|
@@ -2102,6 +2181,9 @@ body {
     border: none;
     border-radius: 10px;
   }
+}
+
+@media screen and (min-width: 900px) {
 }
 
 /***
@@ -2322,6 +2404,17 @@ body {
   }
 }
 
+@media screen and (min-width: 900px) {
+  .addEvent {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+  .addEvent main {
+    width: 75%;
+  }
+}
+
 /***
  *      _____  _____   ____  ______ _____ _      ______   ______ _____ _____ _______   _____        _____ ______ 
  *     |  __ \|  __ \ / __ \|  ____|_   _| |    |  ____| |  ____|  __ \_   _|__   __| |  __ \ /\   / ____|  ____|
@@ -2464,6 +2557,18 @@ body {
     font-weight: 600;
     border: none;
     border-radius: 10px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .profileEdit {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  .profileEdit main {
+    width: 75%;
   }
 }
 
@@ -2983,6 +3088,22 @@ _____           _           _     _____       _        _ _       _____
   text-align: center;
 }
 
+@media screen and (min-width: 900px) {
+  .project-page {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .project-page div {
+    width: 800px;
+  }
+  .project-page img {
+    width: 100%;
+    height: 80%;
+    margin-top: 20px;
+  }
+}
+
 /* 
 _____ _                                                 _   
 / ____| |                                               | |  
@@ -3087,6 +3208,24 @@ _____ _                                                 _
     text-align: center;
     text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black, 0 0 20px black,
       0 0 30px black, 0 0 40px black, 0 0 55px black, 0 0 75px black;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .choose-event {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-bottom: 0;
+  }
+
+  .choose-event main {
+    width: 75%;
+  }
+  .choose-event main .selection {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

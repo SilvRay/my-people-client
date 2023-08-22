@@ -52,45 +52,47 @@ function EditProfilePage() {
 
   return (
     <div className="profileEdit">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <form encType="multipart/form-data" onSubmit={handleSubmit}>
-        <label className="profilePicture-container">
-          <img
-            className="image-icon"
-            src="/images/change-pic.png"
-            alt="image icon"
-          />
-          <input
-            className="addProfilePicture"
-            type="file"
-            name="profileImg"
-            onChange={(e) => handleFileUpload(e)}
-          />
-          <img className="profilePicture" src={profileImg} alt="" />
-        </label>
-        <label>
-          Username{" "}
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
+      <main>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <form encType="multipart/form-data" onSubmit={handleSubmit}>
+          <label className="profilePicture-container">
+            <img
+              className="image-icon"
+              src="/images/change-pic.png"
+              alt="image icon"
+            />
+            <input
+              className="addProfilePicture"
+              type="file"
+              name="profileImg"
+              onChange={(e) => handleFileUpload(e)}
+            />
+            <img className="profilePicture" src={profileImg} alt="" />
+          </label>
+          <label>
+            Username{" "}
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </label>
 
-        <label>
-          Birthday{" "}
-          <input
-            className="birthday"
-            type="date"
-            name="birthday"
-            value={birthday}
-            onChange={(e) => setBirthday(e.target)}
-          />
-        </label>
+          <label>
+            Birthday{" "}
+            <input
+              className="birthday"
+              type="date"
+              name="birthday"
+              value={birthday}
+              onChange={(e) => setBirthday(e.target)}
+            />
+          </label>
 
-        <button>Edit</button>
-      </form>
+          <button>Edit</button>
+        </form>
+      </main>
 
       <NavBar />
     </div>

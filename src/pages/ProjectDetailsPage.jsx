@@ -31,6 +31,7 @@ function ProjectDetailsPage() {
         <div>
           <img src={`/images/project-img.jpg`} alt="project-img" />
         </div>
+
         <div>
           <p>
             {project.creator.username} created the{" "}
