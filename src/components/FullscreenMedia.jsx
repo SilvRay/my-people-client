@@ -96,6 +96,7 @@ function FullscreenMedia({
           </button>
         )}
       </div>
+
       <div className="com-container">
         {comments.map((comment) => {
           return (
@@ -106,6 +107,7 @@ function FullscreenMedia({
           );
         })}
       </div>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"

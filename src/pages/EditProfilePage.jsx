@@ -66,11 +66,7 @@ function EditProfilePage() {
             name="profileImg"
             onChange={(e) => handleFileUpload(e)}
           />
-          <img
-            className="profilePicture"
-            src={profileImg}
-            alt="profile picture"
-          />
+          <img className="profilePicture" src={profileImg} alt="" />
         </label>
         <label>
           Username{" "}

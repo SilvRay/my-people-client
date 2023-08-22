@@ -62,11 +62,14 @@ function EventDetailsPage() {
           <div>
             <img src={`/images/${event.type}.jpg`} alt="" />
           </div>
+
           <div>
             <h1>{event.type}</h1>
+
             <p className="eventcreation">
               <strong>{event.creator.username}</strong> event
             </p>
+
             <p>
               {" "}
               <strong> Date : </strong>
@@ -75,18 +78,20 @@ function EventDetailsPage() {
                 {formatTime(event.date)}
               </span>
             </p>
+
             <p>
               <strong>Place : </strong>
               <span className="eventHeaderText">{event.place}</span>
             </p>
           </div>
         </div>
+
         <div className="participation-form">
           <form onSubmit={handleSubmit}>
             <div className="formText">
               <p>
                 {" "}
-                I will bring
+                I will bring{" "}
                 <input
                   type="number"
                   name="kidsNb"
@@ -94,16 +99,17 @@ function EventDetailsPage() {
                   value={kidsNb}
                   onChange={handleKidsNb}
                   placeholder="0"
-                />
+                />{" "}
                 kids
               </p>
 
               <p>They will be there</p>
+
               {event.participants.map((participant) => {
                 return (
                   <div key={participant._id} className="participant img">
-                    {console.log("participant._id==", participant._id)}
-                    <h1>{participant.name}</h1>
+                    {console.log("participant.name ==", participant.name)}
+                    <p>{participant.name}</p>
                   </div>
                 );
               })}

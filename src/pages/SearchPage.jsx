@@ -57,9 +57,11 @@ function SearchPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <h1>{group.name}</h1>
+
       <div className="searchBar">
         <label>
           <img src="/images/search-members.png" />
+
           <input
             id="member-search"
             type="text"
@@ -67,9 +69,11 @@ function SearchPage() {
             value={member}
             onChange={handleMemberInput}
           />
+
           <button onClick={() => setMember("")}>Cancel</button>
         </label>
       </div>
+
       <div className="searchResults">
         {searchResults.map((user) => {
           return (

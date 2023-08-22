@@ -42,11 +42,7 @@ function InvitationPage() {
   return (
     <div className="invitationPage">
       <h2>{user.username}</h2>
-      <img
-        className="profilePic"
-        src="/images/profile.png"
-        alt="profile picture"
-      />
+      <img className="profilePic" src={user.profileImg} alt="profile picture" />
       <form onSubmit={handleSubmit}>
         <div className="invitation">
           <input

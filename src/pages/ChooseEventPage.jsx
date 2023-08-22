@@ -8,7 +8,7 @@ function ChooseEventPage() {
 
   return (
     <div className="choose-event">
-      <p>{user.username}</p>
+      <h2>{user.username}</h2>
       <img
         className="profilePicture"
         src={user.profileImg}
