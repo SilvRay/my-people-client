@@ -52,7 +52,7 @@ function NavBar() {
   return (
     <>
       <div className="navbar">
-        <img className="logo" src="../../public/images/logo.png" />
+        <img className="logo" src="/images/logo.png" />
         <section>
           <Link to="/home?tab=medias">
             <img src="/images/home-icon.png" alt="homepage icon" />
