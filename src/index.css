@@ -27,6 +27,17 @@ body {
   align-items: center;
 }
 
+.signupPage .img1,
+.signupPage .img2,
+.signupPage .img3,
+.signupPage .img4,
+.signupPage .img5,
+.signupPage .img6,
+.signupPage .img7,
+.signupPage .img8 {
+  display: none;
+}
+
 .head-container h1 {
   font-family: "Kaushan Script", cursive;
   font-size: 36px;
@@ -42,6 +53,7 @@ body {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 24px;
 }
 
@@ -90,6 +102,125 @@ body {
   font-weight: 600;
 }
 
+@media screen and (min-width: 900px) {
+  .signupPage {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .signupPage section {
+    width: 400px;
+    height: 610px;
+    background-color: white;
+    border: 1px solid black;
+    z-index: 1;
+  }
+  .head-container p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.64);
+    width: 350px;
+  }
+  .signupPage form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .signupPage form input {
+    height: 38px;
+    width: 300px;
+    border: 1px solid #a2a2a2;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: rgb(240, 237, 235);
+  }
+
+  .signupPage .img1 {
+    display: block;
+    width: 405px;
+    height: 250px;
+    border-radius: 15px;
+    transform: rotate(15deg);
+    position: absolute;
+    left: 50px;
+    top: 100px;
+  }
+  .signupPage .img2 {
+    display: block;
+    width: 370px;
+    height: 255px;
+    border-radius: 20px;
+    position: absolute;
+    right: 30px;
+    top: 100px;
+  }
+  .signupPage .img3 {
+    display: block;
+    width: 300px;
+    height: 180px;
+    border-radius: 10px;
+    transform: rotate(10deg);
+    position: absolute;
+    left: 500px;
+    top: 10px;
+  }
+  .signupPage .img4 {
+    display: block;
+    width: 300px;
+    height: 180px;
+    border-radius: 10px;
+    transform: rotate(-10deg);
+    position: absolute;
+    left: 50px;
+    top: 377px;
+  }
+  .signupPage .img5 {
+    display: block;
+    width: 300px;
+    height: 190px;
+    border-radius: 40px;
+    transform: rotate(10deg);
+    position: absolute;
+    right: 100px;
+    top: 340px;
+    z-index: 1;
+  }
+  .signupPage .img6 {
+    display: block;
+    width: 245px;
+    height: 290px;
+    border-radius: 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 50px;
+  }
+  .signupPage .img7 {
+    display: block;
+    width: 285px;
+    height: 145px;
+    border-radius: 10px;
+    transform: rotate(-11deg);
+    position: absolute;
+    right: 370px;
+    bottom: 10px;
+  }
+  .signupPage .img8 {
+    display: block;
+    width: 190px;
+    height: 270px;
+    border-radius: 20px;
+    transform: rotate(20deg);
+    position: absolute;
+    left: 200px;
+    bottom: 20px;
+  }
+}
+
 /***
  *      _      ____   _____ _____ _   _   _____        _____ ______ 
  *     | |    / __ \ / ____|_   _| \ | | |  __ \ /\   / ____|  ____|
@@ -108,6 +239,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.loginPage .img1,
+.loginPage .img2,
+.signupPage .img3,
+.loginPage .img4,
+.loginPage .img5,
+.loginPage .img6,
+.loginPage .img7,
+.loginPage .img8 {
+  display: none;
 }
 
 .loginPage h1 {
@@ -168,6 +310,118 @@ body {
   font-weight: 600;
 }
 
+@media screen and (min-width: 900px) {
+  .loginPage {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .loginPage section {
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border: 1px solid black;
+    z-index: 1;
+  }
+  .loginPage form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .loginPage form input {
+    height: 38px;
+    width: 300px;
+    border: 1px solid #a2a2a2;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: rgb(240, 237, 235);
+  }
+
+  .loginPage .img1 {
+    display: block;
+    width: 405px;
+    height: 250px;
+    border-radius: 15px;
+    transform: rotate(15deg);
+    position: absolute;
+    left: 50px;
+    top: 100px;
+  }
+  .loginPage .img2 {
+    display: block;
+    width: 370px;
+    height: 255px;
+    border-radius: 20px;
+    position: absolute;
+    right: 30px;
+    top: 100px;
+  }
+  .loginPage .img3 {
+    display: block;
+    width: 300px;
+    height: 180px;
+    border-radius: 10px;
+    transform: rotate(10deg);
+    position: absolute;
+    left: 500px;
+    top: 10px;
+  }
+  .loginPage .img4 {
+    display: block;
+    width: 300px;
+    height: 180px;
+    border-radius: 10px;
+    transform: rotate(-10deg);
+    position: absolute;
+    left: 50px;
+    top: 377px;
+  }
+  .loginPage .img5 {
+    display: block;
+    width: 300px;
+    height: 190px;
+    border-radius: 40px;
+    transform: rotate(10deg);
+    position: absolute;
+    right: 100px;
+    top: 340px;
+    z-index: 1;
+  }
+  .loginPage .img6 {
+    display: block;
+    width: 245px;
+    height: 290px;
+    border-radius: 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 50px;
+  }
+  .loginPage .img7 {
+    display: block;
+    width: 285px;
+    height: 145px;
+    border-radius: 10px;
+    transform: rotate(-11deg);
+    position: absolute;
+    right: 370px;
+    bottom: 10px;
+  }
+  .loginPage .img8 {
+    display: block;
+    width: 190px;
+    height: 270px;
+    border-radius: 20px;
+    transform: rotate(20deg);
+    position: absolute;
+    left: 200px;
+    bottom: 20px;
+  }
+}
+
 /***
  *      _   _     __      ______          _____  
  *     | \ | |   /\ \    / /  _ \   /\   |  __ \ 
@@ -183,11 +437,26 @@ body {
   background-color: #e8ceae;
   width: 100%;
   padding: 16px 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
   position: fixed;
   bottom: 0;
+}
+
+.navbar .logo {
+  display: none;
+}
+
+.navbar section {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navbar span {
+  display: none;
+}
+
+.navbar .create {
+  display: none;
 }
 
 .navbar a,
@@ -205,6 +474,77 @@ body {
 .navbar button img {
   display: block;
   position: relative;
+}
+
+.navbar .logout-container {
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .navbar {
+    background-color: white;
+    width: 25%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    position: fixed;
+    left: 0;
+  }
+  .navbar .logo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin-top: 80px;
+    margin-left: 50px;
+  }
+  .navbar section {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-left: 20px;
+  }
+  .navbar img {
+    width: 30px;
+    height: 30px;
+  }
+  .navbar span {
+    display: block;
+    color: black;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  .navbar .create {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-left: 20px;
+  }
+  .navbar .create input {
+    display: none;
+  }
+  .navbar .logout-container {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    bottom: 16px;
+  }
+  .navbar .logout {
+    margin-left: 20px;
+  }
+  .navbar button {
+    display: none;
+  }
 }
 
 /***
@@ -372,6 +712,17 @@ body {
   color: black;
 }
 
+@media screen and (min-width: 900px) {
+  .homepage {
+    background-color: #f5e3cd;
+    min-height: 100vh;
+    align-items: end;
+  }
+  .homepage main {
+    width: 75%;
+  }
+}
+
 /***
  *      _    _  ____  __  __ ______ _____        _____ ______   __  __ ______ _____ _____           _____ 
  *     | |  | |/ __ \|  \/  |  ____|  __ \ /\   / ____|  ____| |  \/  |  ____|  __ \_   _|   /\    / ____|
@@ -431,7 +782,7 @@ body {
   margin-block: auto;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .post {
     background-color: #e8ceae;
     padding: 50px;
@@ -472,6 +823,14 @@ body {
   .post p {
     margin-block: auto;
     font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .post {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -602,7 +961,7 @@ body {
   height: 30px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .fullscreen-modal {
     position: fixed;
     top: 0;
@@ -774,7 +1133,7 @@ body {
   line-height: 40px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .filters span img {
     width: 40px;
   }
@@ -806,6 +1165,14 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0px 15px 15px -4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .homepage .events-container {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
   }
 }
 
@@ -1065,7 +1432,7 @@ body {
   right: 3px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .profile .posts-profile-container {
     display: flex;
     flex-wrap: wrap;
@@ -1172,7 +1539,7 @@ body {
   border-radius: 20px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .projects-container {
     display: flex;
     flex-direction: column;
@@ -1212,6 +1579,19 @@ body {
     align-items: center;
     border-radius: 20px;
     font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .homepage main .projects {
+    margin-top: 40px;
+    padding-left: 50px;
+  }
+  .projects-container {
+    align-items: center;
+  }
+  .projects-container .project-card {
+    width: 400px;
   }
 }
 
@@ -1290,7 +1670,7 @@ body {
   border-radius: 20px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .notif-page h2 {
     padding-top: 20px;
     padding-left: 20px;
@@ -1422,7 +1802,7 @@ body {
   font-size: 18px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .searchPage input {
     width: 400px;
     height: 50px;
@@ -1542,7 +1922,7 @@ body {
   border-radius: 10px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .invitationPage h2 {
     font-family: "Kaushan Script", cursive;
     font-size: 32px;
@@ -1683,7 +2063,7 @@ body {
   border-radius: 10px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .new-project h2 {
     text-align: center;
     font-family: "Kaushan Script", cursive;
@@ -1894,7 +2274,7 @@ body {
   border-radius: 10px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .addEvent h2 {
     text-align: center;
     font-family: "Kaushan Script", cursive;
@@ -2031,7 +2411,7 @@ body {
   border-radius: 10px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .profileEdit form .profilePicture-container {
     width: 200px;
     height: 200px;
@@ -2303,7 +2683,7 @@ body {
   line-height: 40px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .member-profile .head h2 {
     text-align: center;
     font-family: "Kaushan Script", cursive;
@@ -2380,7 +2760,7 @@ body {
   right: 3px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .member-profile .posts-profile-container {
     display: flex;
     flex-wrap: wrap;
@@ -2475,7 +2855,7 @@ body {
   border-radius: 20px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .member-profile .projects-container {
     display: flex;
     flex-direction: column;
@@ -2671,7 +3051,7 @@ _____ _                                                 _
     0 0 30px black, 0 0 40px black, 0 0 55px black, 0 0 75px black;
 }
 
-@media screen and (min-width: 600px), (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .choose-event h2 {
     font-size: 32px;
     font-weight: 700;

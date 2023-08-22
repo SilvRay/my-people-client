@@ -94,61 +94,65 @@ function HomePage() {
 
   return (
     <div className="homepage">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <main>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <div className="tabs-container">
-        <Link to="/home?tab=medias">
-          <img src="/images/grid-icon.png" alt="medias-icon" />
-        </Link>
-        <Link to="/home?tab=events">
-          <img src="/images/event-icon.png" alt="events-icon" />
-        </Link>
-        <Link to="/home?tab=projects">
-          <img src="/images/project-icon.png" alt="projects-icon" />
-        </Link>
-      </div>
-
-      {group && (
-        <>
-          <h1>{group.name}</h1>
-        </>
-      )}
-
-      {!group ? (
-        <>
-          <p className="alert">You do not have any of your people right now</p>
-          <Link className="new-group-link" to="/new-group">
-            <div className="new-group-container">
-              <img src="/images/Group-new.png" alt="add-icon" />
-              <p>Create your group</p>
-            </div>
+        <div className="tabs-container">
+          <Link to="/home?tab=medias">
+            <img src="/images/grid-icon.png" alt="medias-icon" />
           </Link>
-        </>
-      ) : (
-        <>
-          {tab === "medias" && (
-            <Posts
-              posts={posts}
-              handleMediaClick={handleMediaClick}
-              user={user}
-            />
-          )}
+          <Link to="/home?tab=events">
+            <img src="/images/event-icon.png" alt="events-icon" />
+          </Link>
+          <Link to="/home?tab=projects">
+            <img src="/images/project-icon.png" alt="projects-icon" />
+          </Link>
+        </div>
 
-          {tab === "events" && <Events events={events} user={user} />}
-          {tab === "projects" && <Projects projects={projects} user={user} />}
-        </>
-      )}
+        {group && (
+          <>
+            <h1>{group.name}</h1>
+          </>
+        )}
 
-      {showFullscreenMedia && (
-        <FullscreenMedia
-          onClose={handleCloseFullScreenMedia}
-          setCurrIndex={setCurrIndex}
-          currIndex={currIndex}
-          mediaList={mediaList}
-          posts={posts}
-          mediaId={mediaId}
-        />
-      )}
+        {!group ? (
+          <>
+            <p className="alert">
+              You do not have any of your people right now
+            </p>
+            <Link className="new-group-link" to="/new-group">
+              <div className="new-group-container">
+                <img src="/images/Group-new.png" alt="add-icon" />
+                <p>Create your group</p>
+              </div>
+            </Link>
+          </>
+        ) : (
+          <>
+            {tab === "medias" && (
+              <Posts
+                posts={posts}
+                handleMediaClick={handleMediaClick}
+                user={user}
+              />
+            )}
+
+            {tab === "events" && <Events events={events} user={user} />}
+            {tab === "projects" && <Projects projects={projects} user={user} />}
+          </>
+        )}
+
+        {showFullscreenMedia && (
+          <FullscreenMedia
+            onClose={handleCloseFullScreenMedia}
+            setCurrIndex={setCurrIndex}
+            currIndex={currIndex}
+            mediaList={mediaList}
+            posts={posts}
+            mediaId={mediaId}
+          />
+        )}
+      </main>
 
       <NavBar />
     </div>

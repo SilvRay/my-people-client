@@ -39,34 +39,72 @@ function LoginPage() {
 
   return (
     <div className="loginPage">
-      <h1>MyPeople</h1>
+      {" "}
+      <img
+        className="img1"
+        src="/images/pexels-rfstudio-3811111.jpg"
+        alt="women chilling in a bed"
+      />
+      <img
+        className="img2"
+        src="/images/pexels-askar-abayev-5638814.jpg"
+        alt=""
+      />
+      <img
+        className="img3"
+        src="/images/pexels-yan-krukau-5792901.jpg"
+        alt=""
+      />
+      <img className="img4" src="/images/Playground.jpg" alt="" />
+      <img
+        className="img5"
+        src="/images/pexels-tamuka-xulu-12982997.jpg"
+        alt=""
+      />
+      <img
+        className="img6"
+        src="/images/pexels-aline-viana-prado-3491940.jpg"
+        alt=""
+      />
+      <img
+        className="img7"
+        src="/images/pexels-yan-krukau-9069271.jpg"
+        alt=""
+      />
+      <img
+        className="img8"
+        src="/images/pexels-august-de-richelieu-4262424.jpg"
+      />
+      <section>
+        <h1>MyPeople</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="email"
-          value={email}
-          onChange={handleEmailInput}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordInput}
-          placeholder="Password"
-        />
-        <div className="btn-container">
-          <button type="submit">Login</button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={handleEmailInput}
+            placeholder="Email"
+          />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePasswordInput}
+            placeholder="Password"
+          />
+          <div className="btn-container">
+            <button type="submit">Login</button>
+          </div>
+        </form>
+
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+        <div className="to-signup-container">
+          <p>Do not have an account yet ?</p>
+          <Link to={"/"}>Sign Up</Link>
         </div>
-      </form>
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <div className="to-signup-container">
-        <p>Do not have an account yet ?</p>
-        <Link to={"/"}>Sign Up</Link>
-      </div>
+      </section>
     </div>
   );
 }

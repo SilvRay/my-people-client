@@ -18,7 +18,7 @@ function Projects({ projects, user }) {
 
   return (
     <>
-      <h2>Projects</h2>
+      <h2 className="projects">Projects</h2>
 
       <div className="filters">
         <span>

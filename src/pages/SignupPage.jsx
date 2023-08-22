@@ -34,46 +34,84 @@ function SignupPage() {
 
   return (
     <div className="signupPage">
-      <div className="head-container">
-        <h1>MyPeople</h1>
-        <p>
-          Strengthen your ties with your loved ones by creating family events
-          and contributing to everyone projects
-        </p>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="email"
-          value={email}
-          onChange={handleEmailInput}
-          placeholder="Email"
-        />
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleUsernameInput}
-          placeholder="Username"
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordInput}
-          placeholder="Password"
-        />
-        <div className="btn-container">
-          <button type="submit">Sign Up</button>
+      <img
+        className="img1"
+        src="/images/pexels-rfstudio-3811111.jpg"
+        alt="women chilling in a bed"
+      />
+      <img
+        className="img2"
+        src="/images/pexels-askar-abayev-5638814.jpg"
+        alt=""
+      />
+      <img
+        className="img3"
+        src="/images/pexels-yan-krukau-5792901.jpg"
+        alt=""
+      />
+      <img className="img4" src="/images/Playground.jpg" alt="" />
+      <img
+        className="img5"
+        src="/images/pexels-tamuka-xulu-12982997.jpg"
+        alt=""
+      />
+      <img
+        className="img6"
+        src="/images/pexels-aline-viana-prado-3491940.jpg"
+        alt=""
+      />
+      <img
+        className="img7"
+        src="/images/pexels-yan-krukau-9069271.jpg"
+        alt=""
+      />
+      <img
+        className="img8"
+        src="/images/pexels-august-de-richelieu-4262424.jpg"
+      />
+      <section>
+        <div className="head-container">
+          <h1>MyPeople</h1>
+          <p>
+            Strengthen your ties with your loved ones by creating family events
+            and contributing to everyone projects
+          </p>
         </div>
-      </form>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={handleEmailInput}
+            placeholder="Email"
+          />
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={handleUsernameInput}
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePasswordInput}
+            placeholder="Password"
+          />
+          <div className="btn-container">
+            <button type="submit">Sign Up</button>
+          </div>
+        </form>
 
-      <div className="to-login-container">
-        <p>Already have an account ?</p>
-        <Link to={"/login"}>Login</Link>
-      </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+        <div className="to-login-container">
+          <p>Already have an account ?</p>
+          <Link to={"/login"}>Login</Link>
+        </div>
+      </section>
     </div>
   );
 }

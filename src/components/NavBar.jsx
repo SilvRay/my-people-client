@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PopupComponent from "./PopupComponent";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { uploadImagePost } from "../services/file-upload.service";
+import myaxios from "../myaxios";
+import { AuthContext } from "../context/auth.context";
 
 function NavBar() {
   const [popupVisible, setPopupVisible] = useState(false);
+  const { logoutUser } = useContext(AuthContext);
+
+  const navigate = useNavigate;
 
   const handlePopupClick = () => {
     // MAJ du state pour rendre la popup visible
@@ -14,24 +20,98 @@ function NavBar() {
     // MAJ du state pour rendre la popup invisible
     setPopupVisible(false);
   };
+
+  const handleFilesUpload = (e) => {
+    console.log("The files to be uploaded are: ", e.target.files);
+    const filesToUpload = e.target.files;
+    console.log("here is the first ", filesToUpload[0]);
+    console.log("here is the second", filesToUpload[1]);
+    const uploadDatas = new FormData();
+
+    for (let el of filesToUpload) {
+      uploadDatas.append("mediasUrl", el);
+    }
+
+    uploadImagePost(uploadDatas)
+      .then((response) => {
+        console.log("response.filesUrl is: ", response.filesUrl);
+        // response carries "fileUrl" which we can use to update the state
+
+        return myaxios
+          .post("/api/medias", response.filesUrl)
+          .then((response) => {
+            console.log("The post created ===", response.data);
+            navigate(`/post/new/${response.data._id}`);
+          });
+        //console.log("mediaUrl after setMediasUrl==",mediasUrl)
+      })
+      // CrÃ©ation du post avec uniquement les images. On renvoie sur une route Add Post oÃ¹ on rajotuera la lÃ©gende
+
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
   return (
     <>
       <div className="navbar">
-        <Link to="/home?tab=medias">
-          <img src="/images/home-icon.png" alt="homepage icon" />
-        </Link>
-        <Link to="/notifications">
-          <img src="/images/notif.png" alt="notification icon" />
-        </Link>
-        <Link to="/search">
-          <img src="/images/search.png" alt="search icon" />
-        </Link>
-        <Link to="/profile?tab=medias">
-          <img src="/images/profile.png" alt="profile icon" />
-        </Link>
-        <button onClick={popupVisible ? handleClosePopup : handlePopupClick}>
-          <img src="/images/add.png" />
-        </button>
+        <img className="logo" src="../../public/images/logo.png" />
+        <section>
+          <Link to="/home?tab=medias">
+            <img src="/images/home-icon.png" alt="homepage icon" />
+            <span>Home</span>
+          </Link>
+          <Link to="/notifications">
+            <img src="/images/notif.png" alt="notification icon" />
+            <span>Notifications</span>
+          </Link>
+          <Link to="/search">
+            <img src="/images/search.png" alt="search icon" />
+            <span>Search</span>
+          </Link>
+          <Link to="/profile?tab=medias">
+            <img src="/images/profile.png" alt="profile icon" />
+            <span>Profile</span>
+          </Link>
+          <Link className="create" to="/invite">
+            <img src="/images/add.png" alt="add icon" />
+            <span>invite your people</span>
+          </Link>
+
+          <label className="create">
+            <img src="/images/add.png" alt="add icon" />
+            <span>Add pictures/videos</span>
+            <input
+              type="file"
+              capture="user"
+              onChange={handleFilesUpload}
+              multiple
+            />
+          </label>
+
+          <Link className="create" to="/event/types">
+            <img src="/images/add.png" alt="add icon" />
+            <span>Create an event</span>
+          </Link>
+
+          <Link className="create" to="/project/new">
+            <img src="/images/add.png" alt="add icon" />
+            <span>Create a project</span>
+          </Link>
+
+          <div className="logout-container" onClick={logoutUser}>
+            <img
+              src="/images/logout.png"
+              alt="logout icon"
+              className="logout"
+            />
+            <span>logout</span>
+          </div>
+
+          <button
+            className="popup-btn"
+            onClick={popupVisible ? handleClosePopup : handlePopupClick}
+          >
+            <img src="/images/add.png" />
+          </button>
+        </section>
       </div>
       <PopupComponent popupVisible={popupVisible} />
     </>
