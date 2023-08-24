@@ -36,14 +36,17 @@ function Events({ events, user }) {
   return (
     <>
       <div className="header-events">
-        <img src="/images/lightning.png" alt="lightning icon" />
+        <img
+          src="/my-people-client/images/lightning.png"
+          alt="lightning icon"
+        />
         <h2>Events</h2>
       </div>
 
       <div className="filters">
         <span>
           <img
-            src={`/images/selected-${
+            src={`/my-people-client/images/selected-${
               allOrMyOrParticipateEvents === "all" ? "true" : "false"
             }.png`}
             alt="selection button"
@@ -53,7 +56,7 @@ function Events({ events, user }) {
         </span>
         <span>
           <img
-            src={`/images/selected-${
+            src={`/my-people-client/images/selected-${
               allOrMyOrParticipateEvents === "my" ? "true" : "false"
             }.png`}
             alt="selection button"
@@ -63,7 +66,7 @@ function Events({ events, user }) {
         </span>
         <span>
           <img
-            src={`/images/selected-${
+            src={`/my-people-client/images/selected-${
               allOrMyOrParticipateEvents === "participate" ? "true" : "false"
             }.png`}
             alt="selection button"
@@ -87,7 +90,10 @@ function Events({ events, user }) {
                 >
                   {event.type}
                 </h3>
-                <img src={`/images/${event.type}.jpg`} alt="" />
+                <img
+                  src={`/my-people-client/images/${event.type}.jpg`}
+                  alt=""
+                />
                 {event.creator === user._id ? (
                   <Link to={`/events/${event._id}/edit`}>Edit</Link>
                 ) : (

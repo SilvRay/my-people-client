@@ -77,7 +77,10 @@ function FullscreenMedia({
       <div className="modal">
         {mediaList.length > 1 && (
           <button className="prevMedia" onClick={handlePrevMediaClick}>
-            <img src="/images/prev-media.png" alt="previous icon" />
+            <img
+              src="/my-people-client/public/images/prev-media.png"
+              alt="previous icon"
+            />
           </button>
         )}
 
@@ -92,7 +95,10 @@ function FullscreenMedia({
         )}
         {mediaList.length > 1 && (
           <button className="nextMedia" onClick={handleNextMediaClick}>
-            <img src="/images/next-media.png" alt="next icon" />
+            <img
+              src="/my-people-client/images/next-media.png"
+              alt="next icon"
+            />
           </button>
         )}
       </div>
@@ -117,7 +123,7 @@ function FullscreenMedia({
           placeholder="Comment..."
         />
         <button>
-          <img src="/images/send.png" />
+          <img src="/my-people-client/images/send.png" />
         </button>
       </form>
     </div>

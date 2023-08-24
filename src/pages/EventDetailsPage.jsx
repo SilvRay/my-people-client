@@ -60,7 +60,7 @@ function EventDetailsPage() {
       <div className="details-page">
         <div className="event-details-header">
           <div>
-            <img src={`/images/${event.type}.jpg`} alt="" />
+            <img src={`/my-people-client/images/${event.type}.jpg`} alt="" />
           </div>
 
           <div>

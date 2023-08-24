@@ -58,7 +58,7 @@ function EditProfilePage() {
           <label className="profilePicture-container">
             <img
               className="image-icon"
-              src="/images/change-pic.png"
+              src="/my-people-client/images/change-pic.png"
               alt="image icon"
             />
             <input

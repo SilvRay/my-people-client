@@ -36,38 +36,42 @@ function SignupPage() {
     <div className="signupPage">
       <img
         className="img1"
-        src="/images/pexels-rfstudio-3811111.jpg"
+        src="/my-people-client/images/pexels-rfstudio-3811111.jpg"
         alt="women chilling in a bed"
       />
       <img
         className="img2"
-        src="/images/pexels-askar-abayev-5638814.jpg"
+        src="/my-people-client/images/pexels-askar-abayev-5638814.jpg"
         alt=""
       />
       <img
         className="img3"
-        src="/images/pexels-yan-krukau-5792901.jpg"
+        src="/my-people-client/images/pexels-yan-krukau-5792901.jpg"
         alt=""
       />
-      <img className="img4" src="/images/Playground.jpg" alt="" />
+      <img
+        className="img4"
+        src="/my-people-client/images/Playground.jpg"
+        alt=""
+      />
       <img
         className="img5"
-        src="/images/pexels-tamuka-xulu-12982997.jpg"
+        src="/my-people-client/images/pexels-tamuka-xulu-12982997.jpg"
         alt=""
       />
       <img
         className="img6"
-        src="/images/pexels-aline-viana-prado-3491940.jpg"
+        src="/my-people-client/images/pexels-aline-viana-prado-3491940.jpg"
         alt=""
       />
       <img
         className="img7"
-        src="/images/pexels-yan-krukau-9069271.jpg"
+        src="/my-people-client/images/pexels-yan-krukau-9069271.jpg"
         alt=""
       />
       <img
         className="img8"
-        src="/images/pexels-august-de-richelieu-4262424.jpg"
+        src="/my-people-client/images/pexels-august-de-richelieu-4262424.jpg"
       />
       <section>
         <div className="head-container">

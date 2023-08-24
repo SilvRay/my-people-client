@@ -83,7 +83,7 @@ function ProfilePage() {
       <main>
         <div className="head">
           <img
-            src="/images/logout.png"
+            src="/my-people-client/images/logout.png"
             alt="logout icon"
             className="logout"
             onClick={logoutUser}
@@ -99,13 +99,22 @@ function ProfilePage() {
 
         <div className="tabs-container">
           <Link to="/profile?tab=medias">
-            <img src="/images/grid-icon.png" alt="medias-icon" />
+            <img
+              src="/my-people-client/images/grid-icon.png"
+              alt="medias-icon"
+            />
           </Link>
           <Link to="/profile?tab=events">
-            <img src="/images/event-icon.png" alt="events-icon" />
+            <img
+              src="/my-people-client/images/event-icon.png"
+              alt="events-icon"
+            />
           </Link>
           <Link to="/profile?tab=projects">
-            <img src="/images/project-icon.png" alt="projects-icon" />
+            <img
+              src="/my-people-client/images/project-icon.png"
+              alt="projects-icon"
+            />
           </Link>
         </div>
 

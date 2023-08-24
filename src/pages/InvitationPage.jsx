@@ -64,7 +64,7 @@ function InvitationPage() {
             {emailsList.map((email, index) => (
               <section key={index}>
                 <img
-                  src="/images/cancel.png"
+                  src="/my-people-client/images/cancel.png"
                   alt="a cross"
                   onClick={() => handleCancelEmail(index)}
                 />

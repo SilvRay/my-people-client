@@ -110,13 +110,22 @@ function MemberProfilePage() {
 
         <div className="tabs-container">
           <Link to={`/profile/${userId}?tab=medias`}>
-            <img src="/images/grid-icon.png" alt="medias-icon" />
+            <img
+              src="/my-people-client/images/grid-icon.png"
+              alt="medias-icon"
+            />
           </Link>
           <Link to={`/profile/${userId}?tab=events`}>
-            <img src="/images/event-icon.png" alt="events-icon" />
+            <img
+              src="/my-people-client/images/event-icon.png"
+              alt="events-icon"
+            />
           </Link>
           <Link to={`/profile/${userId}?tab=projects`}>
-            <img src="/images/project-icon.png" alt="projects-icon" />
+            <img
+              src="/my-people-client/images/project-icon.png"
+              alt="projects-icon"
+            />
           </Link>
         </div>
 

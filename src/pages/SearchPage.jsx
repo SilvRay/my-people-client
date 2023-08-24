@@ -61,7 +61,7 @@ function SearchPage() {
 
         <div className="searchBar">
           <label>
-            <img src="/images/search-members.png" />
+            <img src="/my-people-client/images/search-members.png" />
 
             <input
               id="member-search"

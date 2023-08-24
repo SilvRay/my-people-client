@@ -99,13 +99,22 @@ function HomePage() {
 
         <div className="tabs-container">
           <Link to="/home?tab=medias">
-            <img src="/images/grid-icon.png" alt="medias-icon" />
+            <img
+              src="/my-people-client/images/grid-icon.png"
+              alt="medias-icon"
+            />
           </Link>
           <Link to="/home?tab=events">
-            <img src="/images/event-icon.png" alt="events-icon" />
+            <img
+              src="/my-people-client/images/event-icon.png"
+              alt="events-icon"
+            />
           </Link>
           <Link to="/home?tab=projects">
-            <img src="/images/project-icon.png" alt="projects-icon" />
+            <img
+              src="/my-people-client/images/project-icon.png"
+              alt="projects-icon"
+            />
           </Link>
         </div>
 
@@ -122,7 +131,10 @@ function HomePage() {
             </p>
             <Link className="new-group-link" to="/new-group">
               <div className="new-group-container">
-                <img src="/images/Group-new.png" alt="add-icon" />
+                <img
+                  src="/my-people-client/images/Group-new.png"
+                  alt="add-icon"
+                />
                 <p>Create your group</p>
               </div>
             </Link>

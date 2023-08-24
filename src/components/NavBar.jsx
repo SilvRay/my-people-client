@@ -52,31 +52,40 @@ function NavBar() {
   return (
     <>
       <div className="navbar">
-        <img className="logo" src="/images/logo.png" />
+        <img className="logo" src="/my-people-client/images/logo.png" />
         <section>
           <Link to="/home?tab=medias">
-            <img src="/images/home-icon.png" alt="homepage icon" />
+            <img
+              src="/my-people-client/images/home-icon.png"
+              alt="homepage icon"
+            />
             <span>Home</span>
           </Link>
           <Link to="/notifications">
-            <img src="/images/notif.png" alt="notification icon" />
+            <img
+              src="/my-people-client/images/notif.png"
+              alt="notification icon"
+            />
             <span>Notifications</span>
           </Link>
           <Link to="/search">
-            <img src="/images/search.png" alt="search icon" />
+            <img src="/my-people-client/images/search.png" alt="search icon" />
             <span>Search</span>
           </Link>
           <Link to="/profile?tab=medias">
-            <img src="/images/profile.png" alt="profile icon" />
+            <img
+              src="/my-people-client/images/profile.png"
+              alt="profile icon"
+            />
             <span>Profile</span>
           </Link>
           <Link className="create" to="/invite">
-            <img src="/images/add.png" alt="add icon" />
+            <img src="/my-people-client/images/add.png" alt="add icon" />
             <span>invite your people</span>
           </Link>
 
           <label className="create">
-            <img src="/images/add.png" alt="add icon" />
+            <img src="/my-people-client/images/add.png" alt="add icon" />
             <span>Add pictures/videos</span>
             <input
               type="file"
@@ -87,18 +96,18 @@ function NavBar() {
           </label>
 
           <Link className="create" to="/event/types">
-            <img src="/images/add.png" alt="add icon" />
+            <img src="/my-people-client/images/add.png" alt="add icon" />
             <span>Create an event</span>
           </Link>
 
           <Link className="create" to="/project/new">
-            <img src="/images/add.png" alt="add icon" />
+            <img src="/my-people-client/images/add.png" alt="add icon" />
             <span>Create a project</span>
           </Link>
 
           <div className="logout-container" onClick={logoutUser}>
             <img
-              src="/images/logout.png"
+              src="/my-people-client/images/logout.png"
               alt="logout icon"
               className="logout"
             />
@@ -109,7 +118,7 @@ function NavBar() {
             className="popup-btn"
             onClick={popupVisible ? handleClosePopup : handlePopupClick}
           >
-            <img src="/images/add.png" />
+            <img src="/my-people-client/images/add.png" />
           </button>
         </section>
       </div>
