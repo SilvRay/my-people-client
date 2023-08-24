@@ -541,6 +541,7 @@ body {
   }
   .navbar .logout {
     margin-left: 20px;
+    cursor: pointer;
   }
   .navbar button {
     display: none;
@@ -1016,6 +1017,19 @@ body {
   .fullscreen-modal form button img {
     width: 30px;
     height: 30px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .fullscreen-modal {
+    width: 75%;
+    top: 0;
+    left: 320px;
+    gap: 10px;
+  }
+  .fullscreen-modal form {
+    width: 100%;
+    bottom: 10px;
   }
 }
 
@@ -2184,6 +2198,14 @@ body {
 }
 
 @media screen and (min-width: 900px) {
+  .new-project {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+  .new-project main {
+    width: 75%;
+  }
 }
 
 /***
@@ -2823,6 +2845,20 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0px 15px 15px -4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .member-profile {
+    align-items: end;
+  }
+  .member-profile main {
+    width: 75%;
+  }
+  .member-profile .events-container {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
   }
 }
 

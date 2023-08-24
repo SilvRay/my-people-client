@@ -96,45 +96,47 @@ function MemberProfilePage() {
 
   return (
     <div className="member-profile">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <main>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <div className="head">
-        <h2>{userProfile.username}</h2>
-        <img
-          src={userProfile.profileImg}
-          alt="profile picture"
-          className="profile-pic"
-        />
-      </div>
+        <div className="head">
+          <h2>{userProfile.username}</h2>
+          <img
+            src={userProfile.profileImg}
+            alt="profile picture"
+            className="profile-pic"
+          />
+        </div>
 
-      <div className="tabs-container">
-        <Link to={`/profile/${userId}?tab=medias`}>
-          <img src="/images/grid-icon.png" alt="medias-icon" />
-        </Link>
-        <Link to={`/profile/${userId}?tab=events`}>
-          <img src="/images/event-icon.png" alt="events-icon" />
-        </Link>
-        <Link to={`/profile/${userId}?tab=projects`}>
-          <img src="/images/project-icon.png" alt="projects-icon" />
-        </Link>
-      </div>
+        <div className="tabs-container">
+          <Link to={`/profile/${userId}?tab=medias`}>
+            <img src="/images/grid-icon.png" alt="medias-icon" />
+          </Link>
+          <Link to={`/profile/${userId}?tab=events`}>
+            <img src="/images/event-icon.png" alt="events-icon" />
+          </Link>
+          <Link to={`/profile/${userId}?tab=projects`}>
+            <img src="/images/project-icon.png" alt="projects-icon" />
+          </Link>
+        </div>
 
-      {tab === "medias" && (
-        <PostMosaic posts={posts} handleMediaClick={handleMediaClick} />
-      )}
-      {tab === "events" && <EventCard events={events} />}
-      {tab === "projects" && <ProjectCard projects={projects} />}
+        {tab === "medias" && (
+          <PostMosaic posts={posts} handleMediaClick={handleMediaClick} />
+        )}
+        {tab === "events" && <EventCard events={events} />}
+        {tab === "projects" && <ProjectCard projects={projects} />}
 
-      {showFullscreenMedia && (
-        <FullscreenMedia
-          onClose={handleCloseFullScreenMedia}
-          setCurrIndex={setCurrIndex}
-          currIndex={currIndex}
-          mediaList={mediaList}
-          posts={posts}
-          mediaId={mediaId}
-        />
-      )}
+        {showFullscreenMedia && (
+          <FullscreenMedia
+            onClose={handleCloseFullScreenMedia}
+            setCurrIndex={setCurrIndex}
+            currIndex={currIndex}
+            mediaList={mediaList}
+            posts={posts}
+            mediaId={mediaId}
+          />
+        )}
+      </main>
 
       <NavBar />
     </div>
