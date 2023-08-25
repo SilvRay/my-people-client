@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const myaxios = axios.create({
-  baseURL: "http://localhost:5005",
-});
+const baseURL = import.meta.env.VITE_API_URL;
+
+const myaxios = axios.create({ baseURL });
 
 myaxios.interceptors.request.use((config) => {
   const storedToken = localStorage.getItem("authToken");
