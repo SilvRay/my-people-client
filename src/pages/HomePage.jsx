@@ -15,7 +15,7 @@ function HomePage() {
   let [searchParams] = useSearchParams();
   const tab = searchParams.get("tab");
   const { user } = useContext(AuthContext);
-  const [group, setGroup] = useState(null);
+  const [group, setGroup] = useState({});
 
   const [posts, setPosts] = useState([]);
   const [events, setEvents] = useState([]);
