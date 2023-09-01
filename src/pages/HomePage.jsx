@@ -15,7 +15,7 @@ function HomePage() {
   let [searchParams] = useSearchParams();
   const tab = searchParams.get("tab");
   const { user } = useContext(AuthContext);
-  const [group, setGroup] = useState({});
+  const [group, setGroup] = useState(undefined);
 
   const [posts, setPosts] = useState([]);
   const [events, setEvents] = useState([]);
@@ -65,7 +65,7 @@ function HomePage() {
         myaxios
           .get("/api/medias")
           .then((response) => {
-            console.log("coucouuu", response.data);
+            console.log("medias", response.data);
 
             setPosts(response.data);
           })
@@ -95,8 +95,6 @@ function HomePage() {
   return (
     <div className="homepage">
       <main>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-
         <div className="tabs-container">
           <Link to="/home?tab=medias">
             <img
@@ -118,12 +116,6 @@ function HomePage() {
           </Link>
         </div>
 
-        {group && (
-          <>
-            <h1>{group.name}</h1>
-          </>
-        )}
-
         {!group ? (
           <>
             <p className="alert">
@@ -141,6 +133,8 @@ function HomePage() {
           </>
         ) : (
           <>
+            <h1>{group.name}</h1>
+
             {tab === "medias" && (
               <Posts
                 posts={posts}
