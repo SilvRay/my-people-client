@@ -10,8 +10,6 @@ import Projects from "../components/Projects";
 import { useSearchParams } from "react-router-dom";
 
 function HomePage() {
-  const [errorMessage, setErrorMessage] = useState(undefined);
-
   let [searchParams] = useSearchParams();
   const tab = searchParams.get("tab");
   const { user } = useContext(AuthContext);
@@ -52,8 +50,7 @@ function HomePage() {
         setGroup(response.data);
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
+        console.log("THE ERROR IS:", error);
       });
   }, []);
 
