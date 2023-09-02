@@ -7,9 +7,9 @@ import { uploadImageProfile } from "../services/file-upload.service";
 
 function EditProfilePage() {
   const { user, refreshUser } = useContext(AuthContext);
-  const [profileImg, setProfileImg] = useState("");
+  const [profileImg, setProfileImg] = useState(user.profileImg);
   const [username, setUsername] = useState(user.username);
-  const [birthday, setBirthday] = useState("");
+  const [birthday, setBirthday] = useState();
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -86,7 +86,9 @@ function EditProfilePage() {
               type="date"
               name="birthday"
               value={birthday}
-              onChange={(e) => setBirthday(e.target)}
+              onChange={(e) => {
+                setBirthday(e.target.value);
+              }}
             />
           </label>
 

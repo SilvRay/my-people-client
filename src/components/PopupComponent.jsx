@@ -1,9 +1,49 @@
 import { Link, useNavigate } from "react-router-dom";
 import myaxios from "../myaxios";
 import { uploadImagePost } from "../services/file-upload.service";
+// import { Text, View } from "react-native";
+// useRef pour faire référence à la caméra, useState pour afficher différentes choses
+// selon s'il y a des autorisations dispo ou s'il y'a une photo qui été prise
+// import { useEffect, useRef, useState } from "react";
+// import { Camera } from "expo-camera";
+// Permettre de partager un fichier
+// import { shareAsync } from "expo-sharing";
+// import * as MediaLibrary from "expo-media-library";
 
 function PopupComponent({ popupVisible }) {
   //const [mediasUrl, setMediasUrl] = useState([]);
+  // let cameraRef = useRef();
+  // const [hasCameraPermission, setHasCameraPermission] = useState();
+  // Accéder à la galerie ou à la pellicule et enregistrer des photos
+  // const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
+
+  // useEffect(() => {
+  //   (async () => {
+  // Demander les autorisations de la caméra
+  // const cameraPermisssion = await Camera.requestCameraPermissionsAsync();
+  // Demander les autorisations de la galerie
+  // const mediaLibraryPermisssion =
+  //   await MediaLibrary.requestPermissionsAsync();
+  // MAJ du state pour avoir l'autorisation de la caméra et l'autorisation de la galerie
+  //     setHasCameraPermission((cameraPermisssion.status = "granted"));
+  //     setHasMediaLibraryPermission(
+  //       (mediaLibraryPermisssion.status = "granted")
+  //     );
+  //   })();
+  // }, []);
+
+  // S'il n'a pas évalué s'il y'a des autorisations
+  // if (hasCameraPermission === undefined) {
+  // Return le texte qui demande l'autorisation
+  // car on ne peut pas encore interagir avec la caméra dc on veut pas la montrer
+  //   return <Text>Requesting permissions...</Text>;
+  // } else if (!hasCameraPermission) {
+  //   return (
+  //     <Text>
+  //       Permission for camera not granted. Please change this in settings
+  //     </Text>
+  //   );
+  // }
 
   const navigate = useNavigate();
 
@@ -48,7 +88,7 @@ function PopupComponent({ popupVisible }) {
 
         <label>
           <img src="/my-people-client/images/add.png" alt="add icon" />
-          Add pictures/videos
+          Add pictures
           <input
             type="file"
             capture="user"
@@ -68,7 +108,7 @@ function PopupComponent({ popupVisible }) {
         </Link>
       </div>
 
-      <div className="tip"></div>
+      {/* <div className="tip"></div> */}
     </div>
   );
 }
