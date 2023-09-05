@@ -81,8 +81,9 @@ function AddEventPage() {
             onChange={handlePlace}
             placeholder="Place"
           />
-          <label>
-            Date
+          <label className="schedule">
+            <span>Date</span>
+
             <input
               className="date"
               type="date"

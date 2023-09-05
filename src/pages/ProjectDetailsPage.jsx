@@ -26,8 +26,9 @@ function ProjectDetailsPage() {
   if (!project) return "loading...";
 
   return (
-    <>
-      <div className="project-page">
+    // <>
+    <div className="project-page">
+      <main>
         <div>
           <img
             src={`/my-people-client/images/project-img.jpg`}
@@ -43,9 +44,10 @@ function ProjectDetailsPage() {
           <h1>{project.title}</h1>
           <p>{project.description}</p>
         </div>
-      </div>
+      </main>
       <NavBar />
-    </>
+    </div>
+    // </>
   );
 }
 

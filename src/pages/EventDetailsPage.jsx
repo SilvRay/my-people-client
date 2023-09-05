@@ -58,76 +58,78 @@ function EventDetailsPage() {
   return (
     <>
       <div className="details-page">
-        <div className="event-details-header">
-          <div>
-            <img src={`/my-people-client/images/${event.type}.jpg`} alt="" />
-          </div>
+        <main>
+          <div className="event-details-header">
+            <div>
+              <img src={`/my-people-client/images/${event.type}.jpg`} alt="" />
+            </div>
 
-          <div>
-            <h1>{event.type}</h1>
+            <div>
+              <h1>{event.type}</h1>
 
-            <p className="eventcreation">
-              <strong>{event.creator.username}</strong> event
-            </p>
-
-            <p>
-              {" "}
-              <strong> Date : </strong>
-              <span className="eventHeaderText">
-                {new Date(event.date).toLocaleDateString()} at{" "}
-                {formatTime(event.date)}
-              </span>
-            </p>
-
-            <p>
-              <strong>Place : </strong>
-              <span className="eventHeaderText">{event.place}</span>
-            </p>
-          </div>
-        </div>
-
-        <div className="participation-form">
-          <form onSubmit={handleSubmit}>
-            <div className="formText">
-              <p>
-                {" "}
-                I will bring{" "}
-                <input
-                  type="number"
-                  name="kidsNb"
-                  min="0"
-                  value={kidsNb}
-                  onChange={handleKidsNb}
-                  placeholder="0"
-                />{" "}
-                kids
+              <p className="eventcreation">
+                <strong>{event.creator.username}</strong> event
               </p>
 
-              <p>They will be there</p>
+              <p>
+                {" "}
+                <strong> Date : </strong>
+                <span className="eventHeaderText">
+                  {new Date(event.date).toLocaleDateString()} at{" "}
+                  {formatTime(event.date)}
+                </span>
+              </p>
 
-              {event.participants.map((participant) => {
-                return (
-                  <div key={participant._id} className="participant img">
-                    {console.log("participant.name ==", participant.name)}
-                    <p>{participant.name}</p>
-                  </div>
-                );
-              })}
+              <p>
+                <strong>Place : </strong>
+                <span className="eventHeaderText">{event.place}</span>
+              </p>
             </div>
+          </div>
 
-            <div className="btn-container">
-              {!participation ? (
-                <button type="submit">I will be there</button>
-              ) : (
-                <button type="submit">I am not coming anymore</button>
-              )}
-            </div>
-          </form>
-        </div>
+          <div className="participation-form">
+            <form onSubmit={handleSubmit}>
+              <div className="formText">
+                <p>
+                  {" "}
+                  I will bring{" "}
+                  <input
+                    type="number"
+                    name="kidsNb"
+                    min="0"
+                    value={kidsNb}
+                    onChange={handleKidsNb}
+                    placeholder="0"
+                  />{" "}
+                  kids
+                </p>
 
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <p>They will be there</p>
+
+                {event.participants.map((participant) => {
+                  return (
+                    <div key={participant._id} className="participant img">
+                      {console.log("participant.name ==", participant.name)}
+                      <p>{participant.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="btn-container">
+                {!participation ? (
+                  <button type="submit">I will be there</button>
+                ) : (
+                  <button type="submit">I am not coming anymore</button>
+                )}
+              </div>
+            </form>
+          </div>
+
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+        </main>
+        <NavBar />
       </div>
-      <NavBar />
     </>
   );
 }

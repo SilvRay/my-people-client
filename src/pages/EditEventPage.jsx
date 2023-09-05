@@ -77,63 +77,65 @@ function EditEventPage() {
 
   return (
     <div className="editEvent">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <img
-        src={user.profileImg}
-        alt="profile picture"
-        className="profilePicture"
-      />
-
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="place"
-          value={place}
-          onChange={(e) => setPlace(e.target.value)}
+      <main>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <img
+          src={user.profileImg}
+          alt="profile picture"
+          className="profilePicture"
         />
-        <label>
-          Date{" "}
-          <input
-            className="date"
-            type="date"
-            name="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-          <input
-            className="time"
-            type="time"
-            name="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
-        </label>
-        {event.type === "Food Time" && (
+
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
-            name="meal"
-            value={meal}
-            onChange={(e) => setMeal(e.target.value)}
+            name="place"
+            value={place}
+            onChange={(e) => setPlace(e.target.value)}
           />
-        )}
-        {event.type === "Game Time" && (
-          <input
-            type="text"
-            name="games"
-            value={games}
-            onChange={(e) => setGames(e.target.value)}
-          />
-        )}
-        {event.type === "Real Talk" && (
-          <input
-            type="text"
-            name="theme"
-            value={theme}
-            onChange={(e) => setTheme(e.target.value)}
-          />
-        )}
-        <button>Edit</button>
-      </form>
+          <label>
+            Date{" "}
+            <input
+              className="date"
+              type="date"
+              name="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+            <input
+              className="time"
+              type="time"
+              name="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
+          </label>
+          {event.type === "Food Time" && (
+            <input
+              type="text"
+              name="meal"
+              value={meal}
+              onChange={(e) => setMeal(e.target.value)}
+            />
+          )}
+          {event.type === "Game Time" && (
+            <input
+              type="text"
+              name="games"
+              value={games}
+              onChange={(e) => setGames(e.target.value)}
+            />
+          )}
+          {event.type === "Real Talk" && (
+            <input
+              type="text"
+              name="theme"
+              value={theme}
+              onChange={(e) => setTheme(e.target.value)}
+            />
+          )}
+          <button>Edit</button>
+        </form>
+      </main>
 
       <NavBar />
     </div>
