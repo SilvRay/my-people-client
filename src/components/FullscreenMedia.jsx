@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import myaxios from "../myaxios";
+import { AuthContext } from "../context/auth.context";
 // import { useParams } from "react-router-dom";
 
 function FullscreenMedia({
@@ -9,6 +10,7 @@ function FullscreenMedia({
   currIndex,
   mediaId,
 }) {
+  const { refreshUser } = useContext(AuthContext);
   const [content, setContent] = useState("");
   const [comments, setComments] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -42,12 +44,13 @@ function FullscreenMedia({
       .get(`/api/medias/${mediaId}/comments`)
       .then((response) => {
         setComments(response.data);
+        refreshUser();
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
-  }, [mediaId]);
+  }, [mediaId, refreshUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -23,7 +23,7 @@ function Projects({ projects, user }) {
       <div className="filters">
         <span>
           <img
-            src={`/my-people-client/public/images/selected-${
+            src={`/my-people-client/images/selected-${
               allOrMyProjects === "all" ? "true" : "false"
             }.png`}
             alt="selection button"
@@ -33,7 +33,7 @@ function Projects({ projects, user }) {
         </span>
         <span>
           <img
-            src={`/my-people-client/public/images/selected-${
+            src={`/my-people-client/images/selected-${
               allOrMyProjects === "my" ? "true" : "false"
             }.png`}
             alt="selection button"
