@@ -58,6 +58,7 @@ function EventDetailsPage() {
   return (
     <>
       <div className="details-page">
+        <NavBar />
         <main>
           <div className="event-details-header">
             <div>
@@ -128,7 +129,6 @@ function EventDetailsPage() {
 
           {errorMessage && <p className="error-message">{errorMessage}</p>}
         </main>
-        <NavBar />
       </div>
     </>
   );

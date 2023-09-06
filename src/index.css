@@ -1300,9 +1300,32 @@ body {
 
 @media screen and (min-width: 900px) {
   .details-page {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+  }
+  .details-page .navbar {
+    min-width: 20em;
+    height: 100vh;
+    border-right: 1px solid white;
+    position: static;
   }
   .details-page main {
-    width: 75%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+  }
+  .details-page main .event-details-header,
+  .details-page main .participation-form form .formText {
+    padding-left: 150px;
+  }
+  .details-page main .participation-form form .btn-container {
+    padding-left: 350px;
+    margin-top: 40px;
+  }
+  .details-page main .participation-form form .btn-container button {
+    margin: 0;
   }
 }
 
