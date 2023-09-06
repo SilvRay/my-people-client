@@ -81,7 +81,7 @@ function FullscreenMedia({
         {mediaList.length > 1 && (
           <button className="prevMedia" onClick={handlePrevMediaClick}>
             <img
-              src="/my-people-client/public/images/prev-media.png"
+              src="/my-people-client/images/prev-media.png"
               alt="previous icon"
             />
           </button>

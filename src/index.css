@@ -1540,6 +1540,7 @@ body {
 .profile .posts-profile-container .post .media {
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .profile .posts-profile-container .post .multiple-medias-icon {
