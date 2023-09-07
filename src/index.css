@@ -248,7 +248,7 @@ body {
  */
 
 .loginPage {
-  background-color: #8367e0;
+  background-color: #837ae0;
   min-height: 100vh;
   padding-top: 20px;
   display: flex;
@@ -3368,21 +3368,46 @@ _____ _                                                 _
 }
 
 .choose-event .selection {
-  position: relative;
+  height: 8em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5px solid purple;
+}
+
+.choose-event .selection1 {
+  background-image: url("/my-people-client/images/pexels-askar-abayev-5638814.jpg");
+}
+
+.choose-event .selection2 {
+  background-image: url("/my-people-client/images/pexels-ron-lach-10045063.jpg");
+  background-position: center;
+}
+
+.choose-event .selection3 {
+  background-image: url("/my-people-client/images/pexels-yan-krukau-5792901.jpg");
+}
+
+.choose-event .selection4 {
+  background-image: url("/my-people-client/images/pexels-tamuka-xulu-12982997.jpg");
+  background-position: center;
+}
+
+.choose-event .selection5 {
+  background-image: url("/my-people-client/images/talk.jpg");
+  background-position: center;
 }
 
 .choose-event .selection a {
   text-decoration: none;
-}
-
-.choose-event .selection img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .choose-event .selection h3 {
-  position: absolute;
   bottom: 20px;
   left: 128px;
   width: 110px;

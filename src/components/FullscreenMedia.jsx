@@ -13,7 +13,6 @@ function FullscreenMedia({
   const { refreshUser } = useContext(AuthContext);
   const [content, setContent] = useState("");
   const [comments, setComments] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(undefined);
 
   const handleBackgroundClick = (event) => {
     // Vérifier si l'événement provient de la fenêtre modale ou de ses enfants
@@ -47,8 +46,7 @@ function FullscreenMedia({
         refreshUser();
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
+        console.log("The ERROR:", error);
       });
   }, [mediaId, refreshUser]);
 
@@ -68,15 +66,12 @@ function FullscreenMedia({
         setComments(response.data.comments);
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
+        console.log("The ERROR:", error);
       });
   };
 
   return (
     <div className="fullscreen-modal" onClick={handleBackgroundClick}>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
       <div className="modal">
         {mediaList.length > 1 && (
           <button className="prevMedia" onClick={handlePrevMediaClick}>
