@@ -56,8 +56,8 @@ This project is built using the JavaScript stack, with a focus on the following 
 
 1. **Node.js**: Used for server-side development.
 2. **React.js**: Employed for building the client-side interface.
-3. **MongoDB**: For storing data in collections
-
+3. **CSS**: For styling and enhancing the user experience.
+4. **HTML5**: Providing the structure for web pages.
 
 ## Setup
 
