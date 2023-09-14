@@ -75,6 +75,13 @@ function EditEventPage() {
       });
   };
 
+  const handleCancelEventClick = () => {
+    myaxios.delete(`/api/events/${eventId}`).then((response) => {
+      console.log("Event to delete ===", response);
+      navigate("/profile?tab=events");
+    });
+  };
+
   return (
     <div className="editEvent">
       <main>
@@ -133,7 +140,16 @@ function EditEventPage() {
               onChange={(e) => setTheme(e.target.value)}
             />
           )}
-          <button>Edit</button>
+          <div className="btn-content">
+            <button>Edit</button>
+            <button
+              type="button"
+              className="cancel-btn"
+              onClick={handleCancelEventClick}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       </main>
 
