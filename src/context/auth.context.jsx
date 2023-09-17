@@ -43,7 +43,7 @@ function AuthProviderWrapper({ children }) {
 
   function refreshUser() {
     return myaxios.get("/api/user").then((response) => {
-      console.log("response.data ===", response.data);
+      // console.log("response.data ===", response.data);
       setUser(response.data);
     });
   }

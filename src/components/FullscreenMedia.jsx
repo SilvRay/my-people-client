@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import myaxios from "../myaxios";
 import { AuthContext } from "../context/auth.context";
+import { useNavigate } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 
 function FullscreenMedia({
@@ -13,6 +14,8 @@ function FullscreenMedia({
   const { refreshUser } = useContext(AuthContext);
   const [content, setContent] = useState("");
   const [comments, setComments] = useState([]);
+
+  const navigate = useNavigate();
 
   const handleBackgroundClick = (event) => {
     // Vérifier si l'événement provient de la fenêtre modale ou de ses enfants
@@ -35,6 +38,19 @@ function FullscreenMedia({
     });
   };
 
+  const handleDeleteComClick = (commentId) => {
+    myaxios
+      .delete(`/api/medias/${mediaId}/comments/${commentId}`)
+      .then((response) => {
+        console.log("Comment deleted successfully.", response);
+        setComments((prevComments) => {
+          return prevComments.filter((comment) => comment._id !== commentId);
+        });
+        navigate("/home?tab=medias");
+      })
+      .catch((error) => console.log("The ERROR:", error));
+  };
+
   // Récup le média actuellenment affiché en utilisant
   const currMediaUrl = mediaList[currIndex];
 
@@ -46,7 +62,7 @@ function FullscreenMedia({
         refreshUser();
       })
       .catch((error) => {
-        console.log("The ERROR:", error);
+        console.log("Error deleting comment", error);
       });
   }, [mediaId, refreshUser]);
 
@@ -105,16 +121,24 @@ function FullscreenMedia({
         {comments.map((comment) => {
           return (
             <div key={comment._id} className="comment">
-              <img src={comment.userId.profileImg} alt="profile picture" />
+              <img
+                className="profilePic"
+                src={comment.userId.profileImg}
+                alt="profile picture"
+              />
               <p>{comment.content}</p>
+              <img
+                className="delete-icon"
+                src="/my-people-client/images/delete.png"
+                onClick={() => handleDeleteComClick(comment._id)}
+              />
             </div>
           );
         })}
       </div>
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
+        <textarea
           name="content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
