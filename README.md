@@ -49,6 +49,7 @@ You can use this provided demo credentials :
 * Share photos with family members.
 * Ensure that only those belonging to the group can view the shared photos.
 * Create lasting memories by documenting family moments.
+* Post and delete comments.
 
 ## Technologies
 
