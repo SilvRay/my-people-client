@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import PopupComponent from "./PopupComponent";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { uploadImagePost } from "../services/file-upload.service";
 import myaxios from "../myaxios";
 import { AuthContext } from "../context/auth.context";
@@ -8,6 +8,7 @@ import { AuthContext } from "../context/auth.context";
 function NavBar() {
   const [popupVisible, setPopupVisible] = useState(false);
   const { logoutUser } = useContext(AuthContext);
+  const [unreadNotif, setUnreadNotif] = useState(0);
 
   const navigate = useNavigate;
 
@@ -49,6 +50,30 @@ function NavBar() {
 
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
+
+  useEffect(() => {
+    myaxios
+      .get("/api/notifications-number")
+      .then((response) => {
+        console.log("number of unread notifications :", response.data);
+        setUnreadNotif(response.data);
+      })
+      .catch((error) =>
+        console.log("ERROR when getting the number of unread notif:", error)
+      );
+  }, []);
+
+  const handleClickNotifIcon = () => {
+    myaxios
+      .put("api/notifications")
+      .then((response) => {
+        console.log("response ==="), response;
+      })
+      .catch((error) =>
+        console.log("ERROR when updating reading date of notif :", error)
+      );
+  };
+
   return (
     <>
       <div className="navbar">
@@ -61,11 +86,16 @@ function NavBar() {
             />
             <span>Home</span>
           </Link>
-          <Link to="/notifications">
+          <Link
+            className="notif-link"
+            to="/notifications"
+            onClick={handleClickNotifIcon}
+          >
             <img
               src="/my-people-client/images/notif.png"
               alt="notification icon"
             />
+            {unreadNotif > 0 && <p className="unread-notif">{unreadNotif}</p>}
             <span>Notifications</span>
           </Link>
           <Link to="/search">

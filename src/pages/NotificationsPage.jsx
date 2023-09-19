@@ -119,7 +119,7 @@ function NotificationsPage() {
     myaxios
       .get("/api/notifications")
       .then((response) => {
-        console.log("Here are the notifications :", response.data);
+        // console.log("Here are the notifications :", response.data);
 
         refreshUser();
         setNotifications(response.data);

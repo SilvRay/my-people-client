@@ -473,10 +473,6 @@ body {
   justify-content: space-evenly;
 }
 
-.navbar section a {
-  /* width: 100%; */
-}
-
 .navbar span {
   display: none;
 }
@@ -489,6 +485,21 @@ body {
 .navbar img {
   width: 24px;
   height: 24px;
+}
+
+.navbar .notif-link {
+  position: relative;
+}
+
+.navbar .notif-link .unread-notif {
+  position: absolute;
+  bottom: 0;
+  right: -0.8em;
+  background-color: red;
+  text-align: center;
+  min-width: 1.5em;
+  min-height: 1.5em;
+  border-radius: 1em;
 }
 
 .navbar button {

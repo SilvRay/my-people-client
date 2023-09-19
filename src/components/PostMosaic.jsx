@@ -9,7 +9,7 @@ function PostMosaic({ posts, handleMediaClick }) {
                 src={post.medias[0]}
                 alt="media"
                 className="media"
-                onClick={() => handleMediaClick(post.medias, 0)}
+                onClick={() => handleMediaClick(post.medias, 0, post._id)}
               />
             ) : (
               <>
@@ -17,7 +17,7 @@ function PostMosaic({ posts, handleMediaClick }) {
                   src={post.medias[0]}
                   alt="media"
                   className="media"
-                  onClick={() => handleMediaClick(post.medias, 0)}
+                  onClick={() => handleMediaClick(post.medias, 0, post._id)}
                 />
                 <img
                   src="/my-people-client/images/multiple.png"
