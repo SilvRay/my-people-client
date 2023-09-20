@@ -17,12 +17,14 @@ import EditEventPage from "./pages/EditEventPage";
 import SearchPage from "./pages/SearchPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
+import CleanupComponent from "./components/CleanupComponent";
 
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
+      <CleanupComponent />
       <Routes>
         <Route
           path="/"
