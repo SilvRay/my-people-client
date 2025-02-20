@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Kaushan+Script&display=swap");
 
-body {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
@@ -49,6 +54,7 @@ body {
 .head-container p {
   text-align: center;
   color: rgba(255, 255, 255, 0.64);
+  padding: 0 10px;
 }
 
 .signupPage form {
@@ -112,7 +118,7 @@ body {
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   .signupPage {
     padding: 0;
     display: flex;
