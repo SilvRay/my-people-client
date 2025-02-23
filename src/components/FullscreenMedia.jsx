@@ -141,7 +141,7 @@ function FullscreenMedia({
         <textarea
           name="content"
           value={content}
-          onChange={(e) => e.target.value}
+          onChange={(e) => setContent(e.target.value)}
           placeholder="Comment..."
         />
         <button>

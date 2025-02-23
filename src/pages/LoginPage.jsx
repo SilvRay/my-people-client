@@ -21,11 +21,10 @@ function LoginPage() {
     const reqBody = { email, password };
 
     myaxios
-      .post("/auth/sessions", reqBody)
+      .post("/auth/login", reqBody)
       .then((response) => {
         // Request to the server's endpoint `/auth/login` returns a response
         // with the JWT string ->  response.data.authToken
-        console.log("JWT token", response.data.authToken);
 
         storeToken(response.data.authToken);
         authenticateUser();

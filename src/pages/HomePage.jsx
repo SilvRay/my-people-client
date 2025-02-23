@@ -15,6 +15,8 @@ function HomePage() {
   const { user } = useContext(AuthContext);
   const [group, setGroup] = useState(undefined);
 
+  console.log("user ===", user);
+
   const [posts, setPosts] = useState([]);
   const [events, setEvents] = useState([]);
   const [projects, setProjects] = useState([]);

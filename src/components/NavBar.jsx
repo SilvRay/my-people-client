@@ -109,10 +109,10 @@ function NavBar() {
             />
             <span>Profile</span>
           </Link>
-          <Link className="create" to="/invite">
+          {/* <Link className="create" to="/invite">
             <img src="/my-people-client/images/add.png" alt="add icon" />
             <span>invite your people</span>
-          </Link>
+          </Link> */}
 
           <label className="create">
             <img src="/my-people-client/images/add.png" alt="add icon" />

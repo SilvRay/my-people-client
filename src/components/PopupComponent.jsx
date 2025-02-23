@@ -81,10 +81,10 @@ function PopupComponent({ popupVisible }) {
   return (
     <div className={`add-popup-container ${popupVisible ? "" : "inactive"}`}>
       <div className="add-popup">
-        <Link to="/invite">
+        {/* <Link to="/invite">
           <img src="/my-people-client/images/add.png" alt="add icon" />
-          invite your people
-        </Link>
+          Invite your people
+        </Link> */}
 
         <label>
           <img src="/my-people-client/images/add.png" alt="add icon" />

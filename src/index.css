@@ -13,6 +13,62 @@ body {
   color: white;
 }
 
+.profilePicture {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+
+input {
+  display: block;
+  margin: 0 auto;
+  height: 48px;
+  width: 300px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid black;
+}
+
+@media screen and (min-width: 1100px) {
+  .signupPage form input,
+  .loginPage form input {
+    border: 1px solid #a2a2a2;
+    margin-top: 10px;
+    background-color: rgb(240, 237, 235);
+  }
+  .signupPage form input:focus,
+  .loginPage form input:focus {
+    border: 2px solid #000;
+  }
+}
+
+textarea {
+  resize: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+textarea::placeholder {
+  font-family: "Inter", sans-serif;
+}
+
 /***
  *       _____ _____ _____ _   _ _    _ _____    _____        _____ ______ 
  *      / ____|_   _/ ____| \ | | |  | |  __ \  |  __ \ /\   / ____|  ____|
@@ -65,19 +121,6 @@ body {
   gap: 24px;
 }
 
-.signupPage form input {
-  height: 38px;
-  width: 300px;
-  border: 1px solid #a2a2a2;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.signupPage form input::placeholder {
-  color: #686363;
-  font-size: 16px;
-}
-
 .signupPage .btn-container button {
   display: block;
   margin-left: auto;
@@ -92,6 +135,7 @@ body {
   font-weight: 600;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .signupPage .to-login-container {
@@ -145,15 +189,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 0;
-  }
-  .signupPage form input {
-    height: 38px;
-    width: 300px;
-    border: 1px solid #a2a2a2;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 16px;
-    background-color: rgb(240, 237, 235);
   }
 
   .signupPage .to-login-container p {
@@ -287,19 +322,6 @@ body {
   gap: 24px;
 }
 
-.loginPage form input {
-  height: 38px;
-  width: 300px;
-  border: 1px solid #a2a2a2;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.loginPage form input::placeholder {
-  color: #686363;
-  font-size: 16px;
-}
-
 .loginPage .btn-container button {
   display: block;
   margin-left: auto;
@@ -314,6 +336,7 @@ body {
   font-weight: 600;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .loginPage .to-signup-container {
@@ -332,7 +355,7 @@ body {
   font-weight: 600;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   .loginPage {
     padding: 0;
     display: flex;
@@ -353,16 +376,6 @@ body {
     align-items: center;
     gap: 0;
   }
-  .loginPage form input {
-    height: 38px;
-    width: 300px;
-    border: 1px solid #a2a2a2;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 16px;
-    background-color: rgb(240, 237, 235);
-  }
-
   .loginPage .to-signup-container p {
     margin-bottom: 0;
     color: black;
@@ -553,24 +566,24 @@ body {
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     margin-left: 20px;
+    width: fit-content;
   }
-  .navbar img {
-    width: 30px;
-    height: 30px;
+  .navbar section img {
+    width: 24px;
+    height: 24px;
   }
   .navbar span {
     display: block;
     color: white;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 1rem;
   }
   .navbar .create {
     display: flex;
     align-items: center;
-    gap: 20px;
-    width: 100%;
+    gap: 10px;
     margin-left: 20px;
   }
   .navbar .create input {
@@ -579,7 +592,7 @@ body {
   .navbar .logout-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     position: absolute;
     bottom: 16px;
   }
@@ -591,6 +604,168 @@ body {
     display: none;
   }
 }
+
+/***
+ *                  _     _    _____                         _____                 
+ *         /\      | |   | |  / ____|                       |  __ \                
+ *        /  \   __| | __| | | |  __ _ __ ___  _   _ _ __   | |__) |_ _  __ _  ___ 
+ *       / /\ \ / _` |/ _` | | | |_ | '__/ _ \| | | | '_ \  |  ___/ _` |/ _` |/ _ \
+ *      / ____ \ (_| | (_| | | |__| | | | (_) | |_| | |_) | | |  | (_| | (_| |  __/
+ *     /_/    \_\__,_|\__,_|  \_____|_|  \___/ \__,_| .__/  |_|   \__,_|\__, |\___|
+ *                                                  | |                  __/ |     
+ *                                                  |_|                 |___/      
+ */
+
+.addGroup-page {
+  background-color: #837ae0;
+  min-height: 100vh;
+  padding-top: 20px;
+}
+
+.addGroup-page form button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 24px;
+  width: 240px;
+  padding: 10px 0;
+  background-color: #1877f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+/***
+ *      _____ _   ___      _______ _______    _______ _____ ____  _   _   _____        _____ ______ 
+ *     |_   _| \ | \ \    / /_   _|__   __|/\|__   __|_   _/ __ \| \ | | |  __ \ /\   / ____|  ____|
+ *       | | |  \| |\ \  / /  | |    | |  /  \  | |    | || |  | |  \| | | |__) /  \ | |  __| |__   
+ *       | | | . ` | \ \/ /   | |    | | / /\ \ | |    | || |  | | . ` | |  ___/ /\ \| | |_ |  __|  
+ *      _| |_| |\  |  \  /   _| |_   | |/ ____ \| |   _| || |__| | |\  | | |  / ____ \ |__| | |____ 
+ *     |_____|_| \_|   \/   |_____|  |_/_/    \_\_|  |_____\____/|_| \_| |_| /_/    \_\_____|______|
+ *                                                                                                  
+ *                                                                                                  
+ */
+
+/* .invitationPage {
+  background-color: #837ae0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.invitationPage main {
+  width: 100%;
+}
+
+.invitationPage h2 {
+  font-family: "Kaushan Script", cursive;
+  text-align: center;
+}
+
+.invitationPage .profilePic {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 80px;
+}
+
+.invitationPage form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.invitationPage form .invitation {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitationPage form .invitation input {
+  width: 260px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: none;
+  margin-left: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.invitationPage form .invitation input:focus {
+  outline: none;
+  border: 2px solid #000;
+}
+
+.invitationPage form .invitation a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.invitationPage form .list-container {
+  padding-left: 10px;
+}
+
+.invitationPage form .list-container section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+.invitationPage form .list-container section img {
+  width: 22px;
+  height: 22px;
+}
+
+.invitationPage form .invitation-btn {
+  display: block;
+  margin: 32px auto;
+  width: 240px;
+  padding: 10px 0;
+  background-color: purple;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 900px) {
+  .invitationPage {
+    align-items: end;
+  }
+
+  .invitationPage main {
+    width: 75%;
+  }
+  .invitationPage h2 {
+    text-align: center;
+  }
+  .invitationPage .profilePic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .invitationPage form .list-container {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+} */
 
 /***
  *               _____  _____    _____   ____  _____  _    _ _____  
@@ -905,8 +1080,6 @@ body {
 .fullscreen-modal {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
@@ -958,7 +1131,7 @@ body {
   flex-direction: column;
   gap: 10px;
   background-color: rgba(0, 0, 0, 0.3);
-  overflow: scroll;
+  overflow-y: scroll;
   margin-bottom: 130px;
 }
 
@@ -990,36 +1163,30 @@ body {
 }
 
 .fullscreen-modal form {
-  width: 100%;
-  position: absolute;
+  width: 80%;
+  position: relative;
   bottom: 80px;
   display: flex;
 }
 
 .fullscreen-modal form textarea {
-  width: 90%;
-  height: 40px;
-  border-radius: 20px;
+  width: 100%;
+  min-height: 40px;
   border: none;
-  background-color: purple;
-  color: white;
-  padding: 0 10px;
-  padding-right: 45px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 18px;
-}
-
-.fullscreen-modal form input::placeholder {
-  font-size: 18px;
+  padding: 5px 45px 5px 10px;
+  font-size: 1rem;
 }
 
 .fullscreen-modal form button {
-  background-color: transparent;
+  background-color: #8367e0;
   position: absolute;
   right: 0;
-  bottom: 2px;
+  top: 50%;
+  transform: translateY(-50%);
   border: none;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .fullscreen-modal form button img {
@@ -1028,64 +1195,12 @@ body {
 }
 
 @media screen and (min-width: 600px) {
-  .fullscreen-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    overflow: scroll;
-  }
-  .com-container {
-    width: 100%;
-    min-height: 100px;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-    overflow: scroll;
-    margin-bottom: 130px;
-  }
-  .fullscreen-modal form {
-    width: 100%;
-    position: absolute;
-    bottom: 80px;
-    display: flex;
-  }
-  .fullscreen-modal form input {
-    display: block;
-    width: 90%;
-    height: 50px;
-    border-radius: 25px;
-    border: none;
-    background-color: purple;
-    padding: 0 10px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 18px;
-  }
-  .fullscreen-modal form button {
-    background-color: transparent;
-    position: absolute;
-    right: 30px;
-    bottom: 6px;
-    border: none;
-  }
-
-  .fullscreen-modal form button img {
-    width: 30px;
-    height: 30px;
+  .modal {
+    width: 45%;
   }
 }
 
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
   .fullscreen-modal {
     width: 75%;
     top: 0;
@@ -1115,7 +1230,7 @@ body {
     right: 15px;
     bottom: 4px;
   }
-}
+} */
 
 /***
  *      _    _  ____  __  __ ______ _____        _____ ______   ________      ________ _   _ _______ _____ 
@@ -1397,6 +1512,7 @@ body {
 .profile .head .profile-pic {
   width: 120px;
   height: 120px;
+  border: 1px solid #fff;
   border-radius: 50%;
   display: block;
   margin-left: auto;
@@ -1440,13 +1556,12 @@ body {
   margin-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding-left: 5px;
-  padding-right: 5px;
+  justify-content: center;
+  gap: 5px;
 }
 
 .profile .events-container .event-card {
-  width: 170px;
+  width: 200px;
   border: 1px solid purple;
   border-radius: 10px;
   display: flex;
@@ -1487,7 +1602,7 @@ body {
   line-height: 40px;
 }
 
-@media screen and (min-width: 600px), (max-width: 900) {
+@media screen and (min-width: 600px) {
   .profile .head h2 {
     text-align: center;
     font-family: "Kaushan Script", cursive;
@@ -1503,18 +1618,17 @@ body {
     margin-bottom: 16px;
   }
   .profile .events-container {
-    width: 85%;
     margin-top: 20px;
     margin-bottom: 100px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 71px;
+    padding-right: 71px;
   }
 
   .profile .events-container .event-card {
-    width: 200px;
+    width: 230px;
     height: 350px;
     border: 1px solid purple;
     border-radius: 10px;
@@ -1523,14 +1637,6 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0px 15px 15px -4px rgba(255, 255, 255, 0.8);
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .profile .events-container {
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -1554,18 +1660,18 @@ body {
 }
 
 .profile .posts-profile-container .post {
-  background-color: transparent;
   padding: 0;
   margin: 0;
   border-radius: 0;
-  width: 125px;
-  height: 125px;
+  max-width: 33.33%;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
 }
 
 .profile .posts-profile-container .post .media {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .profile .posts-profile-container .post .multiple-medias-icon {
@@ -1574,7 +1680,7 @@ body {
   right: 3px;
 }
 
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .profile .posts-profile-container {
     display: flex;
     flex-wrap: wrap;
@@ -1604,7 +1710,7 @@ body {
     top: 3px;
     right: 3px;
   }
-}
+} */
 @media screen and (min-width: 900px) {
   .profile {
     align-items: end;
@@ -1616,11 +1722,11 @@ body {
     display: none;
   }
   .profile .posts-profile-container {
-    justify-content: start;
+    justify-content: center;
+    gap: 5px;
   }
   .profile .posts-profile-container .post {
-    width: 250px;
-    height: 250px;
+    width: 25%;
   }
 }
 
@@ -1922,26 +2028,21 @@ body {
 .searchPage .searchBar label {
   display: flex;
   align-items: center;
-}
-
-.searchPage input {
-  width: 270px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
-  color: white;
-  border: none;
-  margin-left: 5px;
-  padding-left: 32px;
-  font-size: 22px;
   position: relative;
 }
 
+.searchPage input {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 34px;
+}
+
 .searchPage .searchBar img {
-  width: 24px;
+  width: 26px;
   position: absolute;
   left: 10px;
-  top: 111px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .searchPage .searchBar button {
@@ -1981,22 +2082,9 @@ body {
 
 @media screen and (min-width: 600px) {
   .searchPage input {
-    width: 400px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: none;
-    margin-left: 50px;
-    padding-left: 32px;
-    font-size: 22px;
-    position: relative;
+    width: 500px;
   }
-  .searchPage .searchBar img {
-    width: 24px;
-    position: absolute;
-    left: 55px;
-    top: 117px;
-  }
+
   .searchPage .searchBar button {
     background-color: transparent;
     border: none;
@@ -2019,186 +2107,6 @@ body {
   }
   .searchPage main {
     width: 75%;
-  }
-}
-
-/***
- *      _____ _   ___      _______ _______    _______ _____ ____  _   _   _____        _____ ______ 
- *     |_   _| \ | \ \    / /_   _|__   __|/\|__   __|_   _/ __ \| \ | | |  __ \ /\   / ____|  ____|
- *       | | |  \| |\ \  / /  | |    | |  /  \  | |    | || |  | |  \| | | |__) /  \ | |  __| |__   
- *       | | | . ` | \ \/ /   | |    | | / /\ \ | |    | || |  | | . ` | |  ___/ /\ \| | |_ |  __|  
- *      _| |_| |\  |  \  /   _| |_   | |/ ____ \| |   _| || |__| | |\  | | |  / ____ \ |__| | |____ 
- *     |_____|_| \_|   \/   |_____|  |_/_/    \_\_|  |_____\____/|_| \_| |_| /_/    \_\_____|______|
- *                                                                                                  
- *                                                                                                  
- */
-
-.invitationPage {
-  background-color: #8367e0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.invitationPage main {
-  width: 100%;
-}
-
-.invitationPage h2 {
-  font-family: "Kaushan Script", cursive;
-  text-align: center;
-}
-
-.invitationPage .profilePic {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 32px;
-}
-
-.invitationPage form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.invitationPage form .invitation {
-  margin-bottom: 24px;
-}
-
-.invitationPage form .invitation input {
-  width: 260px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
-  color: white;
-  border: none;
-  margin-left: 5px;
-  padding-left: 10px;
-  font-size: 16px;
-}
-
-.invitationPage form .invitation a {
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  margin-left: 10px;
-}
-
-.invitationPage form .list-container {
-  padding-left: 10px;
-}
-
-.invitationPage form .list-container section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  height: 16px;
-  margin-bottom: 10px;
-}
-
-.invitationPage form .list-container section img {
-  width: 22px;
-  height: 22px;
-}
-
-.invitationPage form .invitation-btn {
-  display: block;
-  margin: 32px auto;
-  width: 240px;
-  padding: 10px 0;
-  background-color: purple;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-}
-
-@media screen and (min-width: 600px) {
-  .invitationPage h2 {
-    font-family: "Kaushan Script", cursive;
-    font-size: 32px;
-  }
-  .invitationPage .profilePic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 100px;
-  }
-  .invitationPage form .invitation {
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .invitationPage form .invitation input {
-    width: 300px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: none;
-    margin-left: 5px;
-    padding-left: 10px;
-    font-size: 24px;
-  }
-  .invitationPage form .invitation a {
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 24px;
-    margin-left: 10px;
-  }
-  .invitationPage form .list-container {
-    margin-left: 11em;
-  }
-  .invitationPage form .list-container h4 {
-    font-size: 24px;
-  }
-  .invitationPage form .list-container section img {
-    width: 28px;
-    height: 28px;
-  }
-  .invitationPage form .list-container section p {
-    font-size: 24px;
-  }
-  .invitationPage form .invitation-btn {
-    display: block;
-    margin: 32px auto;
-    width: 300px;
-    padding: 10px 0;
-    background-color: purple;
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-    border: none;
-    border-radius: 10px;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .invitationPage {
-    align-items: end;
-  }
-
-  .invitationPage main {
-    width: 75%;
-  }
-  .invitationPage h2 {
-    text-align: center;
-  }
-  .invitationPage .profilePic {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .invitationPage form .list-container {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -2241,31 +2149,11 @@ body {
   margin-top: 70px;
 }
 
-.new-project form input {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 30px;
-  width: 300px;
-  border: 1px solid #a2a2a2;
-  padding: 5px;
-  font-size: 16px;
-}
-
 .new-project form textarea {
-  display: block;
   margin-left: auto;
   margin-right: auto;
   height: 140px;
   width: 300px;
-  border: 1px solid #a2a2a2;
-  padding: 5px;
-  font-size: 16px;
-  font-family: "Inter", sans-serif;
-}
-
-.new-project form textarea::placeholder {
-  font-family: "Inter", sans-serif;
 }
 
 .new-project form button {
@@ -2288,27 +2176,6 @@ body {
     text-align: center;
     font-family: "Kaushan Script", cursive;
     font-size: 32px;
-  }
-  .new-project form input {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 40px;
-    width: 400px;
-    border: 1px solid #a2a2a2;
-    padding: 5px;
-    font-size: 24px;
-  }
-  .new-project form textarea {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 200px;
-    width: 400px;
-    border: 1px solid #a2a2a2;
-    padding: 5px;
-    font-size: 24px;
-    font-family: "Inter", sans-serif;
   }
   .new-project form button {
     display: block;
@@ -2333,6 +2200,21 @@ body {
   .new-project main {
     width: 75%;
   }
+  .new-project form input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    padding: 5px;
+  }
+  .new-project form textarea {
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    width: 500px;
+  }
+  .new-project form textarea:focus {
+    border: 2px solid #000;
+  }
   .new-project form button {
     background-color: purple;
   }
@@ -2353,17 +2235,6 @@ body {
   background-color: #837ae0;
   min-height: 100vh;
   padding-top: 20px;
-}
-
-.editEvent .profilePicture {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 1px solid #1877f2;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 16px;
 }
 
 .editEvent form {
@@ -2456,16 +2327,6 @@ body {
   font-family: "Kaushan Script", cursive;
 }
 
-.addEvent .profilePicture {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 16px;
-}
-
 .addEvent form {
   display: flex;
   flex-direction: column;
@@ -2476,32 +2337,24 @@ body {
 .addEvent form label {
   display: flex;
   align-items: center;
+  justify-content: end;
   font-weight: 700;
   padding-left: 35px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.addEvent form input {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 30px;
-  width: 300px;
-  border: 1px solid #a2a2a2;
-  padding: 5px;
-  font-size: 16px;
+.addEvent form label span {
+  position: absolute;
+  left: -1rem;
 }
 .addEvent form label .date {
-  width: 116px;
-  border-radius: 5px;
-  font-family: "Inter", sans-serif;
+  width: 135px;
   margin-right: 16px;
 }
 
 .addEvent form label .time {
-  width: 80px;
-  border-radius: 5px;
-  font-family: "Inter", sans-serif;
-  margin-left: 0;
+  width: 100px;
 }
 
 .addEvent form button {
@@ -2524,32 +2377,6 @@ body {
     text-align: center;
     font-family: "Kaushan Script", cursive;
     font-size: 32px;
-  }
-  .addEvent .profilePicture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 16px;
-  }
-  .addEvent form input {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 40px;
-    width: 400px;
-    border: 1px solid #a2a2a2;
-    padding: 5px;
-    font-size: 24px;
-  }
-  .addEvent form label {
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    font-size: 24px;
-    padding-left: 100px;
   }
   .addEvent form button {
     display: block;
@@ -2579,24 +2406,17 @@ body {
   .addEvent form button {
     background-color: purple;
   }
-  .addEvent form {
-    position: relative;
+  .addEvent form input {
+    width: 500px;
   }
-  .addEvent form .schedule {
-    margin-left: auto;
-    margin-right: auto;
-  }
+
   .addEvent form .schedule span {
-    position: absolute;
-    left: 3em;
+    left: -5rem;
   }
 
   .addEvent form label .date {
     width: 170px;
     margin-left: 0;
-  }
-  .addEvent form label .time {
-    width: 110px;
   }
 }
 
@@ -2643,36 +2463,16 @@ body {
 }
 
 .profileEdit form .profilePicture-container {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #fff;
   border-radius: 50%;
-  display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 .profileEdit .addProfilePicture {
   display: none;
-}
-
-.profileEdit .profilePicture {
-  width: 120px;
-  height: 120px;
-  object-fit: fill;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.profileEdit form input {
-  height: 40px;
-  width: 300px;
-  border: 1px solid #a2a2a2;
-  font-size: 16px;
-}
-.profileEdit form .birthday {
-  font-family: "Inter", sans-serif;
 }
 
 .profileEdit form button {
@@ -2706,15 +2506,6 @@ body {
     left: 38%;
     width: 50px;
   }
-  .profileEdit .profilePicture {
-    width: 200px;
-    height: 200px;
-    border: 1px solid #1877f2;
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
   .profileEdit form label {
     display: flex;
     flex-direction: column;
@@ -2727,10 +2518,7 @@ body {
     font-size: 24px;
   }
   .profileEdit form input {
-    height: 50px;
-    width: 400px;
-    border: 1px solid #a2a2a2;
-    font-size: 24px;
+    width: 500px;
   }
   .profileEdit form button {
     display: block;
@@ -2778,29 +2566,29 @@ body {
   position: relative;
 }
 
-.addPostPage .nav-medias .prevMedia-btn {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 375px;
-  padding: 0;
-}
-
-.addPostPage .nav-medias .prevMedia {
-  width: 24px;
-  height: 24px;
-}
-
+.addPostPage .nav-medias .prevMedia-btn,
 .addPostPage .nav-medias .nextMedia-btn {
   position: absolute;
   top: 0;
-  right: 0;
   width: 60px;
-  height: 375px;
+  height: 100%;
   padding: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.addPostPage .nav-medias .prevMedia-btn:hover,
+.addPostPage .nav-medias .nextMedia-btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
+.addPostPage .nav-medias .prevMedia-btn {
+  left: 0;
+}
+.addPostPage .nav-medias .nextMedia-btn {
+  right: 0;
+}
+
+.addPostPage .nav-medias .prevMedia,
 .addPostPage .nav-medias .nextMedia {
   width: 24px;
   height: 24px;
@@ -2820,14 +2608,10 @@ body {
 }
 
 .addPostPage form textarea {
-  padding: 10px;
-  width: 300px;
+  width: 100%;
   height: 100px;
   border: none;
-  background: transparent;
-  font-family: "Inter", sans-serif;
-  font-size: 18px;
-  color: white;
+  background-color: white;
 }
 
 .addPostPage form button {
@@ -2843,6 +2627,25 @@ body {
   font-weight: 600;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+  .addPostPage {
+    display: flex;
+    justify-content: end;
+  }
+
+  .addPostPage main {
+    width: 75%;
+  }
+
+  /* .addPostPage main img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+  } */
 }
 
 /***
@@ -3208,60 +3011,6 @@ body {
   }
 }
 
-/***
- *                  _     _    _____                         _____                 
- *         /\      | |   | |  / ____|                       |  __ \                
- *        /  \   __| | __| | | |  __ _ __ ___  _   _ _ __   | |__) |_ _  __ _  ___ 
- *       / /\ \ / _` |/ _` | | | |_ | '__/ _ \| | | | '_ \  |  ___/ _` |/ _` |/ _ \
- *      / ____ \ (_| | (_| | | |__| | | | (_) | |_| | |_) | | |  | (_| | (_| |  __/
- *     /_/    \_\__,_|\__,_|  \_____|_|  \___/ \__,_| .__/  |_|   \__,_|\__, |\___|
- *                                                  | |                  __/ |     
- *                                                  |_|                 |___/      
- */
-
-.addGroup-page {
-  background-color: #f5e3cd;
-  min-height: 100vh;
-  padding-top: 20px;
-}
-
-.addGroup-page .profilePicture {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 80px;
-}
-
-.addGroup-page form input {
-  display: block;
-  margin: 0 auto;
-  height: 38px;
-  width: 300px;
-  border: 1px solid #a2a2a2;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.addGroup-page form button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 24px;
-  width: 240px;
-  padding: 10px 0;
-  background-color: #1877f2;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-}
-
 /* 
 _____           _           _     _____       _        _ _       _____                 
 |  __ \         (_)         | |   |  __ \     | |      (_) |     |  __ \                
@@ -3376,25 +3125,15 @@ _____ _                                                 _
 }
 
 .choose-event h2 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-top: 0;
   text-align: center;
   font-family: "Kaushan Script", cursive;
 }
 
-.choose-event .profilePicture {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 16px;
-}
-
 .choose-event h1 {
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: 600;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   padding-top: 10px;
@@ -3435,24 +3174,30 @@ _____ _                                                 _
 
 .choose-event .selection a {
   text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.choose-event .selection a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .choose-event .selection h3 {
-  bottom: 20px;
-  left: 128px;
-  width: 110px;
   color: white;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
   text-align: center;
   text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black, 0 0 20px black,
     0 0 30px black, 0 0 40px black, 0 0 55px black, 0 0 75px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
 }
 
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .choose-event h2 {
     font-size: 32px;
     font-weight: 700;
@@ -3489,7 +3234,7 @@ _____ _                                                 _
     text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black, 0 0 20px black,
       0 0 30px black, 0 0 40px black, 0 0 55px black, 0 0 75px black;
   }
-}
+} */
 
 @media screen and (min-width: 900px) {
   .choose-event {
@@ -3502,8 +3247,14 @@ _____ _                                                 _
   .choose-event main {
     width: 75%;
   }
+
+  .choose-event h1 {
+    text-align: center;
+  }
+
   .choose-event main .selection {
     width: 80%;
+    height: 10em;
     margin-left: auto;
     margin-right: auto;
   }

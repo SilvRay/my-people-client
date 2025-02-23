@@ -22,7 +22,7 @@ function SignupPage() {
     myaxios
       .post("/auth/users", reqBody)
       .then((response) => {
-        console.log("response", response);
+        console.log("data", response.data);
 
         navigate("/login");
       })
