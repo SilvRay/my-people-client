@@ -1087,6 +1087,7 @@ textarea::placeholder {
   position: fixed;
   top: 0;
   height: 100%;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
@@ -1097,7 +1098,6 @@ textarea::placeholder {
 .modal {
   max-width: 80%;
   max-height: 80%;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1206,37 +1206,11 @@ textarea::placeholder {
   }
 }
 
-/* @media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
   .fullscreen-modal {
     width: 75%;
-    top: 0;
-    left: 320px;
-    gap: 10px;
   }
-  .fullscreen-modal form {
-    width: 100%;
-    bottom: 10px;
-  }
-  .fullscreen-modal form input {
-    display: block;
-    width: 90%;
-    height: 50px;
-    border-radius: 25px;
-    border: none;
-    background-color: purple;
-    padding: 0 10px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 18px;
-  }
-  .fullscreen-modal form button img {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: 15px;
-    bottom: 4px;
-  }
-} */
+}
 
 /***
  *      _    _  ____  __  __ ______ _____        _____ ______   ________      ________ _   _ _______ _____ 

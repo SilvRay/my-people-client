@@ -27,14 +27,14 @@ function FullscreenMedia({
   const handlePrevMediaClick = () => {
     setCurrIndex((prevIndex) => {
       // S'assurer que l'index ne devient pas négatif
-      return prevIndex > 0 ? prevIndex - 1 : 0;
+      return prevIndex > 0 ? prevIndex - 1 : mediaList.length - 1;
     });
   };
 
   const handleNextMediaClick = () => {
     setCurrIndex((prevIndex) => {
       // S'assurer que l'index ne dépasse pas la longueur de la liste des médias
-      return prevIndex < mediaList.length - 1 ? prevIndex + 1 : prevIndex;
+      return prevIndex < mediaList.length - 1 ? prevIndex + 1 : 0;
     });
   };
 
