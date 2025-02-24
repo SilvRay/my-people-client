@@ -36,6 +36,12 @@ input {
   font-family: "Inter", sans-serif;
 }
 
+@media screen and (min-width: 900px) {
+  input {
+    width: 500px;
+  }
+}
+
 input:focus {
   outline: none;
   border: 2px solid black;
@@ -2136,12 +2142,7 @@ textarea::placeholder {
   .new-project main {
     width: 75%;
   }
-  .new-project form input {
-    margin-left: auto;
-    margin-right: auto;
-    width: 500px;
-    padding: 10px;
-  }
+
   .new-project form textarea {
     margin-left: auto;
     margin-right: auto;
@@ -2187,16 +2188,6 @@ textarea::placeholder {
   padding-left: 35px;
 }
 
-.editEvent form input {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 30px;
-  width: 300px;
-  border: 1px solid #a2a2a2;
-  padding: 5px;
-  font-size: 16px;
-}
 .editEvent form label .date {
   width: 116px;
   border-radius: 5px;
@@ -2342,9 +2333,6 @@ textarea::placeholder {
   .addEvent form button {
     background-color: purple;
   }
-  .addEvent form input {
-    width: 500px;
-  }
 
   .addEvent form .schedule span {
     left: -5rem;
@@ -2427,21 +2415,6 @@ textarea::placeholder {
 }
 
 @media screen and (min-width: 600px) {
-  .profileEdit form .profilePicture-container {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-  }
-  .profileEdit form label .image-icon {
-    position: absolute;
-    bottom: -8px;
-    left: 38%;
-    width: 50px;
-  }
   .profileEdit form label {
     display: flex;
     flex-direction: column;
