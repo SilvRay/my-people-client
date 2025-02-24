@@ -92,7 +92,7 @@ function ProfilePage() {
           <img
             src={user.profileImg}
             alt="profile picture"
-            className="profile-pic"
+            className="profilePicture"
           />
           <Link to="/profile/edit">Edit your profile</Link>
         </div>

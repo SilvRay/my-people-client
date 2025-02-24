@@ -1509,17 +1509,6 @@ textarea::placeholder {
   font-family: "Kaushan Script", cursive;
 }
 
-.profile .head .profile-pic {
-  width: 120px;
-  height: 120px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 16px;
-}
-
 .profile .head a {
   text-decoration: none;
   text-align: center;
@@ -1743,8 +1732,9 @@ textarea::placeholder {
 
 .projects-container {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 20px;
@@ -1752,23 +1742,25 @@ textarea::placeholder {
 }
 
 .projects-container .project-card {
+  width: 300px;
   border: 1px solid purple;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 15px 15px -4px rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 5px 15px -4px rgba(255, 255, 255, 0.8);
 }
 
 .projects-container .project-card h3 {
   flex: 1;
   margin: 0;
+  padding: 10px 0;
   width: 100%;
   text-align: center;
   background-color: #8367e0;
-  line-height: 44px;
   border-radius: 10px 10px 0 0;
+  font-size: 1.3rem;
 }
 
 .projects-container .project-card img {
@@ -1803,62 +1795,6 @@ textarea::placeholder {
   border: none;
   padding: 0 50px;
   border-radius: 20px;
-}
-
-@media screen and (min-width: 600px) {
-  .projects-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding-left: 100px;
-    padding-right: 100px;
-    margin-top: 20px;
-    margin-bottom: 100px;
-  }
-  .projects-container .project-card h3 {
-    flex: 1;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    background-color: #8367e0;
-    line-height: 70px;
-    border-radius: 10px 10px 0 0;
-    font-size: 24px;
-  }
-  .projects-container .project-card .btns-container {
-    flex: 1;
-    width: 100%;
-    padding: 20px 0;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: white;
-    line-height: 44px;
-    border-radius: 0 0 10px 10px;
-  }
-  .projects-container .project-card .btns-container a {
-    text-decoration: none;
-    background-color: purple;
-    color: white;
-    padding: 0 50px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    font-size: 24px;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .homepage main .projects {
-    margin-top: 40px;
-    padding-left: 50px;
-  }
-  .projects-container {
-    align-items: center;
-  }
-  .projects-container .project-card {
-    width: 400px;
-  }
 }
 
 /***
@@ -2133,8 +2069,8 @@ textarea::placeholder {
 }
 
 .new-project .profile-pic {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   display: block;
   margin-left: auto;
@@ -2204,7 +2140,7 @@ textarea::placeholder {
     margin-left: auto;
     margin-right: auto;
     width: 500px;
-    padding: 5px;
+    padding: 10px;
   }
   .new-project form textarea {
     margin-left: auto;
@@ -2690,8 +2626,8 @@ textarea::placeholder {
 }
 
 .member-profile .head .profile-pic {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   display: block;
   margin-left: auto;
@@ -2788,15 +2724,7 @@ textarea::placeholder {
     font-family: "Kaushan Script", cursive;
     font-size: 32px;
   }
-  .member-profile .head .profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 16px;
-  }
+
   .member-profile .events-container {
     width: 85%;
     margin-top: 20px;
