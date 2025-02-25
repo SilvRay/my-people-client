@@ -47,6 +47,8 @@ jobs:
           name: ${{ github.event.repository.name }} # Ce nom doit être le même que celui attendu par deploy-pages
           # Upload dist repository
           path: dist
+      - name: Check available artifacts
+        run: ls -la $GITHUB_WORKSPACE
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
