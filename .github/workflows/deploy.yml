@@ -46,7 +46,7 @@ jobs:
         with:
           name: github-pages # Ce nom doit être le même que celui attendu par deploy-pages
           # Upload dist repository
-          path: ./dist
+          path: ./
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
