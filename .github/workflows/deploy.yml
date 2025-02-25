@@ -39,15 +39,6 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Vérifier la présence du dossier dist
-        run: |
-          if [ -d dist ]; then 
-            echo "✅ Le dossier dist/ existe."; 
-            ls -la dist;
-          else 
-            echo "❌ ERREUR : Le dossier dist/ n'existe pas !"; 
-            exit 1;
-          fi
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
@@ -56,6 +47,10 @@ jobs:
           name: github-pages # Ce nom doit être le même que celui attendu par deploy-pages
           # Upload dist repository
           path: ./dist/
+      - name: Vérifier l'artefact uploadé
+        run: |
+          echo "Liste des artefacts :"
+          ls -la $GITHUB_WORKSPACE
       - name: Check available artifacts
         run: ls -la $GITHUB_WORKSPACE
       - name: Deploy to GitHub Pages
