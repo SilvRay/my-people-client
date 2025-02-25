@@ -41,16 +41,14 @@ jobs:
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: ./dist/
-      - name: Vérifier l'artefact uploadé
-        run: |
-          echo "Liste des artefacts :"
-          ls -la $GITHUB_WORKSPACE
-      - name: Check available artifacts
-        run: ls -la $GITHUB_WORKSPACE
+          name: github-pages # Ce nom doit être le même que celui attendu par deploy-pages
+          # Upload dist repository
+          path: ./dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        with:
+          artifact_name: github-pages # Doit correspondre au nom défini dans upload-artifact
