@@ -76,6 +76,41 @@ textarea::placeholder {
   font-family: "Inter", sans-serif;
 }
 
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 5px;
+  row-gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+.event-card {
+  width: 200px;
+  border: 1px solid purple;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 15px -4px rgba(255, 255, 255, 0.8);
+}
+
+@media screen and (min-width: 600px) {
+  .events-container {
+    gap: 20px;
+    padding-left: 71px;
+    padding-right: 71px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .events-container {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+}
+
 /***
  *       _____ _____ _____ _   _ _    _ _____    _____        _____ ______ 
  *      / ____|_   _/ ____| \ | | |  | |  __ \  |  __ \ /\   / ____|  ____|
@@ -656,7 +691,7 @@ textarea::placeholder {
  *                                                                                                  
  */
 
-/* .invitationPage {
+.invitationPage {
   background-color: #837ae0;
   min-height: 100vh;
   display: flex;
@@ -721,21 +756,20 @@ textarea::placeholder {
   margin-left: 10px;
 }
 
-.invitationPage form .list-container {
-  padding-left: 10px;
-}
-
-.invitationPage form .list-container section {
+.invitationPage form .list-container div {
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
-.invitationPage form .list-container section img {
+.invitationPage form .list-container div img {
   width: 22px;
   height: 22px;
+}
+
+.invitationPage form .list-container div p {
+  margin: 0;
 }
 
 .invitationPage form .invitation-btn {
@@ -772,7 +806,7 @@ textarea::placeholder {
     margin-left: auto;
     margin-right: auto;
   }
-} */
+}
 
 /***
  *               _____  _____    _____   ____  _____  _    _ _____  
@@ -975,7 +1009,7 @@ textarea::placeholder {
 
 .post {
   background-color: purple;
-  padding: 10px;
+  padding: 16px;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
@@ -986,6 +1020,7 @@ textarea::placeholder {
 .post .whos-post {
   display: flex;
   align-items: center;
+  gap: 5px;
 }
 
 .post .whos-post img {
@@ -995,8 +1030,7 @@ textarea::placeholder {
 }
 
 .post .whos-post h3 {
-  font-size: 16px;
-  margin-left: 10px;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -1005,15 +1039,17 @@ textarea::placeholder {
 }
 
 .post .media {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .post .multiple-medias-icon {
   width: 20px;
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
 }
 
 .post p {
@@ -1022,40 +1058,23 @@ textarea::placeholder {
 
 @media screen and (min-width: 600px) {
   .post {
-    background-color: purple;
     padding: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
   }
-  .post .whos-post {
-    display: flex;
-    align-items: center;
+  .post .media .post .whos-post {
+    gap: 10px;
   }
   .post .whos-post img {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
   }
   .post .whos-post h3 {
-    font-size: 24px;
-    margin-left: 10px;
-    margin-right: 5px;
-    font-weight: 700;
+    font-size: 1.5rem;
   }
   .post .whos-post span {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   .post .multiple-medias-icon {
     width: 40px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
   }
   .post p {
     margin-block: auto;
@@ -1068,8 +1087,6 @@ textarea::placeholder {
     width: 500px;
     margin-left: auto;
     margin-right: auto;
-    background-color: purple;
-    border-right: 1px solid white;
   }
 }
 
@@ -1112,25 +1129,26 @@ textarea::placeholder {
   position: relative;
 }
 
-.fullscreen-modal .modal .prevMedia {
-  background-color: transparent;
-  border: none;
-}
-
-.fullscreen-modal .modal .prevMedia img {
-  width: 24px;
-  height: 24px;
-}
-
+.fullscreen-modal .modal .prevMedia,
 .fullscreen-modal .modal .nextMedia {
   background-color: transparent;
   border: none;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
+.fullscreen-modal .modal .prevMedia:hover,
+.fullscreen-modal .modal .nextMedia:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.fullscreen-modal .modal .prevMedia img,
 .fullscreen-modal .modal .nextMedia img {
   width: 24px;
   height: 24px;
 }
+
 .com-container {
   width: 100%;
   padding: 10px 0;
@@ -1140,6 +1158,22 @@ textarea::placeholder {
   background-color: rgba(0, 0, 0, 0.3);
   overflow-y: scroll;
   margin-bottom: 130px;
+}
+
+.com-container::-webkit-scrollbar {
+  width: 0.3vw;
+}
+.com-container::-webkit-scrollbar-thumb {
+  background-color: #7775;
+}
+.com-container::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+.com-container::-webkit-scrollbar-track {
+  background-color: #5555;
+}
+.com-container::-webkit-scrollbar-track:hover {
+  background-color: #555;
 }
 
 .com-container .comment {
@@ -1252,18 +1286,8 @@ textarea::placeholder {
   width: 20px;
 }
 
-.homepage .events-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-bottom: 116px;
-  margin-top: 24px;
-}
-
 .homepage .events-container .event {
-  width: 170px;
+  width: 200px;
 }
 
 .homepage .events-container .event p {
@@ -1271,17 +1295,6 @@ textarea::placeholder {
   margin-top: 0;
   margin-bottom: 5px;
   text-align: center;
-}
-
-.homepage .event-card {
-  width: 170px;
-  border: 1px solid purple;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 15px 15px -4px rgba(255, 255, 255, 0.8);
 }
 
 .homepage .event-card .not-mine {
@@ -1336,37 +1349,8 @@ textarea::placeholder {
     align-items: center;
     font-size: 20px;
   }
-  .homepage .events-container {
-    width: 85%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 116px;
-    margin-top: 24px;
-  }
   .homepage .events-container .event {
     width: 200px;
-  }
-  .homepage .event-card {
-    width: 200px;
-    height: 350px;
-    border: 1px solid purple;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 15px 15px -4px rgba(255, 255, 255, 0.8);
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .homepage .events-container {
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
   }
 }
 
@@ -1521,26 +1505,6 @@ textarea::placeholder {
   height: 24px;
 }
 
-.profile .events-container {
-  margin-top: 20px;
-  margin-bottom: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
-}
-
-.profile .events-container .event-card {
-  width: 200px;
-  border: 1px solid purple;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 15px 15px -4px rgba(255, 255, 255, 0.8);
-}
-
 .profile .events-container .event-card .mine {
   margin: 0;
   width: 100%;
@@ -1587,27 +1551,6 @@ textarea::placeholder {
     margin-right: auto;
     margin-bottom: 16px;
   }
-  .profile .events-container {
-    margin-top: 20px;
-    margin-bottom: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding-left: 71px;
-    padding-right: 71px;
-  }
-
-  .profile .events-container .event-card {
-    width: 230px;
-    height: 350px;
-    border: 1px solid purple;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 15px 15px -4px rgba(255, 255, 255, 0.8);
-  }
 }
 
 /***
@@ -1630,6 +1573,7 @@ textarea::placeholder {
 }
 
 .profile .posts-profile-container .post {
+  background-color: transparent;
   padding: 0;
   margin: 0;
   border-radius: 0;
@@ -1642,6 +1586,7 @@ textarea::placeholder {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin-bottom: 0;
 }
 
 .profile .posts-profile-container .post .multiple-medias-icon {
@@ -1693,7 +1638,8 @@ textarea::placeholder {
   }
   .profile .posts-profile-container {
     justify-content: center;
-    gap: 5px;
+    column-gap: 5px;
+    padding: 0 50px;
   }
   .profile .posts-profile-container .post {
     width: 25%;
@@ -1710,6 +1656,10 @@ textarea::placeholder {
  *                                                                                                               
  *                                                                                                               
  */
+
+.projects {
+  padding-left: 40px;
+}
 
 .projects-container {
   display: flex;
@@ -2702,11 +2652,6 @@ textarea::placeholder {
   }
   .member-profile main {
     width: 75%;
-  }
-  .member-profile .events-container {
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
   }
 }
 

@@ -16,7 +16,7 @@ function InvitationPage() {
   const handleAllEmails = () => {
     // Ajouter l'e-mail à la liste existante
     setEmailsList([...emailsList, email]);
-    // RÃ©initialiser l'entrÃ©e e-mail aprÃ¨s l'ajout
+    // Réinitialiser l'entrée e-mail après l'ajout
     setEmail("");
   };
 
@@ -62,14 +62,14 @@ function InvitationPage() {
           <div className="list-container">
             <h4>List of people to invite</h4>
             {emailsList.map((email, index) => (
-              <section key={index}>
+              <div key={index}>
                 <img
                   src="/my-people-client/images/cancel.png"
                   alt="a cross"
                   onClick={() => handleCancelEmail(index)}
                 />
                 <p>{email}</p>
-              </section>
+              </div>
             ))}
           </div>
           <button className="invitation-btn">Send invitations</button>

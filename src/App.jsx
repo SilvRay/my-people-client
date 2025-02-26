@@ -9,7 +9,7 @@ import NotificationsPage from "./pages/NotificationsPage";
 import ProfilePage from "./pages/ProfilePage";
 import MemberProfilePage from "./pages/MemberProfilePage";
 import AddProjectPage from "./pages/AddProjectPage";
-// import InvitationPage from "./pages/InvitationPage";
+import InvitationPage from "./pages/InvitationPage";
 import ChooseEventPage from "./pages/ChooseEventPage";
 import AddEventPage from "./pages/AddEventPage";
 import EditProfilePage from "./pages/EditProfilePage";
@@ -99,14 +99,14 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/invite"
           element={
             <IsPrivate>
               <InvitationPage />
             </IsPrivate>
           }
-        /> */}
+        />
         <Route
           path="/profile"
           element={
