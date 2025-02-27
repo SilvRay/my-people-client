@@ -20,7 +20,7 @@ function SignupPage() {
     const reqBody = { email, username, password };
 
     myaxios
-      .post("/auth/users", reqBody)
+      .post("/auth/signup", reqBody)
       .then((response) => {
         console.log("data", response.data);
 
