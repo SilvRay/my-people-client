@@ -110,8 +110,8 @@ function EventDetailsPage() {
                 {event.participants.map((participant) => {
                   return (
                     <div key={participant._id} className="participant img">
-                      {console.log("participant.name ==", participant.name)}
-                      <p>{participant.name}</p>
+                      {console.log("participant.name ==", participant.username)}
+                      <p>{participant.username}</p>
                     </div>
                   );
                 })}

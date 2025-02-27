@@ -15,8 +15,6 @@ function HomePage() {
   const { user } = useContext(AuthContext);
   const [group, setGroup] = useState(undefined);
 
-  console.log("user ===", user);
-
   const [posts, setPosts] = useState([]);
   const [events, setEvents] = useState([]);
   const [projects, setProjects] = useState([]);
@@ -57,8 +55,6 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    console.log("tab", tab);
-
     switch (tab) {
       case "medias":
         myaxios

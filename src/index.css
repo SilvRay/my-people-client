@@ -580,7 +580,6 @@ textarea::placeholder {
 
 @media screen and (min-width: 900px) {
   .navbar {
-    background-color: #8367e0;
     border-right: 1px solid white;
     width: 25%;
     height: 100vh;
@@ -588,7 +587,6 @@ textarea::placeholder {
     flex-direction: column;
     justify-content: start;
     gap: 20px;
-    position: fixed;
     left: 0;
   }
   .navbar .logo {
@@ -1406,17 +1404,13 @@ textarea::placeholder {
 @media screen and (min-width: 900px) {
   .details-page {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: end;
     padding: 0;
-  }
-  .details-page .navbar {
-    min-width: 20em;
-    height: 100vh;
-    border-right: 1px solid white;
-    position: static;
+    overflow: hidden;
   }
   .details-page main {
-    flex: 1;
+    width: 75%;
     display: flex;
     flex-direction: column;
     padding-top: 150px;
@@ -3055,8 +3049,11 @@ _____ _                                                 _
   width: 90vw;
 }
 .participation-form input {
-  width: 20px;
+  display: inline;
+  width: 38px;
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .eventHeaderText {
