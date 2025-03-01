@@ -95,7 +95,7 @@ function MemberProfilePage() {
   }
 
   return (
-    <div className="member-profile">
+    <div className="profile">
       <main>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 
@@ -104,7 +104,7 @@ function MemberProfilePage() {
           <img
             src={userProfile.profileImg}
             alt="profile picture"
-            className="profile-pic"
+            className="profilePicture"
           />
         </div>
 
