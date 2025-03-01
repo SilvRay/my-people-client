@@ -87,6 +87,17 @@ function HomePage() {
     }
   }, [tab]);
 
+  useEffect(() => {
+    myaxios
+      .delete("api/events")
+      .then(() => {
+        console.log("Events remove successfully");
+      })
+      .catch((error) => {
+        console.log("THE ERROR IS:", error);
+      });
+  }, []);
+
   return (
     <div className="homepage">
       <main>
