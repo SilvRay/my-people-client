@@ -2306,8 +2306,9 @@ textarea::placeholder {
 
 .profileEdit form label .image-icon {
   position: absolute;
-  bottom: -5px;
-  left: 38%;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 30px;
 }
 

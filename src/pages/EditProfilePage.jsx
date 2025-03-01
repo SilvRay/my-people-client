@@ -9,7 +9,6 @@ function EditProfilePage() {
   const { user, refreshUser } = useContext(AuthContext);
   const [profileImg, setProfileImg] = useState(user.profileImg);
   const [username, setUsername] = useState(user.username);
-  const [birthday, setBirthday] = useState();
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -34,7 +33,7 @@ function EditProfilePage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const reqBody = { username, birthday, profileImg };
+    const reqBody = { username, profileImg };
 
     myaxios
       .put("/api/users", reqBody)
@@ -76,19 +75,6 @@ function EditProfilePage() {
               name="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-            />
-          </label>
-
-          <label>
-            Birthday{" "}
-            <input
-              className="birthday"
-              type="date"
-              name="birthday"
-              value={birthday}
-              onChange={(e) => {
-                setBirthday(e.target.value);
-              }}
             />
           </label>
 

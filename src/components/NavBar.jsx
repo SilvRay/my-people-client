@@ -44,10 +44,7 @@ function NavBar() {
             console.log("The post created ===", response.data);
             navigate(`/post/new/${response.data._id}`);
           });
-        //console.log("mediaUrl after setMediasUrl==",mediasUrl)
       })
-      // CrÃ©ation du post avec uniquement les images. On renvoie sur une route Add Post oÃ¹ on rajotuera la lÃ©gende
-
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
 
