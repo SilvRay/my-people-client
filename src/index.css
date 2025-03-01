@@ -1385,20 +1385,34 @@ textarea::placeholder {
   border-radius: 10px;
   margin-right: 20px;
 }
+
+.participation-form input {
+  display: inline;
+  width: 38px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.participation-form li {
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
 .details-page .btn-container button {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
-  margin-bottom: 24px;
   width: 240px;
   padding: 10px 0;
   background-color: purple;
   color: white;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 900px) {
@@ -1418,13 +1432,6 @@ textarea::placeholder {
   .details-page main .event-details-header,
   .details-page main .participation-form form .formText {
     padding-left: 150px;
-  }
-  .details-page main .participation-form form .btn-container {
-    padding-left: 350px;
-    margin-top: 40px;
-  }
-  .details-page main .participation-form form .btn-container button {
-    margin: 0;
   }
 }
 
@@ -3043,31 +3050,3 @@ _____ _                                                 _
  *                                                                            __/ |     
  *                                                                           |___/      
  */
-
-.participation-form {
-  align-self: flex-start;
-  width: 90vw;
-}
-.participation-form input {
-  display: inline;
-  width: 38px;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-
-.eventHeaderText {
-  font-size: 0.75rem;
-}
-.details-page form {
-  display: flex;
-  flex-direction: column;
-}
-
-.details-page button {
-  align-self: center;
-}
-
-.formText {
-  margin-left: 0px;
-}

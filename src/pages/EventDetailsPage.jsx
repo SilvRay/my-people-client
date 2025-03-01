@@ -9,18 +9,18 @@ function EventDetailsPage() {
   const [event, setEvent] = useState(null);
   const [kidsNb, setKidsNb] = useState(0);
   const [errorMessage, setErrorMessage] = useState(undefined);
+
   const { eventId } = useParams();
   const navigate = useNavigate();
 
   const handleKidsNb = (e) => setKidsNb(e.target.value);
-
-  let participation = false;
 
   useEffect(() => {
     myaxios
       .get(`/api/events/${eventId}`)
       .then((response) => {
         const oneEvent = response.data;
+        console.log(oneEvent.participants);
         setEvent(oneEvent);
       })
       .catch((error) => console.log(error));
@@ -28,12 +28,12 @@ function EventDetailsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    participation = !participation;
-    console.log("participation =", participation);
+
     myaxios
-      .put(`/api/events/${eventId}/participate`, { kidsNb, participation })
+      .put(`/api/events/${eventId}/participate`, { kidsNb })
       .then((response) => {
         console.log("response", response);
+
         navigate("/home?tab=events");
       })
       .catch((error) => {
@@ -50,11 +50,6 @@ function EventDetailsPage() {
 
   if (!event) return "loading...";
 
-  if (event.participants.some((e) => (e._id = user._id))) {
-    participation = true;
-  }
-
-  console.log("participation before submit =", participation);
   return (
     <>
       <div className="details-page">
@@ -105,23 +100,25 @@ function EventDetailsPage() {
                   kids
                 </p>
 
-                <p>They will be there</p>
+                <p>They will be there :</p>
 
-                {event.participants.map((participant) => {
-                  return (
-                    <div key={participant._id} className="participant img">
-                      {console.log("participant.name ==", participant.username)}
-                      <p>{participant.username}</p>
-                    </div>
-                  );
-                })}
+                <ul>
+                  {event.participants.map((participant) => {
+                    return (
+                      <li key={participant._id}> {participant.username}</li>
+                    );
+                  })}
+                </ul>
+                <p>with {event.kids} kids</p>
               </div>
 
               <div className="btn-container">
-                {!participation ? (
-                  <button type="submit">I will be there</button>
-                ) : (
+                {event.participants.some((participant) => {
+                  return participant._id === user._id;
+                }) ? (
                   <button type="submit">I am not coming anymore</button>
+                ) : (
+                  <button type="submit">I will be there</button>
                 )}
               </div>
             </form>
