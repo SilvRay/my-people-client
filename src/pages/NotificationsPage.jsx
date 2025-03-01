@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import myaxios from "../myaxios.js";
 import NavBar from "../components/NavBar.jsx";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context.jsx";
 
 function NotificationsPage() {
@@ -143,7 +142,7 @@ function NotificationsPage() {
             ([timeLabel, notifications]) => {
               return (
                 <>
-                  <div key={timeLabel} className="notifs">
+                  <div className="notifs">
                     {/* Afficher le libellé de temps */}
                     <h3>{timeLabel}</h3>
                     {/* Parcourir les notifs sous le même libellé de temps */}
@@ -163,7 +162,6 @@ function NotificationsPage() {
                               {formatTimeAgo(new Date(notification.createdAt))}
                             </span>
                           </p>
-                          <Link>See</Link>
                         </div>
                       );
                     })}

@@ -67,7 +67,7 @@ function NavBar() {
     myaxios
       .put("api/notifications")
       .then((response) => {
-        console.log("response ==="), response;
+        console.log("response ===", response);
       })
       .catch((error) =>
         console.log("ERROR when updating reading date of notif :", error)
