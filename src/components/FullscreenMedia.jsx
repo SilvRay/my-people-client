@@ -130,6 +130,7 @@ function FullscreenMedia({
               <img
                 className="delete-icon"
                 src="/my-people-client/images/delete.png"
+                alt="trash can icon"
                 onClick={() => handleDeleteComClick(comment._id)}
               />
             </div>
@@ -145,7 +146,7 @@ function FullscreenMedia({
           placeholder="Comment..."
         />
         <button>
-          <img src="/my-people-client/images/send.png" />
+          <img src="/my-people-client/images/send.png" alt="send icon" />
         </button>
       </form>
     </div>

@@ -74,7 +74,11 @@ function NavBar() {
   return (
     <>
       <div className="navbar">
-        <img className="logo" src="/my-people-client/images/logo.png" />
+        <img
+          className="logo"
+          src="/my-people-client/images/logo.png"
+          alt="MyPeople logo"
+        />
         <section>
           <Link to="/home?tab=medias">
             <img
@@ -145,7 +149,7 @@ function NavBar() {
             className="popup-btn"
             onClick={popupVisible ? handleClosePopup : handlePopupClick}
           >
-            <img src="/my-people-client/images/add.png" />
+            <img src="/my-people-client/images/add.png" alt="add icon" />
           </button>
         </section>
       </div>

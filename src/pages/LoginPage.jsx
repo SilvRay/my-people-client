@@ -47,36 +47,37 @@ function LoginPage() {
       <img
         className="img2"
         src="/my-people-client/images/pexels-askar-abayev-5638814.jpg"
-        alt=""
+        alt="people toasting"
       />
       <img
         className="img3"
         src="/my-people-client/images/pexels-yan-krukau-5792901.jpg"
-        alt=""
+        alt="father teaching his son to ride a bike"
       />
       <img
         className="img4"
         src="/my-people-client/images/Playground.jpg"
-        alt=""
+        alt="people playing an outdoor game"
       />
       <img
         className="img5"
         src="/my-people-client/images/pexels-tamuka-xulu-12982997.jpg"
-        alt=""
+        alt="people who are into what they watch on TV"
       />
       <img
         className="img6"
         src="/my-people-client/images/pexels-aline-viana-prado-3491940.jpg"
-        alt=""
+        alt="woman showing something on his phone to her friend"
       />
       <img
         className="img7"
         src="/my-people-client/images/pexels-yan-krukau-9069271.jpg"
-        alt=""
+        alt="people having a good time playing video games"
       />
       <img
         className="img8"
         src="/my-people-client/images/pexels-august-de-richelieu-4262424.jpg"
+        alt="family members hugging each other"
       />
       <section>
         <h1>MyPeople</h1>
