@@ -240,7 +240,7 @@ textarea::placeholder {
   .signupPage .img1 {
     display: block;
     width: 405px;
-    height: 250px;
+    aspect-ratio: auto;
     border-radius: 15px;
     transform: rotate(15deg);
     position: absolute;
@@ -250,7 +250,7 @@ textarea::placeholder {
   .signupPage .img2 {
     display: block;
     width: 370px;
-    height: 255px;
+    aspect-ratio: auto;
     border-radius: 20px;
     position: absolute;
     right: 30px;
@@ -259,7 +259,7 @@ textarea::placeholder {
   .signupPage .img3 {
     display: block;
     width: 300px;
-    height: 180px;
+    aspect-ratio: auto;
     border-radius: 10px;
     transform: rotate(10deg);
     position: absolute;
@@ -269,7 +269,7 @@ textarea::placeholder {
   .signupPage .img4 {
     display: block;
     width: 300px;
-    height: 180px;
+    aspect-ratio: auto;
     border-radius: 10px;
     transform: rotate(-10deg);
     position: absolute;
@@ -279,7 +279,7 @@ textarea::placeholder {
   .signupPage .img5 {
     display: block;
     width: 300px;
-    height: 190px;
+    aspect-ratio: auto;
     border-radius: 40px;
     transform: rotate(10deg);
     position: absolute;
@@ -290,7 +290,7 @@ textarea::placeholder {
   .signupPage .img6 {
     display: block;
     width: 245px;
-    height: 290px;
+    aspect-ratio: auto;
     border-radius: 20px;
     position: absolute;
     right: 20px;
@@ -299,7 +299,7 @@ textarea::placeholder {
   .signupPage .img7 {
     display: block;
     width: 285px;
-    height: 145px;
+    aspect-ratio: auto;
     border-radius: 10px;
     transform: rotate(-11deg);
     position: absolute;
@@ -309,7 +309,7 @@ textarea::placeholder {
   .signupPage .img8 {
     display: block;
     width: 190px;
-    height: 270px;
+    aspect-ratio: auto;
     border-radius: 20px;
     transform: rotate(20deg);
     position: absolute;
