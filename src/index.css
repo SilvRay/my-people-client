@@ -304,7 +304,7 @@ textarea::placeholder {
     transform: rotate(-11deg);
     position: absolute;
     right: 370px;
-    bottom: 10px;
+    bottom: 30px;
   }
   .signupPage .img8 {
     display: block;
@@ -314,7 +314,7 @@ textarea::placeholder {
     transform: rotate(20deg);
     position: absolute;
     left: 200px;
-    bottom: 20px;
+    bottom: 30px;
   }
 }
 
