@@ -150,7 +150,7 @@ textarea::placeholder {
 
 .head-container p {
   text-align: center;
-  color: rgba(255, 255, 255, 0.64);
+  color: black;
   padding: 0 10px;
 }
 
@@ -191,7 +191,7 @@ textarea::placeholder {
 
 .signupPage .to-login-container a {
   text-decoration: none;
-  color: #ea6025;
+  color: #000;
   font-weight: 600;
 }
 
@@ -221,7 +221,7 @@ textarea::placeholder {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    color: rgba(0, 0, 0, 0.64);
+    color: #000;
     width: 350px;
   }
   .signupPage form {
@@ -315,6 +315,9 @@ textarea::placeholder {
     position: absolute;
     left: 200px;
     bottom: 30px;
+  }
+  .signupPage .to-login-container a {
+    color: #9e360f;
   }
 }
 
