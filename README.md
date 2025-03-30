@@ -36,7 +36,7 @@ You can use this provided demo credentials :
 ## Features
 
 ### Invitation
-* sending invitation by email
+* adding a member to the group with his address email.
 
 ### Family Activities
 
